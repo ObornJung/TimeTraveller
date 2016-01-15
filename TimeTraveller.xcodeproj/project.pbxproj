@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C5621E056F0CF1C8B6F1136 /* Pods_TimeTraveller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651FCB6891A9248C92149836 /* Pods_TimeTraveller.framework */; };
+		37E4892C1C48A435006ABDBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4892B1C48A435006ABDBB /* AppDelegate.swift */; };
+		37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4892D1C48A435006ABDBB /* TTRootViewController.swift */; };
+		37E489341C48A435006ABDBB /* TimeTraveller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E489321C48A435006ABDBB /* TimeTraveller.xcdatamodeld */; };
+		37E489361C48A435006ABDBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E489351C48A435006ABDBB /* Assets.xcassets */; };
+		37E489391C48A435006ABDBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E489371C48A435006ABDBB /* LaunchScreen.storyboard */; };
+		37E489641C48B6F2006ABDBB /* TTBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E489631C48B6F2006ABDBB /* TTBaseView.swift */; };
+		37E489671C48B6F8006ABDBB /* TTBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E489651C48B6F8006ABDBB /* TTBaseNavigationController.swift */; };
+		37E489681C48B6F8006ABDBB /* TTBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E489661C48B6F8006ABDBB /* TTBaseViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		37E489281C48A435006ABDBB /* TimeTraveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTraveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37E4892B1C48A435006ABDBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		37E4892D1C48A435006ABDBB /* TTRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TTRootViewController.swift; path = ../TTRootViewController.swift; sourceTree = "<group>"; };
+		37E489331C48A435006ABDBB /* TimeTraveller.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTraveller.xcdatamodel; sourceTree = "<group>"; };
+		37E489351C48A435006ABDBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37E489381C48A435006ABDBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		37E4893A1C48A435006ABDBB /* TimeTraveller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TimeTraveller-Info.plist"; sourceTree = "<group>"; };
+		37E489451C48B14E006ABDBB /* TimeTraveller-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TimeTraveller-Bridging-Header.h"; sourceTree = "<group>"; };
+		37E489631C48B6F2006ABDBB /* TTBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTBaseView.swift; sourceTree = "<group>"; };
+		37E489651C48B6F8006ABDBB /* TTBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTBaseNavigationController.swift; sourceTree = "<group>"; };
+		37E489661C48B6F8006ABDBB /* TTBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTBaseViewController.swift; sourceTree = "<group>"; };
+		5CF4397E2DCF84F38456E7E3 /* Pods-TimeTraveller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTraveller.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller.release.xcconfig"; sourceTree = "<group>"; };
+		651FCB6891A9248C92149836 /* Pods_TimeTraveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeTraveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		771D46FD45CB0E9097EC48AE /* Pods-TimeTraveller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTraveller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37E489251C48A435006ABDBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C5621E056F0CF1C8B6F1136 /* Pods_TimeTraveller.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37E4891F1C48A435006ABDBB = {
+			isa = PBXGroup;
+			children = (
+				37E4892A1C48A435006ABDBB /* TimeTraveller */,
+				37E489291C48A435006ABDBB /* Products */,
+				70F3E499B825BFDB9CE5A226 /* Pods */,
+				5B63FEBFF431033FF811C441 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		37E489291C48A435006ABDBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37E489281C48A435006ABDBB /* TimeTraveller.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37E4892A1C48A435006ABDBB /* TimeTraveller */ = {
+			isa = PBXGroup;
+			children = (
+				37E489531C48B4AE006ABDBB /* Application */,
+				37E489431C48B066006ABDBB /* Common */,
+				37E489421C48B058006ABDBB /* Base */,
+				37E489411C48B041006ABDBB /* Modules */,
+				37E489491C48B174006ABDBB /* RootController */,
+				37E489441C48B0BB006ABDBB /* Resource */,
+				37E489401C48B00F006ABDBB /* Support Files */,
+			);
+			path = TimeTraveller;
+			sourceTree = "<group>";
+		};
+		37E489401C48B00F006ABDBB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				37E4893A1C48A435006ABDBB /* TimeTraveller-Info.plist */,
+				37E489451C48B14E006ABDBB /* TimeTraveller-Bridging-Header.h */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		37E489411C48B041006ABDBB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		37E489421C48B058006ABDBB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				37E489611C48B6C6006ABDBB /* View */,
+				37E489621C48B6D1006ABDBB /* ViewController */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		37E489431C48B066006ABDBB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		37E489441C48B0BB006ABDBB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				37E489351C48A435006ABDBB /* Assets.xcassets */,
+				37E489321C48A435006ABDBB /* TimeTraveller.xcdatamodeld */,
+				37E489371C48A435006ABDBB /* LaunchScreen.storyboard */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		37E489491C48B174006ABDBB /* RootController */ = {
+			isa = PBXGroup;
+			children = (
+				37E4892D1C48A435006ABDBB /* TTRootViewController.swift */,
+			);
+			path = RootController;
+			sourceTree = "<group>";
+		};
+		37E489531C48B4AE006ABDBB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				37E4892B1C48A435006ABDBB /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		37E489611C48B6C6006ABDBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37E489631C48B6F2006ABDBB /* TTBaseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37E489621C48B6D1006ABDBB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				37E489651C48B6F8006ABDBB /* TTBaseNavigationController.swift */,
+				37E489661C48B6F8006ABDBB /* TTBaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5B63FEBFF431033FF811C441 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				651FCB6891A9248C92149836 /* Pods_TimeTraveller.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70F3E499B825BFDB9CE5A226 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				771D46FD45CB0E9097EC48AE /* Pods-TimeTraveller.debug.xcconfig */,
+				5CF4397E2DCF84F38456E7E3 /* Pods-TimeTraveller.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37E489271C48A435006ABDBB /* TimeTraveller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37E4893D1C48A435006ABDBB /* Build configuration list for PBXNativeTarget "TimeTraveller" */;
+			buildPhases = (
+				B45BCED36547D108DF85021F /* Check Pods Manifest.lock */,
+				37E489241C48A435006ABDBB /* Sources */,
+				37E489251C48A435006ABDBB /* Frameworks */,
+				37E489261C48A435006ABDBB /* Resources */,
+				CAED5AD85975F50007711C5E /* Embed Pods Frameworks */,
+				05597B68C7B20272B1FF817F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeTraveller;
+			productName = TimeTraveller;
+			productReference = 37E489281C48A435006ABDBB /* TimeTraveller.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37E489201C48A435006ABDBB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Oborn.Jung;
+				TargetAttributes = {
+					37E489271C48A435006ABDBB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 37E489231C48A435006ABDBB /* Build configuration list for PBXProject "TimeTraveller" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 37E4891F1C48A435006ABDBB;
+			productRefGroup = 37E489291C48A435006ABDBB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37E489271C48A435006ABDBB /* TimeTraveller */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37E489261C48A435006ABDBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37E489391C48A435006ABDBB /* LaunchScreen.storyboard in Resources */,
+				37E489361C48A435006ABDBB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05597B68C7B20272B1FF817F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B45BCED36547D108DF85021F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CAED5AD85975F50007711C5E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37E489241C48A435006ABDBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37E489671C48B6F8006ABDBB /* TTBaseNavigationController.swift in Sources */,
+				37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */,
+				37E489641C48B6F2006ABDBB /* TTBaseView.swift in Sources */,
+				37E4892C1C48A435006ABDBB /* AppDelegate.swift in Sources */,
+				37E489341C48A435006ABDBB /* TimeTraveller.xcdatamodeld in Sources */,
+				37E489681C48B6F8006ABDBB /* TTBaseViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		37E489371C48A435006ABDBB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37E489381C48A435006ABDBB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		37E4893B1C48A435006ABDBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		37E4893C1C48A435006ABDBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37E4893E1C48A435006ABDBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 771D46FD45CB0E9097EC48AE /* Pods-TimeTraveller.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "${PROJECT_NAME}/${PROJECT_NAME}-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.atg.TimeTraveller;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TimeTraveller/TimeTraveller-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		37E4893F1C48A435006ABDBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CF4397E2DCF84F38456E7E3 /* Pods-TimeTraveller.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "${PROJECT_NAME}/${PROJECT_NAME}-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.atg.TimeTraveller;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TimeTraveller/TimeTraveller-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37E489231C48A435006ABDBB /* Build configuration list for PBXProject "TimeTraveller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37E4893B1C48A435006ABDBB /* Debug */,
+				37E4893C1C48A435006ABDBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37E4893D1C48A435006ABDBB /* Build configuration list for PBXNativeTarget "TimeTraveller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37E4893E1C48A435006ABDBB /* Debug */,
+				37E4893F1C48A435006ABDBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37E489321C48A435006ABDBB /* TimeTraveller.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37E489331C48A435006ABDBB /* TimeTraveller.xcdatamodel */,
+			);
+			currentVersion = 37E489331C48A435006ABDBB /* TimeTraveller.xcdatamodel */;
+			path = TimeTraveller.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 37E489201C48A435006ABDBB /* Project object */;
+}

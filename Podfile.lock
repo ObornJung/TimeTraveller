@@ -1,0 +1,51 @@
+PODS:
+  - Alamofire (3.1.4)
+  - Bugtags (1.1.7)
+  - OBFoundationLib (0.1.0)
+  - OBUIKit (0.1.0)
+  - PINCache (2.1.2)
+  - ReactiveCocoa (4.0.4-alpha-4):
+    - ReactiveCocoa/UI (= 4.0.4-alpha-4)
+    - Result (~> 1.0)
+  - ReactiveCocoa/Core (4.0.4-alpha-4):
+    - ReactiveCocoa/no-arc
+    - Result (~> 1.0)
+  - ReactiveCocoa/no-arc (4.0.4-alpha-4):
+    - Result (~> 1.0)
+  - ReactiveCocoa/UI (4.0.4-alpha-4):
+    - ReactiveCocoa/Core
+    - Result (~> 1.0)
+  - Result (1.0.1)
+  - SDWebImage (3.7.4):
+    - SDWebImage/Core (= 3.7.4)
+  - SDWebImage/Core (3.7.4)
+  - SnapKit (0.17.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - Bugtags (~> 1.1.7)
+  - OBFoundationLib (from `~/Documents/个人资料/iOS/own project/OBFoundationLib/`)
+  - OBUIKit (from `~/Documents/个人资料/iOS/own project/OBUIKit/`)
+  - PINCache (~> 2.1)
+  - ReactiveCocoa (~> 4.0.4-alpha-4)
+  - SDWebImage (~> 3.7.0)
+  - SnapKit (~> 0.17.0)
+
+EXTERNAL SOURCES:
+  OBFoundationLib:
+    :path: ~/Documents/个人资料/iOS/own project/OBFoundationLib/
+  OBUIKit:
+    :path: ~/Documents/个人资料/iOS/own project/OBUIKit/
+
+SPEC CHECKSUMS:
+  Alamofire: 00946c716dde6ee81e14f615af96d5638f33f9f1
+  Bugtags: 45f60b6fce822bc73cde5035138aba7c3c51073d
+  OBFoundationLib: 88fc7ef3bcdc0f3102e32651c99323e8d9ac112e
+  OBUIKit: d5eb27038f8eef3844e716182d6a223f5e8f1f90
+  PINCache: 8606387ff297ad6b1521cd8f779b4fa42d652e01
+  ReactiveCocoa: 375f369f5e1f23a75dea2a3c1960a4428a13bad3
+  Result: 3ee1e5721399cdd838b0463cd33735d78aebdb0c
+  SDWebImage: ae3e736f675caceb97674e71212c0d742ce9e830
+  SnapKit: 99e1ac272c653ed83387571540b75ea8fce3d4e3
+
+COCOAPODS: 0.39.0
