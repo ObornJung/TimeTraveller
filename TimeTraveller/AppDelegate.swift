@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /**
         *  setup bugtags
         */
-        Bugtags.startWithAppKey("20af446200b0f8c151270564febc6b2a", invocationEvent: BTGInvocationEventBubble);
+        Bugtags.startWithAppKey("20af446200b0f8c151270564febc6b2a", invocationEvent: BTGInvocationEventShake);
         
     }
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.applicationInit();
