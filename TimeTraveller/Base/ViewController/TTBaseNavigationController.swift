@@ -15,6 +15,9 @@ class TTBaseNavigationController: UINavigationController {
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        if let topViewController = self.topViewController {
+            return topViewController.preferredStatusBarStyle();
+        }
         return UIStatusBarStyle.LightContent;
     }
     
