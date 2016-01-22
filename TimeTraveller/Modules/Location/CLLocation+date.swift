@@ -48,6 +48,46 @@ extension CLLocation {
     }
     
     //MARK: - Functions
+    /**
+    获取给定日期当前地点的绝对时间
+    
+    - parameter date:       日期，默认值当前时间
+    - parameter completion: 计算完成的闭包
+    */
+    class func currentAbsoluteLocationDateString(date: NSDate = NSDate(), completion: TTLocationDataCompletionHandler?) {
+        TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in
+            if let currentLocation = location {
+                completion?(currentLocation.absoluteLocationDateString(date), nil);
+            } else {
+                completion?(nil, error);
+            }
+        };
+    }
+    
+     /**
+     获取给定日期的绝对时间
+     
+     - parameter date: 日期，默认值当前时间
+     
+     - returns: 给定日期的绝对时间
+     */
+    func absoluteLocationDateString(date: NSDate = NSDate()) -> String {
+        let offset = self.coordinate.longitude * kTTSecondsOneLongitude;
+        let absoluteDate = NSDate(timeInterval: offset, sinceDate: date);
+        let formatter = CLLocation.dateFormatter;
+        formatter.locale     = NSLocale.currentLocale();
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss";
+        formatter.timeZone = NSTimeZone(forSecondsFromGMT:0);
+        
+        return formatter.stringFromDate(absoluteDate);
+    }
+    
+    /**
+     计算当前位置的时区时间
+     
+     - parameter date:       日期，默认值当前时间
+     - parameter completion: 计算完成的闭包
+     */
     class func currentLocationDateString(date: NSDate = NSDate(), completion: TTLocationDataCompletionHandler?) {
         TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in
             if let currentLocation = location {
@@ -58,6 +98,12 @@ extension CLLocation {
         };
     }
     
+    /**
+     计算给定时间的当地时区时间
+     
+     - parameter date:       日期，默认值当前时间
+     - parameter completion: 计算完成的闭包
+     */
     func locationDateString(date: NSDate = NSDate(), completion: TTLocationDataCompletionHandler?) {
         
         let dateStringClosure = {(date: NSDate) -> String in
