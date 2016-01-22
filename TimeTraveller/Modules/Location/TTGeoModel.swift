@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import OBFoundationLib
 
-class TTGeoModel {
+class TTGeoModel: NSObject {
     var countryCode: String?;
     var countryName: String?;
     var dstOffset: Double?;

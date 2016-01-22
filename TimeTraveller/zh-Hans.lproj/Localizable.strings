@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  TimeTraveller
+
+  Created by Oborn.Jung on 1/22/16.
+  Copyright © 2016 Oborn.Jung. All rights reserved.
+*/
+
+/**
+ *    common localizable string define
+ */
+"confirm" = "确认";
+"cancle"  = "取消";
+
+/**
+ *    business localizable string define
+ */
+"location_forbid_tips"     = "没有定位权限哦，请确认系统定位已打开，并开启APP定位权限.";

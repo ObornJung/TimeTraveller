@@ -7,16 +7,25 @@
 //
 
 import UIKit
-import MapKit
 import SnapKit
 
 class TTRootViewController: TTBaseViewController {
     
     var testButton: UIButton!;
-    lazy var testVar: String! = {return "123"}();
+    
+    lazy var mapViewController: TTMapViewController = {
+        let mapViewController = TTMapViewController();
+        self.addChildViewController(mapViewController);
+        self.view.addSubview(mapViewController.view);
+        return mapViewController;
+    }();
 
     override func setupViews() {
-        self.view.backgroundColor = UIColor.whiteColor();
+
+        self.mapViewController.view .snp_makeConstraints { (make) -> Void in
+            make.edges.equalTo(self.view);
+        }
+        
         self.testButton = UIButton(type: .System);
         self.view.addSubview(self.testButton);
         self.testButton.backgroundColor = UIColor.greenColor();
@@ -42,17 +51,9 @@ class TTRootViewController: TTBaseViewController {
     func testBtnPressed(button: UIButton) {
         let location01 = CLLocation(latitude: 51.28, longitude: 0);
         let location02 = CLLocation(latitude: 40.43, longitude: 116.4);
-        TTLocationDateManager.dateOfLocation(location01) { (locationDate: TTLocationDate?) -> () in
- 
+        location01.locationDateString { (dateString: String?, error: NSError?) -> Void in
             OBLog("\(location01.deltaDateToLocation(location02))");
-            OBLog("location01:\(locationDate?.locationDate())");
-            
-        }
-        
-        TTLocationDateManager.dateOfLocation(location02) { (locationDate: TTLocationDate?) -> () in
-            
-            OBLog("\(location01.deltaDateToLocation(location02))");
-            OBLog("location02:\(locationDate?.locationDate())");
+            OBLog("location01:\(dateString)");
         }
     }
 }

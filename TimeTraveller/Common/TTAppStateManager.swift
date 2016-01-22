@@ -8,16 +8,10 @@
 
 import Foundation
 
-class TTAppStateManager: NSObject {
+final class TTAppStateManager {
     
-    class func sharedInstance() -> TTAppStateManager {
-        struct _sInstanceFlag {
-            static var _sharedInstance: TTAppStateManager!;
-            static var onceToken: dispatch_once_t = 0;
-        }
-        dispatch_once(&_sInstanceFlag.onceToken) {
-            _sInstanceFlag._sharedInstance = TTAppStateManager();
-        };
-        return _sInstanceFlag._sharedInstance;
-    }
+    static let sharedInstance = TTAppStateManager();
+    
+    private init() {}
+    
 }

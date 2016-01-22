@@ -9,31 +9,38 @@
 import UIKit
 import MapKit
 
-class TTLocationDateManager {
+typealias TTLocationDataCompletionHandler = (TTLocationDate?, NSError?) -> Void;
 
-    private init() {}
+class TTLocationDateManager: NSObject {
+
+    private override init() {}
     
-    class func dateOfCurrentLocation(locationDate:((_: TTLocationDate?) -> ())?) {
+    class func dateOfCurrentLocation(completion:TTLocationDataCompletionHandler?) {
         
-        TTLocationCenter.currentLocation { (location) -> () in
+        TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in
             if let currentLocation = location {
-                self.dateOfLocation(currentLocation, locationDate: locationDate);
+                self.dateOfLocation(currentLocation, completion: completion);
+            } else {
+                completion?(nil, error);
             }
-        }
+        };
     }
     
-    class func dateOfLocation(location:CLLocation, locationDate:((_: TTLocationDate?) -> ())?) {
-        if location.isSync {
-            locationDate?(TTLocationDate(location: location));
+    class func dateOfLocation(location:CLLocation, completion:TTLocationDataCompletionHandler?) {
+        if location.validPlacemarks {
+            completion?(TTLocationDate(location: location), nil);
         } else {
-            TTGeoService.queryGeoInfo(location) { (model: TTGeoModel?) -> () in
-                if let geoModel = model {
-                    location.timeZoneId = geoModel.timezoneId;
-                    location.isSync = true;
-                    locationDate?(TTLocationDate(location: location));
+            CLGeocoder().reverseGeocodeLocation(location) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                
+                if error == nil {
+                    location.placemarks      = placemarks;
+                    location.validPlacemarks = true;
+                    completion?(TTLocationDate(location: location), nil);
                 } else {
-                    location.isSync = false;
+                    location.validPlacemarks = false;
+                    completion?(nil, nil);
                 }
+                
             }
         }
     }

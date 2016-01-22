@@ -3,3 +3,5 @@
 //
 
 #import <Bugtags/Bugtags.h>
+#import "CrumbPath.h"
+#import "CrumbPathRenderer.h"

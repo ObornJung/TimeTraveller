@@ -6,7 +6,6 @@
 //  Copyright © 2016 Oborn.Jung. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 class TTBaseService: NSObject {
