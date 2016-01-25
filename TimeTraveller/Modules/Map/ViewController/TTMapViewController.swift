@@ -48,7 +48,7 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
                 if (self.crumbs == nil) {
                     let currentLocationSpan = MKCoordinateSpanMake(0.03, 0.03)
                     let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: currentLocation.coordinate,
-                        span: currentLocationSpan)
+                                                                                 span: currentLocationSpan)
                     // This is the first time we're getting a location update, so create
                     // the CrumbPath and add it to the map.
                     //
@@ -100,32 +100,22 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     }
     
     func longPressGesture(gesture: UIGestureRecognizer) {
-        
-        let touchPoint = gesture.locationInView(gesture.view);
-        let objectAnnotation = TTPointAnnotation()
-        objectAnnotation.title = "加载中..."
-        objectAnnotation.coordinate = self.mapView.convertPoint(touchPoint, toCoordinateFromView: gesture.view);
-        self.mapView.addAnnotation(objectAnnotation)
-        
-        let geoCoder = CLGeocoder();
-        let location = CLLocation(latitude: objectAnnotation.coordinate.latitude,
-            longitude: objectAnnotation.coordinate.longitude)
-        geoCoder.reverseGeocodeLocation(location) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-            if error == nil {
-//                objectAnnotation.title = "当前位置:";
-//                objectAnnotation.subtitle = placemarks![0].name;
-                for place in placemarks! {
-                    let timeZome = place.timeZone
-                    print("name:\(place.name)");                        // 位置名
-                    print("thoroughfare:\(place.thoroughfare)");        // 街道
-                    print("subThoroughfare:\(place.subThoroughfare)");  // 子街道
-                    print("locality:\(place.locality)");                // 市
-                    print("subLocality:\(place.subLocality)");          // 区
-                    print("country:\(place.country)");                  // 国家
-                    print("timeZome:\(timeZome)");
-                }
-            }
+
+        if (gesture.state == .Began) {
+            let touchPoint = gesture.locationInView(gesture.view);
+            let location = CLLocation(coordinate: self.mapView.convertPoint(touchPoint, toCoordinateFromView: gesture.view));
+            let objectAnnotation = TTPointAnnotation(location: location);
+            objectAnnotation.title = "加载中..."
+            self.mapView.addAnnotation(objectAnnotation)
             
+            location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                if (error == nil && placemarks?.count > 0) {
+                    let currentDate = NSDate();
+                    objectAnnotation.title = "\(location.locationDateString(currentDate, true))";
+                    objectAnnotation.subtitle = "绝对时间: \(location.absoluteLocationDateString(currentDate))";
+                    
+                }
+            });
         }
     }
     

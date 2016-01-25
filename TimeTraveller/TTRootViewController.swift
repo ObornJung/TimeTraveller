@@ -49,18 +49,9 @@ class TTRootViewController: TTBaseViewController {
     }
     
     func testBtnPressed(button: UIButton) {
-        let location01 = CLLocation(latitude: 51.28, longitude: 121);
-        let location02 = CLLocation(latitude: 40.43, longitude: 120);
-        
-        OBLog("location01:\(location01.absoluteLocationDateString())");
-        OBLog("location02:\(location02.absoluteLocationDateString())");
-        CLLocation.currentAbsoluteLocationDateString { (dateString: String?, error: NSError?) -> Void in
-            OBLog("current location absolute time:\(dateString)");
+        CLLocation.currentLocationDateString(NSDate(), showTZName: true) { (dateString: String?, error: NSError?) -> Void in
+            OBLog("\(dateString)")
         }
-//        location01.locationDateString { (dateString: String?, error: NSError?) -> Void in
-//            OBLog("\(location01.deltaDateToLocation(location02))");
-//            OBLog("location01:\(dateString)");
-//        }
     }
 }
 
