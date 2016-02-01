@@ -15,4 +15,5 @@
 /**
  *    business localizable string define
  */
+"location_search"          = "Search for place or address";
 "location_forbid_tips" = "没有定位权限哦，请确认系统定位已打开，并开启APP定位权限.";

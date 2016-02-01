@@ -3,5 +3,6 @@
 //
 
 #import <Bugtags/Bugtags.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 #import "CrumbPath.h"
 #import "CrumbPathRenderer.h"

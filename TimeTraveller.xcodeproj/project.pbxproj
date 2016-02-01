@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0C5621E056F0CF1C8B6F1136 /* Pods_TimeTraveller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651FCB6891A9248C92149836 /* Pods_TimeTraveller.framework */; };
+		3716EAA21C5B11AD0007822E /* TTPOISearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3716EAA11C5B11AD0007822E /* TTPOISearchService.swift */; };
 		3717A2701C51D01F0073C3A6 /* CLLocation+date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */; };
 		3717A2731C51D77F0073C3A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3717A2751C51D77F0073C3A6 /* Localizable.strings */; };
 		371A63391C5089C700307CCF /* map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 371A63381C5089C700307CCF /* map.xcassets */; };
 		371A633B1C508AE800307CCF /* TTAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A633A1C508AE800307CCF /* TTAnnotationView.swift */; };
 		371A633E1C508D8900307CCF /* TTPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A633D1C508D8900307CCF /* TTPointAnnotation.swift */; };
+		3722B69F1C59C64500139E17 /* TTPOISearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B69E1C59C64500139E17 /* TTPOISearchDataSource.swift */; };
+		3722B6A21C59F22700139E17 /* TTPOIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A11C59F22700139E17 /* TTPOIEngine.swift */; };
+		3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A31C59F52700139E17 /* TTPOICell.swift */; };
+		3722B6A61C59F78D00139E17 /* TTPOIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A51C59F78D00139E17 /* TTPOIModel.swift */; };
+		3722B6A91C59FFA700139E17 /* TTStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A81C59FFA700139E17 /* TTStyle.swift */; };
 		374202251C50D04300A3EE5A /* CrumbPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 374202221C50D04300A3EE5A /* CrumbPath.m */; };
 		374202261C50D04300A3EE5A /* CrumbPathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 374202241C50D04300A3EE5A /* CrumbPathRenderer.m */; };
 		3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786A1E41C4E38D600135329 /* TTMapViewController.swift */; };
@@ -29,9 +35,11 @@
 		37E489721C48C617006ABDBB /* OBDebugTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E489701C48C617006ABDBB /* OBDebugTools.swift */; };
 		37E489751C48C92B006ABDBB /* TTBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E489741C48C92B006ABDBB /* TTBaseService.swift */; };
 		37E489871C48F0A2006ABDBB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E489861C48F0A2006ABDBB /* MapKit.framework */; };
+		37F7DDDC1C58658B00F57D92 /* TTPOISearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7DDDB1C58658B00F57D92 /* TTPOISearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3716EAA11C5B11AD0007822E /* TTPOISearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOISearchService.swift; sourceTree = "<group>"; };
 		3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CLLocation+date.swift"; path = "../Location/CLLocation+date.swift"; sourceTree = "<group>"; };
 		3717A2761C51D7B60073C3A6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3717A2771C51D7B60073C3A6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -39,6 +47,11 @@
 		371A63381C5089C700307CCF /* map.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = map.xcassets; sourceTree = "<group>"; };
 		371A633A1C508AE800307CCF /* TTAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTAnnotationView.swift; sourceTree = "<group>"; };
 		371A633D1C508D8900307CCF /* TTPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPointAnnotation.swift; sourceTree = "<group>"; };
+		3722B69E1C59C64500139E17 /* TTPOISearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOISearchDataSource.swift; sourceTree = "<group>"; };
+		3722B6A11C59F22700139E17 /* TTPOIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTPOIEngine.swift; path = Model/TTPOIEngine.swift; sourceTree = "<group>"; };
+		3722B6A31C59F52700139E17 /* TTPOICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOICell.swift; sourceTree = "<group>"; };
+		3722B6A51C59F78D00139E17 /* TTPOIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOIModel.swift; sourceTree = "<group>"; };
+		3722B6A81C59FFA700139E17 /* TTStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTStyle.swift; sourceTree = "<group>"; };
 		374202211C50D04300A3EE5A /* CrumbPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbPath.h; sourceTree = "<group>"; };
 		374202221C50D04300A3EE5A /* CrumbPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPath.m; sourceTree = "<group>"; };
 		374202231C50D04300A3EE5A /* CrumbPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbPathRenderer.h; sourceTree = "<group>"; };
@@ -60,6 +73,7 @@
 		37E489701C48C617006ABDBB /* OBDebugTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OBDebugTools.swift; sourceTree = "<group>"; };
 		37E489741C48C92B006ABDBB /* TTBaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTBaseService.swift; sourceTree = "<group>"; };
 		37E489861C48F0A2006ABDBB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		37F7DDDB1C58658B00F57D92 /* TTPOISearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOISearchController.swift; sourceTree = "<group>"; };
 		5CF4397E2DCF84F38456E7E3 /* Pods-TimeTraveller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTraveller.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller.release.xcconfig"; sourceTree = "<group>"; };
 		651FCB6891A9248C92149836 /* Pods_TimeTraveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeTraveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		771D46FD45CB0E9097EC48AE /* Pods-TimeTraveller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTraveller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +106,32 @@
 				371A633D1C508D8900307CCF /* TTPointAnnotation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3722B69D1C59C60700139E17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3722B6A51C59F78D00139E17 /* TTPOIModel.swift */,
+				3722B69E1C59C64500139E17 /* TTPOISearchDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3722B6A01C59F1C400139E17 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3722B6A11C59F22700139E17 /* TTPOIEngine.swift */,
+				3716EAA11C5B11AD0007822E /* TTPOISearchService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		3722B6A71C59FF4700139E17 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				3722B6A81C59FFA700139E17 /* TTStyle.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		3786A1E11C4E107100135329 /* Map */ = {
@@ -169,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				3786A1E11C4E107100135329 /* Map */,
+				37F7DDD81C5864A800F57D92 /* Search */,
 				3717A27A1C51F8400073C3A6 /* Location */,
 				37E489761C48DECA006ABDBB /* LocationTime */,
 			);
@@ -189,6 +230,7 @@
 		37E489431C48B066006ABDBB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3722B6A71C59FF4700139E17 /* Style */,
 				37E4896F1C48C617006ABDBB /* TTAppStateManager.swift */,
 				37E489701C48C617006ABDBB /* OBDebugTools.swift */,
 			);
@@ -261,6 +303,33 @@
 			children = (
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		37F7DDD81C5864A800F57D92 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3722B6A01C59F1C400139E17 /* Service */,
+				3722B69D1C59C60700139E17 /* Model */,
+				37F7DDDA1C58650D00F57D92 /* View */,
+				37F7DDD91C58650500F57D92 /* ViewController */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		37F7DDD91C58650500F57D92 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				37F7DDDB1C58658B00F57D92 /* TTPOISearchController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		37F7DDDA1C58650D00F57D92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3722B6A31C59F52700139E17 /* TTPOICell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5B63FEBFF431033FF811C441 /* Frameworks */ = {
@@ -412,21 +481,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E489721C48C617006ABDBB /* OBDebugTools.swift in Sources */,
+				3722B69F1C59C64500139E17 /* TTPOISearchDataSource.swift in Sources */,
 				37E489671C48B6F8006ABDBB /* TTBaseNavigationController.swift in Sources */,
 				371A633E1C508D8900307CCF /* TTPointAnnotation.swift in Sources */,
 				3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */,
 				37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */,
 				374202261C50D04300A3EE5A /* CrumbPathRenderer.m in Sources */,
 				374202251C50D04300A3EE5A /* CrumbPath.m in Sources */,
+				3722B6A21C59F22700139E17 /* TTPOIEngine.swift in Sources */,
+				37F7DDDC1C58658B00F57D92 /* TTPOISearchController.swift in Sources */,
+				3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */,
 				37E489641C48B6F2006ABDBB /* TTBaseView.swift in Sources */,
 				37E489751C48C92B006ABDBB /* TTBaseService.swift in Sources */,
 				37E4892C1C48A435006ABDBB /* AppDelegate.swift in Sources */,
 				37E4896B1C48C4EE006ABDBB /* TTLocationCenter.swift in Sources */,
 				37E489341C48A435006ABDBB /* TimeTraveller.xcdatamodeld in Sources */,
 				37E489711C48C617006ABDBB /* TTAppStateManager.swift in Sources */,
+				3722B6A61C59F78D00139E17 /* TTPOIModel.swift in Sources */,
 				37E489681C48B6F8006ABDBB /* TTBaseViewController.swift in Sources */,
+				3722B6A91C59FFA700139E17 /* TTStyle.swift in Sources */,
 				3717A2701C51D01F0073C3A6 /* CLLocation+date.swift in Sources */,
 				371A633B1C508AE800307CCF /* TTAnnotationView.swift in Sources */,
+				3716EAA21C5B11AD0007822E /* TTPOISearchService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +621,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TimeTraveller/Frameworks",
+				);
 				INFOPLIST_FILE = "${PROJECT_NAME}/${PROJECT_NAME}-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -564,6 +644,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TimeTraveller/Frameworks",
+				);
 				INFOPLIST_FILE = "${PROJECT_NAME}/${PROJECT_NAME}-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -620,6 +704,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TimeTraveller/Frameworks",
+				);
 				INFOPLIST_FILE = "${PROJECT_NAME}/${PROJECT_NAME}-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

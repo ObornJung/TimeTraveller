@@ -15,14 +15,15 @@ class TTBaseNavigationController: UINavigationController {
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        if let topViewController = self.topViewController {
-            return topViewController.preferredStatusBarStyle();
-        }
-        return UIStatusBarStyle.LightContent;
+        return self.topViewController?.preferredStatusBarStyle() ?? .LightContent;
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.AllButUpsideDown;
+    }
+    
+    override func setNavigationBarHidden(hidden: Bool, animated: Bool) {
+        super.setNavigationBarHidden(hidden, animated: animated);
     }
     
 }

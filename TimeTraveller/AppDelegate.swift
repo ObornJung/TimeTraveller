@@ -20,7 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         *  setup bugtags
         */
         Bugtags.startWithAppKey("20af446200b0f8c151270564febc6b2a", invocationEvent: BTGInvocationEventShake);
-        
+        /**
+        *    setup 高德地图
+        */
+        AMapSearchServices.sharedServices().apiKey = "3bc2dc7c6daca1337c668d86f46b7873";
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

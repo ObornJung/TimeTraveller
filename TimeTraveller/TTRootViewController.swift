@@ -9,33 +9,35 @@
 import UIKit
 import SnapKit
 
-class TTRootViewController: TTBaseViewController {
+class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
     
-    var testButton: UIButton!;
+    let searchController  = TTPOISearchController();
+    var searchBarController: UISearchController!;
+    let mapViewController = TTMapViewController();
     
-    lazy var mapViewController: TTMapViewController = {
-        let mapViewController = TTMapViewController();
-        self.addChildViewController(mapViewController);
-        self.view.addSubview(mapViewController.view);
-        return mapViewController;
-    }();
-
     override func setupViews() {
-
+        
+        /**
+        *    setup map view
+        */
+        self.addChildViewController(self.mapViewController);
+        self.view.addSubview(self.mapViewController.view);
         self.mapViewController.view .snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view);
         }
         
-        self.testButton = UIButton(type: .System);
-        self.view.addSubview(self.testButton);
-        self.testButton.backgroundColor = UIColor.greenColor();
-        self.testButton.setTitle("test", forState: .Normal);
-        self.testButton.addTarget(self, action: "testBtnPressed:", forControlEvents: .TouchUpInside);
-        self.testButton.snp_makeConstraints { (make) -> Void in
-            make.center.equalTo(self.view);
-            make.width.equalTo(100);
-            make.height.equalTo(50);
-        };
+        /**
+        *    setup search view controller
+        */
+        self.searchBarController = UISearchController(searchResultsController: self.searchController);
+        self.searchBarController.delegate = self;
+        self.searchBarController.dimsBackgroundDuringPresentation = true;
+        self.searchBarController.hidesNavigationBarDuringPresentation = false;
+        self.searchBarController.searchResultsUpdater = self.searchController;
+        self.searchBarController.searchBar.searchBarStyle = .Minimal;
+        self.searchBarController.searchBar.placeholder    = NSLocalizedString("location_search", comment: "搜索");
+        self.definesPresentationContext = true;
+        self.navigationItem.titleView   = self.searchBarController.searchBar;
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,13 +47,29 @@ class TTRootViewController: TTBaseViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        self.hiddenNavBar(true);
+        self.hiddenNavBar(false, animated: animated);
+    }
+
+    //MARK: - UISearchControllerDelegate
+    func willPresentSearchController(searchController: UISearchController) {
+        OBLog("\(self.mapViewController.region)");
+        self.searchController.searchRegion = self.mapViewController.region;
     }
     
-    func testBtnPressed(button: UIButton) {
-        CLLocation.currentLocationDateString(NSDate(), showTZName: true) { (dateString: String?, error: NSError?) -> Void in
-            OBLog("\(dateString)")
-        }
+    func didPresentSearchController(searchController: UISearchController) {
+        OBLog("");
+    }
+    
+    func willDismissSearchController(searchController: UISearchController) {
+        OBLog("");
+    }
+    
+    func didDismissSearchController(searchController: UISearchController) {
+        OBLog("");
+    }
+    
+    func presentSearchController(searchController: UISearchController) {
+        OBLog("");
     }
 }
 

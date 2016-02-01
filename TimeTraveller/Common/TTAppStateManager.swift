@@ -6,7 +6,7 @@
 //  Copyright © 2015 Oborn.Jung. All rights reserved.
 //
 
-import Foundation
+import MapKit
 
 final class TTAppStateManager {
     

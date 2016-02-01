@@ -11,7 +11,11 @@ import MapKit
 
 class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     
-    lazy var mapView: MKMapView = {
+    var region: MKCoordinateRegion {
+        return self.mapView.region;
+    }
+    
+    private lazy var mapView: MKMapView = {
         let mapView      = MKMapView();
         mapView.mapType  = .Standard;
         mapView.delegate = self;
@@ -32,7 +36,7 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
          */
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: "longPressGesture:");
         self.mapView.addGestureRecognizer(longPressGesture);
-        
+        self.mapView.showsUserLocation = true;
         /**
         *    start up location
         */
@@ -105,17 +109,18 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
             let touchPoint = gesture.locationInView(gesture.view);
             let location = CLLocation(coordinate: self.mapView.convertPoint(touchPoint, toCoordinateFromView: gesture.view));
             let objectAnnotation = TTPointAnnotation(location: location);
-            objectAnnotation.title = "加载中..."
+            objectAnnotation.title = "加载中...";
+            objectAnnotation.subtitle = "1234\n5678";
             self.mapView.addAnnotation(objectAnnotation)
             
-            location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-                if (error == nil && placemarks?.count > 0) {
-                    let currentDate = NSDate();
-                    objectAnnotation.title = "\(location.locationDateString(currentDate, true))";
-                    objectAnnotation.subtitle = "绝对时间: \(location.absoluteLocationDateString(currentDate))";
-                    
-                }
-            });
+//            location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+//                if (error == nil && placemarks?.count > 0) {
+//                    let currentDate = NSDate();
+//                    objectAnnotation.title = "\(location.locationDateString(currentDate, true))";
+//                    objectAnnotation.subtitle = "绝对时间: \(location.absoluteLocationDateString(currentDate))";
+//                    
+//                }
+//            });
         }
     }
     
@@ -169,31 +174,31 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
 //        print("改变UserTrackingMode")
 //    }
 //    
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        print("设置overlay的渲染")
-//        return nil
-        var renderer: MKOverlayRenderer?;
-        
-        if (overlay is CrumbPath)
-        {
-            if (self.crumbPathRenderer == nil)
-            {
-                self.crumbPathRenderer = CrumbPathRenderer(overlay: overlay);
-            }
-            renderer = self.crumbPathRenderer;
-        }
-        else if overlay is MKPolygon
-        {
-            if ((self.drawingAreaRenderer?.polygon.isEqual(overlay)) == nil)
-            {
-                self.drawingAreaRenderer = MKPolygonRenderer(overlay: overlay);
-                self.drawingAreaRenderer?.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.25);
-            }
-            renderer = self.drawingAreaRenderer;
-        }
-        
-        return renderer!;
-    }
+//    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+//        print("设置overlay的渲染")
+////        return nil
+//        var renderer: MKOverlayRenderer?;
+//        
+//        if (overlay is CrumbPath)
+//        {
+//            if (self.crumbPathRenderer == nil)
+//            {
+//                self.crumbPathRenderer = CrumbPathRenderer(overlay: overlay);
+//            }
+//            renderer = self.crumbPathRenderer;
+//        }
+//        else if overlay is MKPolygon
+//        {
+//            if ((self.drawingAreaRenderer?.polygon.isEqual(overlay)) == nil)
+//            {
+//                self.drawingAreaRenderer = MKPolygonRenderer(overlay: overlay);
+//                self.drawingAreaRenderer?.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.25);
+//            }
+//            renderer = self.drawingAreaRenderer;
+//        }
+//        
+//        return renderer!;
+//    }
 //
 //    func mapView(mapView: MKMapView, didAddOverlayRenderers renderers: [MKOverlayRenderer]) {
 //        print("地图上加了overlayRenderers后调用")
@@ -216,34 +221,31 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
         print("取消点击大头针注释视图")
-        view.draggable = true;
+        
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState,
         fromOldState oldState: MKAnnotationViewDragState) {
-            print("移动annotation位置时调用")
+            print("移动annotation位置时调用\(newState.rawValue)")
             switch newState {
             case .Starting:
                 break;
             case .Dragging:
                 break;
-            case .Ending:
-                break;
-            case .Canceling:
-                break;
             default:
+                view.draggable = false;
                 break;
             }
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(TTAnnotationView.identifier) ??
-            TTAnnotationView(annotation: annotation, reuseIdentifier: TTAnnotationView.identifier);
-        annotationView.draggable = false;
-        annotationView.canShowCallout = true;
-        annotationView.annotation = annotation;
-        return annotationView;
-    }
+//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//        let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(TTAnnotationView.identifier) ??
+//            TTAnnotationView(annotation: annotation, reuseIdentifier: TTAnnotationView.identifier);
+//        annotationView.draggable = false;
+//        annotationView.canShowCallout = true;
+//        annotationView.annotation = annotation;
+//        return annotationView;
+//    }
     
 //    -(MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
 //    {
