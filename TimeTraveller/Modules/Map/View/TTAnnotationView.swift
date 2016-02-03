@@ -29,19 +29,23 @@ class TTAnnotationView: MKAnnotationView {
     }
     
     private func setupViews() {
+        
         self.image = UIImage(named: "map_poi_0");
         self.backgroundColor = UIColor.clearColor();
-        let rightButton = UIButton(type: .DetailDisclosure);
-        rightButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext { (_:AnyObject!) -> Void in
-            OBLog("");
-        };
-        self.rightCalloutAccessoryView = rightButton;
-        
-//        let detailView = UIView();
-//        detailView.backgroundColor = UIColor.redColor();
-//        detailView.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(100, 100));
-//        }
-//        self.detailCalloutAccessoryView = detailView;
+//        self.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure);
+
+        /**
+        *    setup detail view
+        */
+        let detailView = UILabel();
+        detailView.numberOfLines = 3;
+        detailView.font = TTStyle.font(13);
+        detailView.textColor = TT_BlackText_Color;
+        detailView.text = "中国时间:2016-02-03 11:07:56 (东八区)\n绝对时间:2016-02-03 11:00:23\n时区偏差:2小时23分32秒";
+        detailView.backgroundColor = UIColor.clearColor();
+        detailView.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(detailView.sizeThatFits(CGSizeZero));
+        }
+        self.detailCalloutAccessoryView = detailView;
     }
 }

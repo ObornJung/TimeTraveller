@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import OBFoundationLib
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,20 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var rootViewController: TTRootViewController!;
 
     func applicationInit() {
-        /**
-        *  setup bugtags
-        */
-        Bugtags.startWithAppKey("20af446200b0f8c151270564febc6b2a", invocationEvent: BTGInvocationEventShake);
+//        /**
+//        *  setup bugtags
+//        */
+//        Bugtags.startWithAppKey("20af446200b0f8c151270564febc6b2a", invocationEvent: BTGInvocationEventShake);
         /**
         *    setup 高德地图
         */
         AMapSearchServices.sharedServices().apiKey = "3bc2dc7c6daca1337c668d86f46b7873";
+        /**
+        *    setup 友盟
+        */
+        MobClick.startWithAppkey("56b17cad67e58ee747002a26", reportPolicy: BATCH, channelId: "App Store")
+        MobClick.setEncryptEnabled(true);           ///< 开启加密
+        MobClick.setBackgroundTaskEnabled(false);   ///< 关闭后台任务模式
+        #if DEBUG
+        OBLogFile.printUMUDID();
+        #endif
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.applicationInit();
-        
         /**
         *  setup root view controller
         */

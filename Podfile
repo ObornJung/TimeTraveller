@@ -18,8 +18,9 @@ target 'TimeTraveller' do
     pod 'SDWebImage', 					'~> 3.7.0'			# UIImageView load for web
     pod 'PINCache', 					'~> 2.1'			# Fast, thread safe, parallel object cache for iOS and OS X.
     pod 'ReactiveCocoa', 				'~> 4.0.4-alpha-4'	# A framework for composing and transforming streams of values
-    pod 'Alamofire',                    '~> 3.0'
-    pod 'AMapSearch',                   '~> 3.2.0'
+    pod 'Alamofire',                    '~> 3.0'            # Elegant HTTP Networking in Swift
+    pod 'UMengAnalytics',               '~> 3.6.6'          # 友盟统计分析SDK:56b17cad67e58ee747002a26
+    pod 'AMapSearch',                   '~> 3.2.0'          # 高德地图POI搜索:3bc2dc7c6daca1337c668d86f46b7873
     pod 'HZActivityIndicatorView',      '~> 0.0.1'
     pod 'Toast',                        '~> 3.0'
 #    pod 'Toast-Swift',                  '~> 1.0.0'

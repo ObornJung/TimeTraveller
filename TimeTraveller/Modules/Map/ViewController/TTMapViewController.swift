@@ -18,10 +18,6 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         return mapView;
     }();
     
-    var crumbs: CrumbPath?;
-    var crumbPathRenderer: CrumbPathRenderer?;
-    var drawingAreaRenderer: MKPolygonRenderer?;
-    
     override func loadView() {
         self.view = mapView;
     }
@@ -40,7 +36,7 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     }
     
     func addAnnocationPOI(poi: AMapPOI) {
-        let objectAnnotation = TTPointAnnotation(poi: poi);
+        let objectAnnotation = TTPOIAnnotation(poi: poi);
         self.mapView.addAnnotation(objectAnnotation)
     }
     
@@ -50,56 +46,10 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
             
             if let currentLocation = location {
                 
-                if (self.crumbs == nil) {
-                    let currentLocationSpan = MKCoordinateSpanMake(0.03, 0.03)
-                    let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: currentLocation.coordinate,
-                                                                                 span: currentLocationSpan)
-                    // This is the first time we're getting a location update, so create
-                    // the CrumbPath and add it to the map.
-                    //
-                    self.crumbs = CrumbPath(centerCoordinate: currentLocation.coordinate);
-                    self.mapView.addOverlay(self.crumbs!, level: .AboveRoads);
-                    self.mapView.setRegion(currentRegion, animated: true)
-                } else {
-                    // This is a subsequent location update.
-                    //
-                    // If the crumbs MKOverlay model object determines that the current location has moved
-                    // far enough from the previous location, use the returned updateRect to redraw just
-                    // the changed area.
-                    //
-                    // note: cell-based devices will locate you using the triangulation of the cell towers.
-                    // so you may experience spikes in location data (in small time intervals)
-                    // due to cell tower triangulation.
-                    //
-                    var boundingMapRectChanged: ObjCBool = false;
-                    var updateRect: MKMapRect! = self.crumbs?.addCoordinate(currentLocation.coordinate, boundingMapRectChanged: &boundingMapRectChanged);
-                    if (boundingMapRectChanged) {
-                        // MKMapView expects an overlay's boundingMapRect to never change (it's a readonly @property).
-                        // So for the MapView to recognize the overlay's size has changed, we remove it, then add it again.
-                        self.mapView.removeOverlays(self.mapView.overlays);
-                        self.crumbPathRenderer = nil;
-                        self.mapView.addOverlay(self.crumbs!, level: .AboveRoads);
-                        
-                        let r: MKMapRect = self.crumbs!.boundingMapRect;
-                        var pts: [MKMapPoint] = [
-                            MKMapPointMake(MKMapRectGetMinX(r), MKMapRectGetMinY(r)),
-                            MKMapPointMake(MKMapRectGetMinX(r), MKMapRectGetMaxY(r)),
-                            MKMapPointMake(MKMapRectGetMaxX(r), MKMapRectGetMaxY(r)),
-                            MKMapPointMake(MKMapRectGetMaxX(r), MKMapRectGetMinY(r)),
-                        ];
-                        let boundingMapRectOverlay:MKPolygon = MKPolygon(points: &pts, count: pts.count);
-                        self.mapView.addOverlay(boundingMapRectOverlay, level: .AboveRoads);
-                    } else if (!MKMapRectIsNull(updateRect) ) {
-                        // There is a non null update rect.
-                        // Compute the currently visible map zoom scale
-                        let currentZoomScale: MKZoomScale = CGFloat(self.mapView.bounds.size.width) / CGFloat(self.mapView.visibleMapRect.size.width);
-                        // Find out the line width at this zoom scale and outset the updateRect by that amount
-                        let lineWidth = Double(MKRoadWidthAtZoomScale(currentZoomScale));
-                        updateRect = MKMapRectInset(updateRect, -lineWidth, -lineWidth);
-                        // Ask the overlay view to update just the changed area.
-                        self.crumbPathRenderer?.setNeedsDisplayInMapRect(updateRect);
-                    }
-                }
+                let currentLocationSpan = MKCoordinateSpanMake(0.03, 0.03)
+                let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: currentLocation.coordinate,
+                                                                             span: currentLocationSpan)
+                self.mapView.setRegion(currentRegion, animated: true);
             }
         }
     }
@@ -109,14 +59,14 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         if (gesture.state == .Began) {
             let touchPoint = gesture.locationInView(gesture.view);
             let location = CLLocation(coordinate: self.mapView.convertPoint(touchPoint, toCoordinateFromView: gesture.view));
-            let objectAnnotation = TTPointAnnotation(location: location);
+            let objectAnnotation = TTPOIAnnotation(location: location);
             objectAnnotation.title = "加载中...";
             self.mapView.addAnnotation(objectAnnotation)
             kCLErrorDomain
             location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
                 if (error == nil && placemarks?.count > 0) {
                     let currentDate = NSDate();
-                    objectAnnotation.title = "\(location.locationDateString(currentDate, true))";
+                    objectAnnotation.title = placemarks?.first?.name ?? "";
                     objectAnnotation.subtitle = "绝对时间: \(location.absoluteLocationDateString(currentDate))";
                     
                 } else {
@@ -241,7 +191,7 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is TTPointAnnotation {
+        if annotation is TTPOIAnnotation {
             let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(TTAnnotationView.identifier) ??
                 TTAnnotationView(annotation: annotation, reuseIdentifier: TTAnnotationView.identifier);
             annotationView.draggable = false;

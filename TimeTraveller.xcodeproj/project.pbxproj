@@ -13,14 +13,12 @@
 		3717A2731C51D77F0073C3A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3717A2751C51D77F0073C3A6 /* Localizable.strings */; };
 		371A63391C5089C700307CCF /* map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 371A63381C5089C700307CCF /* map.xcassets */; };
 		371A633B1C508AE800307CCF /* TTAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A633A1C508AE800307CCF /* TTAnnotationView.swift */; };
-		371A633E1C508D8900307CCF /* TTPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A633D1C508D8900307CCF /* TTPointAnnotation.swift */; };
+		371A633E1C508D8900307CCF /* TTPOIAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A633D1C508D8900307CCF /* TTPOIAnnotation.swift */; };
 		3722B69F1C59C64500139E17 /* TTPOISearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B69E1C59C64500139E17 /* TTPOISearchDataSource.swift */; };
 		3722B6A21C59F22700139E17 /* TTPOIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A11C59F22700139E17 /* TTPOIEngine.swift */; };
 		3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A31C59F52700139E17 /* TTPOICell.swift */; };
 		3722B6A61C59F78D00139E17 /* TTPOIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A51C59F78D00139E17 /* TTPOIModel.swift */; };
 		3722B6A91C59FFA700139E17 /* TTStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A81C59FFA700139E17 /* TTStyle.swift */; };
-		374202251C50D04300A3EE5A /* CrumbPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 374202221C50D04300A3EE5A /* CrumbPath.m */; };
-		374202261C50D04300A3EE5A /* CrumbPathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 374202241C50D04300A3EE5A /* CrumbPathRenderer.m */; };
 		3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786A1E41C4E38D600135329 /* TTMapViewController.swift */; };
 		37E4892C1C48A435006ABDBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4892B1C48A435006ABDBB /* AppDelegate.swift */; };
 		37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4892D1C48A435006ABDBB /* TTRootViewController.swift */; };
@@ -46,16 +44,12 @@
 		3717A2791C51D7D10073C3A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		371A63381C5089C700307CCF /* map.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = map.xcassets; sourceTree = "<group>"; };
 		371A633A1C508AE800307CCF /* TTAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTAnnotationView.swift; sourceTree = "<group>"; };
-		371A633D1C508D8900307CCF /* TTPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPointAnnotation.swift; sourceTree = "<group>"; };
+		371A633D1C508D8900307CCF /* TTPOIAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOIAnnotation.swift; sourceTree = "<group>"; };
 		3722B69E1C59C64500139E17 /* TTPOISearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOISearchDataSource.swift; sourceTree = "<group>"; };
 		3722B6A11C59F22700139E17 /* TTPOIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTPOIEngine.swift; path = Model/TTPOIEngine.swift; sourceTree = "<group>"; };
 		3722B6A31C59F52700139E17 /* TTPOICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOICell.swift; sourceTree = "<group>"; };
 		3722B6A51C59F78D00139E17 /* TTPOIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOIModel.swift; sourceTree = "<group>"; };
 		3722B6A81C59FFA700139E17 /* TTStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTStyle.swift; sourceTree = "<group>"; };
-		374202211C50D04300A3EE5A /* CrumbPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbPath.h; sourceTree = "<group>"; };
-		374202221C50D04300A3EE5A /* CrumbPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPath.m; sourceTree = "<group>"; };
-		374202231C50D04300A3EE5A /* CrumbPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbPathRenderer.h; sourceTree = "<group>"; };
-		374202241C50D04300A3EE5A /* CrumbPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPathRenderer.m; sourceTree = "<group>"; };
 		3786A1E41C4E38D600135329 /* TTMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTMapViewController.swift; sourceTree = "<group>"; };
 		37E489281C48A435006ABDBB /* TimeTraveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTraveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E4892B1C48A435006ABDBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +97,7 @@
 		371A633C1C508D5C00307CCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				371A633D1C508D8900307CCF /* TTPointAnnotation.swift */,
+				371A633D1C508D8900307CCF /* TTPOIAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,10 +149,6 @@
 		3786A1E31C4E386600135329 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				374202211C50D04300A3EE5A /* CrumbPath.h */,
-				374202221C50D04300A3EE5A /* CrumbPath.m */,
-				374202231C50D04300A3EE5A /* CrumbPathRenderer.h */,
-				374202241C50D04300A3EE5A /* CrumbPathRenderer.m */,
 				371A633A1C508AE800307CCF /* TTAnnotationView.swift */,
 			);
 			path = View;
@@ -483,11 +473,9 @@
 				37E489721C48C617006ABDBB /* OBDebugTools.swift in Sources */,
 				3722B69F1C59C64500139E17 /* TTPOISearchDataSource.swift in Sources */,
 				37E489671C48B6F8006ABDBB /* TTBaseNavigationController.swift in Sources */,
-				371A633E1C508D8900307CCF /* TTPointAnnotation.swift in Sources */,
+				371A633E1C508D8900307CCF /* TTPOIAnnotation.swift in Sources */,
 				3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */,
 				37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */,
-				374202261C50D04300A3EE5A /* CrumbPathRenderer.m in Sources */,
-				374202251C50D04300A3EE5A /* CrumbPath.m in Sources */,
 				3722B6A21C59F22700139E17 /* TTPOIEngine.swift in Sources */,
 				37F7DDDC1C58658B00F57D92 /* TTPOISearchController.swift in Sources */,
 				3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */,

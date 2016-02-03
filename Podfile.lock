@@ -25,6 +25,7 @@ PODS:
   - SDWebImage/Core (3.7.4)
   - SnapKit (0.18.0)
   - Toast (3.0)
+  - UMengAnalytics (3.6.6)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7.0)
   - SnapKit (~> 0.18.0)
   - Toast (~> 3.0)
+  - UMengAnalytics (~> 3.6.6)
 
 EXTERNAL SOURCES:
   OBFoundationLib:
@@ -59,5 +61,6 @@ SPEC CHECKSUMS:
   SDWebImage: ae3e736f675caceb97674e71212c0d742ce9e830
   SnapKit: 25179855070a5c5f8e426805b675c01a48f484cb
   Toast: e6b854bd074b7a1e539c6c4f830e77a7fa2cd5a0
+  UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
 
 COCOAPODS: 0.39.0

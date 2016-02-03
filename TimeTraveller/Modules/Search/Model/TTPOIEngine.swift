@@ -6,6 +6,7 @@
 //  Copyright © 2016 Oborn.Jung. All rights reserved.
 //
 
+import MapKit
 import OBUIKit
 import Foundation
 
