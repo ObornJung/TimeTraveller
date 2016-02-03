@@ -26,16 +26,23 @@ func OBShowToast(message: String, title: String? = nil, duration: NSTimeInterval
             }();
             static weak var preToastView: UIView?;
         }
+        /**
+        *    hidden previous toast view
+        */
+        if let preToastView = (OBToast.toastWindow.respondsToSelector("cs_hideToast:") ? OBToast.preToastView : nil) {
+            OBToast.toastWindow.performSelector("cs_hideToast:", withObject: preToastView);
+        }
+        /**
+        *    show toast view
+        */
         CSToastManager.setQueueEnabled(false);
         OBToast.toastWindow.hidden = false;
         let toastView = OBToast.toastWindow.toastViewForMessage(message, title: title, image: nil, style: nil);
-        OBToast.toastWindow.showToast(toastView, duration: duration, position: position, completion: { (didTap: Bool) -> Void in
-            OBToast.toastWindow.hidden = true;
+        OBToast.toastWindow.showToast(toastView, duration: duration, position: position, completion: {[weak toastView] (didTap: Bool) -> Void in
+            if toastView == OBToast.preToastView {
+                OBToast.toastWindow.hidden = true;
+            }
         })
-//        let preToastView = OBToast.preToastView;
-//        if preToastView != nil && OBToast.toastWindow.respondsToSelector("cs_hideToast:") {
-//            OBToast.toastWindow.performSelector("cs_hideToast:", withObject: preToastView);
-//        }
-//        OBToast.preToastView = toastView;
+        OBToast.preToastView = toastView;
     }
 }
