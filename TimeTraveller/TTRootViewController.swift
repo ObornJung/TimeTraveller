@@ -52,13 +52,15 @@ class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
 
     //MARK: - UISearchControllerDelegate
     func willPresentSearchController(searchController: UISearchController) {
-        OBLog("\(self.mapViewController.region)");
-        self.searchController.searchRegion = self.mapViewController.region;
+        self.searchController.searchRegion = self.mapViewController.mapView.region;
     }
     
     func willDismissSearchController(searchController: UISearchController) {
         if let annocationPOI = self.searchController.selectedPoi {
             self.mapViewController.addAnnocationPOI(annocationPOI);
+            let centerCoordinate = CLLocationCoordinate2D(latitude: Double(annocationPOI.location.latitude),
+                longitude: Double(annocationPOI.location.longitude));
+            self.mapViewController.mapView.setCenterCoordinate(centerCoordinate, animated: true);
         }
     }
 }

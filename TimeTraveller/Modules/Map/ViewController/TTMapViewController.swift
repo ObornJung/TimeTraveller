@@ -11,11 +11,7 @@ import MapKit
 
 class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     
-    var region: MKCoordinateRegion {
-        return self.mapView.region;
-    }
-    
-    private lazy var mapView: MKMapView = {
+    lazy var mapView: MKMapView = {
         let mapView      = MKMapView();
         mapView.mapType  = .Standard;
         mapView.delegate = self;
