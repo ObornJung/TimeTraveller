@@ -33,24 +33,46 @@ class TTPOISearchService: NSObject, AMapSearchDelegate {
         /**
         * types属性表示限定搜索POI的类别，默认为：餐饮服务|商务住宅|生活服务
         * POI的类型共分为20种大类别，分别为：
-        * 汽车服务|汽车销售|汽车维修|摩托车服务|餐饮服务|购物服务|生活服务|体育休闲服务|
-        * 医疗保健服务|住宿服务|风景名胜|商务住宅|政府机构及社会团体|科教文化服务|
-        * 交通设施服务|金融保险服务|公司企业|道路附属设施|地名地址信息|公共设施
+        * 体育休闲服务|金融保险服务|汽车服务|汽车销售|汽车维修|政府机构及社会团体|
+        * 医疗保健服务|科教文化服务|住宿服务|风景名胜|商务住宅|公共设施|摩托车服务|
+        * 交通设施服务|道路附属设施|生活服务|购物服务|公司企业|餐饮服务|地名地址信息|
         */
         request.types = "地名地址信息|商务住宅|餐饮服务|生活服务";
         request.sortrule = 1;
         request.keywords = keywords;
         request.requireExtension = true;
         
-        let searchProtocol = NSProtocolFromString("AMapSearchDelegate")!;
-        let signal = self.rac_signalForSelector("onPOISearchDone:response:", fromProtocol: searchProtocol).map({ (object: AnyObject!) -> AnyObject! in
-            return (object as? RACTuple)?.second as? AMapPOISearchResponse;
-        });
+        let signal = RACSignal.createSignal {[unowned self] (subscriber: RACSubscriber!) -> RACDisposable! in
+            let searchProtocol = NSProtocolFromString("AMapSearchDelegate")!;
+            let responseSignal = self.rac_signalForSelector("onPOISearchDone:response:", fromProtocol: searchProtocol).map({ (object: AnyObject!) -> AnyObject! in
+                return (object as? RACTuple)?.second as? AMapPOISearchResponse;
+            });
+            let errorSignal = self.rac_signalForSelector("AMapSearchRequest:didFailWithError:", fromProtocol: searchProtocol).map( { (object: AnyObject!) -> AnyObject! in
+                return (object as? RACTuple)?.second as? NSError;
+            });
+            
+            responseSignal.subscribeNext({ (object: AnyObject!) -> Void in
+                subscriber.sendNext(object);
+                subscriber.sendCompleted();
+            })
+            
+            errorSignal.subscribeNext({ (object: AnyObject!) -> Void in
+                subscriber.sendError(object as? NSError);
+            })
+            
+            return RACDisposable(block: { () -> Void in
+                
+            });
+        }
         
         //
         // 发起周边搜索
         self.poiSearchServer.AMapPOIPolygonSearch(request);
         
         return signal;
+    }
+    
+    func cancelSearch() -> Void {
+        self.poiSearchServer.cancelAllRequests();
     }
 }

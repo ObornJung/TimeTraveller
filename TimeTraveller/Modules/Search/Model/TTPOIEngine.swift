@@ -17,13 +17,25 @@ class TTPOIEngine: NSObject {
         self.dataSource = dataSource;
         super.init();
     }
-    
-    func updateSuggestion(keyworld: String, region: MKCoordinateRegion?, completion: (([[OBBaseComponentModel]]?) -> Void)? = nil) {
-        TTPOISearchService.sharedInstance.searchPOI(keyworld, region: region).subscribeNext {[weak self] (object: AnyObject!) -> Void in
+    //FIXME: 后期添加错误处理逻辑
+    func updateSuggestion(keyworld: String, region: MKCoordinateRegion?, completion: (([[OBBaseComponentModel]]?, NSError?) -> Void)? = nil) {
+        self.cancelUpdate();
+//        TTPOISearchService.sharedInstance.searchPOI(keyworld, region: region).subscribeNext {[weak self] (object: AnyObject!) -> Void in
+//            let poisDataSource = self?.parseData(object);
+//            self?.dataSource.setDataSource(poisDataSource);
+//            completion?(poisDataSource);
+//        }
+        TTPOISearchService.sharedInstance.searchPOI(keyworld, region: region).subscribeNext({[weak self] (object: AnyObject!) -> Void in
             let poisDataSource = self?.parseData(object);
             self?.dataSource.setDataSource(poisDataSource);
-            completion?(poisDataSource);
+            completion?(poisDataSource, nil);
+        }) { (error: NSError!) -> Void in
+            completion?(nil, error);
         }
+    }
+    
+    func cancelUpdate() {
+        TTPOISearchService.sharedInstance.cancelSearch();
     }
     
     func parseData(data: AnyObject?) -> [[OBBaseComponentModel]]? {

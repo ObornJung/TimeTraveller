@@ -2,6 +2,7 @@ PODS:
   - Alamofire (3.1.4)
   - AMapSearch (3.2.0)
   - Bugtags (1.1.7)
+  - HZActivityIndicatorView (0.0.1)
   - Masonry (0.6.4)
   - OBFoundationLib (0.1.0)
   - OBUIKit (0.1.0):
@@ -23,17 +24,20 @@ PODS:
     - SDWebImage/Core (= 3.7.4)
   - SDWebImage/Core (3.7.4)
   - SnapKit (0.18.0)
+  - Toast (3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - AMapSearch (~> 3.2.0)
   - Bugtags (~> 1.1.7)
+  - HZActivityIndicatorView (~> 0.0.1)
   - OBFoundationLib (from `~/Documents/个人资料/iOS/own project/OBFoundationLib/`)
   - OBUIKit (from `~/Documents/个人资料/iOS/own project/OBUIKit/`)
   - PINCache (~> 2.1)
   - ReactiveCocoa (~> 4.0.4-alpha-4)
   - SDWebImage (~> 3.7.0)
   - SnapKit (~> 0.18.0)
+  - Toast (~> 3.0)
 
 EXTERNAL SOURCES:
   OBFoundationLib:
@@ -45,6 +49,7 @@ SPEC CHECKSUMS:
   Alamofire: 00946c716dde6ee81e14f615af96d5638f33f9f1
   AMapSearch: a885f0702578a441a22cb66fa74f8918c6d19e6f
   Bugtags: 45f60b6fce822bc73cde5035138aba7c3c51073d
+  HZActivityIndicatorView: d17be9e80484e35463d383a9b5cc3c12084264ff
   Masonry: 0de6cf428111b5d31cc189c7a1b93638d7f7795e
   OBFoundationLib: 88fc7ef3bcdc0f3102e32651c99323e8d9ac112e
   OBUIKit: 745bbff94c78e731653291286e56c23b0df023bf
@@ -53,5 +58,6 @@ SPEC CHECKSUMS:
   Result: 3ee1e5721399cdd838b0463cd33735d78aebdb0c
   SDWebImage: ae3e736f675caceb97674e71212c0d742ce9e830
   SnapKit: 25179855070a5c5f8e426805b675c01a48f484cb
+  Toast: e6b854bd074b7a1e539c6c4f830e77a7fa2cd5a0
 
 COCOAPODS: 0.39.0

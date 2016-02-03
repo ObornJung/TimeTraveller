@@ -27,11 +27,11 @@ class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
         }
         
         /**
-        *    setup search view controller
+        *    setup search controller
         */
         self.searchBarController = UISearchController(searchResultsController: self.searchController);
         self.searchBarController.delegate = self;
-        self.searchBarController.dimsBackgroundDuringPresentation = true;
+        self.searchBarController.dimsBackgroundDuringPresentation = false;
         self.searchBarController.hidesNavigationBarDuringPresentation = false;
         self.searchBarController.searchResultsUpdater = self.searchController;
         self.searchBarController.searchBar.searchBarStyle = .Minimal;
@@ -56,20 +56,10 @@ class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
         self.searchController.searchRegion = self.mapViewController.region;
     }
     
-    func didPresentSearchController(searchController: UISearchController) {
-        OBLog("");
-    }
-    
     func willDismissSearchController(searchController: UISearchController) {
-        OBLog("");
-    }
-    
-    func didDismissSearchController(searchController: UISearchController) {
-        OBLog("");
-    }
-    
-    func presentSearchController(searchController: UISearchController) {
-        OBLog("");
+        if let annocationPOI = self.searchController.selectedPoi {
+            self.mapViewController.addAnnocationPOI(annocationPOI);
+        }
     }
 }
 

@@ -19,6 +19,7 @@ class TTPOISearchDataSource: OBBaseTableDataSource {
                 for component in sectionData {
                     regularSectionData.append(component);
                     let separator = OBSeparatorModel(separatorStyle: .Line);
+                    separator.lineColor = TT_Separator_Color;
                     separator.insets = UIEdgeInsetsMake(0, 30, 0, 0);
                     regularSectionData.append(separator);
                 }

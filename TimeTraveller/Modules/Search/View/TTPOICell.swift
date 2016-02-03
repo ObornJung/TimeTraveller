@@ -28,7 +28,7 @@ class TTPOICell: OBTableBaseCell {
     
     override func setupViews() {
         super.setupViews();
-        self.contentView.backgroundColor = UIColor.whiteColor();
+        self.contentView.backgroundColor = UIColor.clearColor();
         self.selectionStyle              = .Default;
         /**
         *    setup poi icon

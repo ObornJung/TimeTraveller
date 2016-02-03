@@ -37,11 +37,11 @@ class TTAnnotationView: MKAnnotationView {
         };
         self.rightCalloutAccessoryView = rightButton;
         
-        let detailView = UIView();
-        detailView.backgroundColor = UIColor.redColor();
-        detailView.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(100, 100));
-        }
-        self.detailCalloutAccessoryView = detailView;
+//        let detailView = UIView();
+//        detailView.backgroundColor = UIColor.redColor();
+//        detailView.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(100, 100));
+//        }
+//        self.detailCalloutAccessoryView = detailView;
     }
 }

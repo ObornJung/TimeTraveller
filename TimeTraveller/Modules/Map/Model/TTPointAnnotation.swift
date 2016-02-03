@@ -10,7 +10,8 @@ import MapKit
 
 class TTPointAnnotation: MKPointAnnotation {
     
-    private(set) var location: CLLocation;
+    private(set) var location: CLLocation!;
+    private(set) var poi: AMapPOI!;
     
 //    override var coordinate: CLLocationCoordinate2D {
 //        didSet {
@@ -25,6 +26,14 @@ class TTPointAnnotation: MKPointAnnotation {
         self.location = location;
         super.init();
         self.coordinate = self.location.coordinate;
+    }
+    
+    init(poi: AMapPOI) {
+        self.poi = poi;
+        super.init();
+        self.coordinate = CLLocationCoordinate2DMake(Double(self.poi.location.latitude),
+                                                     Double(self.poi.location.longitude));
+        self.title = poi.name;
     }
     
 }

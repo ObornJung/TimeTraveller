@@ -20,6 +20,9 @@ target 'TimeTraveller' do
     pod 'ReactiveCocoa', 				'~> 4.0.4-alpha-4'	# A framework for composing and transforming streams of values
     pod 'Alamofire',                    '~> 3.0'
     pod 'AMapSearch',                   '~> 3.2.0'
+    pod 'HZActivityIndicatorView',      '~> 0.0.1'
+    pod 'Toast',                        '~> 3.0'
+#    pod 'Toast-Swift',                  '~> 1.0.0'
     #pod 'GoogleMaps',                   '~> 1.11.1'
     #pod 'Reachability'
     #pod 'Motis',                        '~> 1.4.0'    		# json parser

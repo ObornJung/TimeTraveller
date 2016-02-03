@@ -43,6 +43,11 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         self.startupLocation();
     }
     
+    func addAnnocationPOI(poi: AMapPOI) {
+        let objectAnnotation = TTPointAnnotation(poi: poi);
+        self.mapView.addAnnotation(objectAnnotation)
+    }
+    
     private func startupLocation() {
         
         TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in 
@@ -110,17 +115,18 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
             let location = CLLocation(coordinate: self.mapView.convertPoint(touchPoint, toCoordinateFromView: gesture.view));
             let objectAnnotation = TTPointAnnotation(location: location);
             objectAnnotation.title = "加载中...";
-            objectAnnotation.subtitle = "1234\n5678";
             self.mapView.addAnnotation(objectAnnotation)
-            
-//            location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-//                if (error == nil && placemarks?.count > 0) {
-//                    let currentDate = NSDate();
-//                    objectAnnotation.title = "\(location.locationDateString(currentDate, true))";
-//                    objectAnnotation.subtitle = "绝对时间: \(location.absoluteLocationDateString(currentDate))";
-//                    
-//                }
-//            });
+            kCLErrorDomain
+            location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                if (error == nil && placemarks?.count > 0) {
+                    let currentDate = NSDate();
+                    objectAnnotation.title = "\(location.locationDateString(currentDate, true))";
+                    objectAnnotation.subtitle = "绝对时间: \(location.absoluteLocationDateString(currentDate))";
+                    
+                } else {
+                    OBLog("\(error)");
+                }
+            });
         }
     }
     
@@ -238,14 +244,17 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
             }
     }
     
-//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-//        let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(TTAnnotationView.identifier) ??
-//            TTAnnotationView(annotation: annotation, reuseIdentifier: TTAnnotationView.identifier);
-//        annotationView.draggable = false;
-//        annotationView.canShowCallout = true;
-//        annotationView.annotation = annotation;
-//        return annotationView;
-//    }
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is TTPointAnnotation {
+            let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(TTAnnotationView.identifier) ??
+                TTAnnotationView(annotation: annotation, reuseIdentifier: TTAnnotationView.identifier);
+            annotationView.draggable = false;
+            annotationView.canShowCallout = true;
+            annotationView.annotation = annotation;
+            return annotationView;
+        }
+        return nil;
+    }
     
 //    -(MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
 //    {
