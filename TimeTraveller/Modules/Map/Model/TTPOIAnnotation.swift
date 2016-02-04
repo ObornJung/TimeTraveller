@@ -20,7 +20,7 @@ class TTPOIAnnotation: MKShape {
     init(location: CLLocation) {
         self.location = location;
         super.init();
-    }
+    } 
     
     init(poi: AMapPOI) {
         self.poi = poi;
