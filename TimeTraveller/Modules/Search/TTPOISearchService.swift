@@ -61,7 +61,7 @@ class TTPOISearchService: NSObject, AMapSearchDelegate {
             })
             
             return RACDisposable(block: { () -> Void in
-                
+                OBLog("");
             });
         }
         

@@ -8,6 +8,7 @@
 
 import MapKit
 import OBUIKit
+import ReactiveCocoa;
 import HZActivityIndicatorView
 
 extension UISearchBar {
@@ -35,11 +36,12 @@ extension UISearchBar {
                         make.size.equalTo(CGSizeMake(16, 16));
                     });
                     loadingView.startAnimating();
-                    objc_setAssociatedObject(self, &(AssociatedKeys.loadingView), loadingView, .OBJC_ASSOCIATION_RETAIN);
+                    objc_setAssociatedObject(self, &(AssociatedKeys.loadingView), loadingView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
                 } else {
                     if let loadingView = objc_getAssociatedObject(self, &(AssociatedKeys.loadingView)) as? HZActivityIndicatorView {
                         loadingView.stopAnimating();
                         loadingView.removeFromSuperview();
+                        objc_setAssociatedObject(self, &(AssociatedKeys.loadingView), nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
                     }
                     self.setImage(nil, forSearchBarIcon: .Search, state: .Normal);
                 }
@@ -54,11 +56,11 @@ class TTPOISearchController: TTBaseViewController, UISearchResultsUpdating, UISe
                              UITableViewDelegate, OBTableCellMappingProtocol, AMapSearchDelegate {
     
     var searchRegion: MKCoordinateRegion?;
-    private(set) var selectedPoi: AMapPOI?;
+    private(set) var selectedPoi: TTPOIModel?;
     
     private let tableView  = UITableView();
-    private var poiSearchEngine: TTPOIEngine!;
-    private var dataSource: TTPOISearchDataSource!;
+    private var viewModel: TTPOIViewModel!;
+    private weak var searchDisposable: RACDisposable?;
     private weak var searchController: UISearchController?;
     
     deinit {
@@ -81,10 +83,10 @@ class TTPOISearchController: TTBaseViewController, UISearchResultsUpdating, UISe
         /**
         *    setup table view
         */
-        self.dataSource = TTPOISearchDataSource(tableView: self.tableView);
-        self.dataSource.cellInterceptor = self;
+        self.viewModel = TTPOIViewModel(tableView: self.tableView);
+        self.viewModel.cellInterceptor = self;
         self.tableView.delegate   = self;
-        self.tableView.dataSource = self.dataSource
+        self.tableView.dataSource = self.viewModel
         self.tableView.backgroundColor = UIColor.clearColor();
         self.tableView.separatorStyle = .None;
         self.tableView.ob_setAccommodateKeyboard(true);
@@ -101,9 +103,13 @@ class TTPOISearchController: TTBaseViewController, UISearchResultsUpdating, UISe
         /**
         *    setup poi search engine
         */
-        self.poiSearchEngine = TTPOIEngine(dataSource: self.dataSource);
+        NSNotificationCenter.defaultCenter().rac_addObserverForName(kTTUpScreenNotification, object: nil).subscribeNext {[weak self] (object: AnyObject!) -> Void in
+            if let searchWord = (object as? NSNotification)?.userInfo?["word"] as? String {
+                self?.searchController?.searchBar.text = searchWord;
+            }
+        }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "upScreenNotifacationHandler:", name: kTTUpScreenNotification, object: nil);
+        self.bindSearchResult();
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -124,54 +130,65 @@ class TTPOISearchController: TTBaseViewController, UISearchResultsUpdating, UISe
         return nil;
     }
     
+    func bindSearchResult() {
+        self.rac_signalForSelector("updateSearchResultsForSearchController:", fromProtocol: NSProtocolFromString("UISearchResultsUpdating")).throttle(0.3).subscribeNext {[weak self] (object: AnyObject!) -> Void in
+            if let strongSelf = self {
+                if let tuple = object as? RACTuple {
+                    let searchController = tuple.first as! UISearchController;
+                    let searchWord = searchController.searchBar.text ?? "";
+                    if searchWord.isEmpty {
+                        strongSelf.viewModel.setDataSource(nil);
+                        searchController.searchBar.searchLoading = false;
+                    } else {
+                        searchController.searchBar.searchLoading = true;
+                        let searchParams = TTPOISearchParams(searchKeywords:searchWord, searchRegion:strongSelf.searchRegion!);
+                        if let disposable = strongSelf.searchDisposable {
+                            disposable.dispose();
+                        }
+                        strongSelf.searchDisposable = strongSelf.viewModel.updateSugCommand.execute(searchParams).deliverOn(RACScheduler.mainThreadScheduler()).subscribeError({ (error: NSError!) -> Void in
+                            searchController.searchBar.searchLoading = false;
+                            var description: String!;
+                            AMapSearchErrorCode.TimeOut
+                            switch (error.domain, AMapSearchErrorCode(rawValue: error.code) ?? AMapSearchErrorCode.Unknown) {
+                            case ("RACCommandErrorDomain", _):
+                                description = "😭我跟不上您的速度啦";
+                            case (_, .OK), (_, .Cancelled):
+                                description = nil;
+                            case (_, .TimeOut):
+                                description = "网络超时，请重试！";
+                            case (_, .NotConnectedToInternet):
+                                description = "网络连接失败，请检查网络！";
+                            default:
+                                description = "服务器ooxx啦，请稍后重试！"
+                            }
+                            
+                            if let errorDescription = description {
+                                OBShowToast(errorDescription);
+                            }
+                            }, completed: { () -> Void in
+                                searchController.searchBar.searchLoading = false;
+                        });
+                    }
+                }
+            }
+        }
+    }
+    
     //MARK: - UISearchResultsUpdating
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         self.view.hidden = false;
         self.searchController = searchController;
-        searchController.searchBar.delegate = searchController.searchBar.delegate ?? self;
-        let searchWord = searchController.searchBar.text ?? "";
-        if searchWord.isEmpty {
-            self.poiSearchEngine.cancelUpdate();
-            self.dataSource.setDataSource(nil);
-            searchController.searchBar.searchLoading = false;
-        } else {
-            searchController.searchBar.searchLoading = true;
-            self.poiSearchEngine.updateSuggestion(searchWord, region: self.searchRegion, completion: { (object: [[OBBaseComponentModel]]?, error: NSError?) -> Void in
-                searchController.searchBar.searchLoading = false;
-                
-                if let errorCode = (error != nil ? AMapSearchErrorCode(rawValue: error!.code) : nil) {
-                    var description: String? = nil;
-                    switch errorCode {
-                    case .OK, .Cancelled:
-                        description = nil;
-                    case .TimeOut:
-                        description = "网络超时，请重试！";
-                    case .NotConnectedToInternet:
-                        description = "网络连接失败，请检查网络！";
-                    default:
-                        description = "服务器ooxx啦，请稍后重试！"
-                    }
-                    
-                    if let errorDescription = description {
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            OBShowToast(errorDescription);
-                        })
-                    }
-                }
-            });
-        }
-        OBLog("\(searchController.searchBar.text)");
     }
     
     //MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.dataSource.tableView(tableView, heightForRowAtIndexPath: indexPath);
+        return self.viewModel.tableView(tableView, heightForRowAtIndexPath: indexPath);
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false);
-        if let poiCell = tableView.cellForRowAtIndexPath(indexPath) as? TTPOICell {
-            self.selectedPoi = poiCell.poiModel?.poi;
+        if let poiModel = self.viewModel.modelWithIndexPath(indexPath) as? TTPOIModel {
+            self.selectedPoi = poiModel;
             self.searchController?.searchBar.resignFirstResponder();
         }
     }
@@ -187,16 +204,9 @@ class TTPOISearchController: TTBaseViewController, UISearchResultsUpdating, UISe
 
     // called when keyboard search button pressed
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        if let poiModel = (self.dataSource.firstObject as? TTPOIModel)?.poi {
+        if let poiModel = self.viewModel.firstObject as? TTPOIModel {
             self.selectedPoi = poiModel;
             self.searchController?.searchBar.resignFirstResponder();
-        }
-    }
-    
-    //MARK: Notification handler
-    func upScreenNotifacationHandler(notifacation: NSNotification) {
-        if let searchWord = notifacation.userInfo?["word"] as? String {
-            self.searchController?.searchBar.text = searchWord;
         }
     }
 }

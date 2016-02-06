@@ -18,6 +18,7 @@ target 'TimeTraveller' do
     #pod 'Bugtags',                      '~> 1.1.7'          # Bug reporting for mobile apps
     pod 'PINCache', 					'~> 2.1'			# Fast, thread safe, parallel object cache for iOS and OS X.
     pod 'ReactiveCocoa', 				'~> 4.0.4-alpha-4'	# A framework for composing and transforming streams of values
+    #pod 'RxSwift',                      '~> 2.1.0'          # RxSwift is a Swift implementation of Reactive Extensions
     pod 'Alamofire',                    '~> 3.0'            # Elegant HTTP Networking in Swift
     #pod 'UMengAnalytics',               '~> 3.6.6'          # 友盟统计分析SDK(含IDFA版本):56b17cad67e58ee747002a26
     pod 'UMengAnalytics-NO-IDFA',       '~> 3.6.7'          # 友盟统计分析SDK(无IDFA版):56b17cad67e58ee747002a26

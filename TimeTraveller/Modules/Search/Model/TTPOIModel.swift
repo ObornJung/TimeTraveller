@@ -12,5 +12,8 @@ let kTTPOIModelKey = "poiItem"
 
 class TTPOIModel: OBBaseComponentModel {
     
-    var poi: AMapPOI?;
+    var name: String?;
+    var tzName: String?;
+    var address: String?;
+    var coordinate: CLLocationCoordinate2D?;
 }

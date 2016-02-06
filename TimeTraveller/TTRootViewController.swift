@@ -11,9 +11,12 @@ import SnapKit
 
 class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
     
-    let searchController  = TTPOISearchController();
-    var searchBarController: UISearchController!;
+    let rteDashboard = TTDateDashboard();
     let mapViewController = TTMapViewController();
+    var searchBarController: UISearchController!;
+    let searchController  = TTPOISearchController();
+
+    let testViewModel = TTDateViewModel();
     
     override func setupViews() {
         
@@ -35,9 +38,29 @@ class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
         self.searchBarController.hidesNavigationBarDuringPresentation = false;
         self.searchBarController.searchResultsUpdater = self.searchController;
         self.searchBarController.searchBar.searchBarStyle = .Minimal;
-        self.searchBarController.searchBar.placeholder    = NSLocalizedString("location_search", comment: "搜索");
+        self.searchBarController.searchBar.delegate       = self.searchController;
+        self.searchBarController.searchBar.placeholder    = NSLocalizedString("location_search", comment: "search placeholder");
         self.definesPresentationContext = true;
         self.navigationItem.titleView   = self.searchBarController.searchBar;
+        
+        /**
+        *    setup current evn dashboard
+        */
+        self.view.addSubview(self.rteDashboard);
+        self.rteDashboard.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(160, 50));
+//            make.size.equalTo(self.rteDashboard.sizeThatFits(CGSizeZero));
+            make.trailing.bottom.equalTo(self.view).offset(-4);
+        }
+        
+//        self.testViewModel.updateCommand.execute(12).subscribeNext { (object: AnyObject!) -> Void in
+//            OBLog("\(object)");
+//        };
+        self.testViewModel.updateCommand.execute("test").subscribeNext({ (object: AnyObject!) -> Void in
+            OBLog("\(object)");
+            }) { (error: NSError!) -> Void in
+                OBLog("\(error)");
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,12 +79,12 @@ class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
     }
     
     func willDismissSearchController(searchController: UISearchController) {
-        if let annocationPOI = self.searchController.selectedPoi {
-            self.mapViewController.addAnnocationPOI(annocationPOI);
-            let centerCoordinate = CLLocationCoordinate2D(latitude: Double(annocationPOI.location.latitude),
-                longitude: Double(annocationPOI.location.longitude));
-            self.mapViewController.mapView.setCenterCoordinate(centerCoordinate, animated: true);
-        }
+//        if let annocationPOI = self.searchController.selectedPoi {
+//            self.mapViewController.addAnnocationPOI(annocationPOI);
+//            let centerCoordinate = CLLocationCoordinate2D(latitude: Double(annocationPOI.location.latitude),
+//                longitude: Double(annocationPOI.location.longitude));
+//            self.mapViewController.mapView.setCenterCoordinate(centerCoordinate, animated: true);
+//        }
     }
 }
 

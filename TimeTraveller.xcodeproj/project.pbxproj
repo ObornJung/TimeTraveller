@@ -14,11 +14,10 @@
 		371A63391C5089C700307CCF /* map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 371A63381C5089C700307CCF /* map.xcassets */; };
 		371A633B1C508AE800307CCF /* TTAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A633A1C508AE800307CCF /* TTAnnotationView.swift */; };
 		371A633E1C508D8900307CCF /* TTPOIAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A633D1C508D8900307CCF /* TTPOIAnnotation.swift */; };
-		3722B69F1C59C64500139E17 /* TTPOISearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B69E1C59C64500139E17 /* TTPOISearchDataSource.swift */; };
-		3722B6A21C59F22700139E17 /* TTPOIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A11C59F22700139E17 /* TTPOIEngine.swift */; };
 		3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A31C59F52700139E17 /* TTPOICell.swift */; };
 		3722B6A61C59F78D00139E17 /* TTPOIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A51C59F78D00139E17 /* TTPOIModel.swift */; };
 		3722B6A91C59FFA700139E17 /* TTStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A81C59FFA700139E17 /* TTStyle.swift */; };
+		3754E59B1C63263C004A0C7D /* TTDateDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754E59A1C63263C004A0C7D /* TTDateDashboard.swift */; };
 		3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786A1E41C4E38D600135329 /* TTMapViewController.swift */; };
 		37E4892C1C48A435006ABDBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4892B1C48A435006ABDBB /* AppDelegate.swift */; };
 		37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4892D1C48A435006ABDBB /* TTRootViewController.swift */; };
@@ -33,6 +32,9 @@
 		37E489721C48C617006ABDBB /* OBDebugTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E489701C48C617006ABDBB /* OBDebugTools.swift */; };
 		37E489751C48C92B006ABDBB /* TTBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E489741C48C92B006ABDBB /* TTBaseService.swift */; };
 		37E489871C48F0A2006ABDBB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E489861C48F0A2006ABDBB /* MapKit.framework */; };
+		37E507D91C6484E1000DC01E /* TTDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E507D81C6484E1000DC01E /* TTDateViewModel.swift */; };
+		37E507DB1C648DB1000DC01E /* TTDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E507DA1C648DB1000DC01E /* TTDateModel.swift */; };
+		37E507DE1C649751000DC01E /* TTPOIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E507DD1C649750000DC01E /* TTPOIViewModel.swift */; };
 		37F7DDDC1C58658B00F57D92 /* TTPOISearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7DDDB1C58658B00F57D92 /* TTPOISearchController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,11 +47,10 @@
 		371A63381C5089C700307CCF /* map.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = map.xcassets; sourceTree = "<group>"; };
 		371A633A1C508AE800307CCF /* TTAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTAnnotationView.swift; sourceTree = "<group>"; };
 		371A633D1C508D8900307CCF /* TTPOIAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOIAnnotation.swift; sourceTree = "<group>"; };
-		3722B69E1C59C64500139E17 /* TTPOISearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOISearchDataSource.swift; sourceTree = "<group>"; };
-		3722B6A11C59F22700139E17 /* TTPOIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTPOIEngine.swift; path = Model/TTPOIEngine.swift; sourceTree = "<group>"; };
 		3722B6A31C59F52700139E17 /* TTPOICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOICell.swift; sourceTree = "<group>"; };
 		3722B6A51C59F78D00139E17 /* TTPOIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOIModel.swift; sourceTree = "<group>"; };
 		3722B6A81C59FFA700139E17 /* TTStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTStyle.swift; sourceTree = "<group>"; };
+		3754E59A1C63263C004A0C7D /* TTDateDashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTDateDashboard.swift; sourceTree = "<group>"; };
 		3786A1E41C4E38D600135329 /* TTMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTMapViewController.swift; sourceTree = "<group>"; };
 		37E489281C48A435006ABDBB /* TimeTraveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTraveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E4892B1C48A435006ABDBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		37E489701C48C617006ABDBB /* OBDebugTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OBDebugTools.swift; sourceTree = "<group>"; };
 		37E489741C48C92B006ABDBB /* TTBaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTBaseService.swift; sourceTree = "<group>"; };
 		37E489861C48F0A2006ABDBB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		37E507D81C6484E1000DC01E /* TTDateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTDateViewModel.swift; sourceTree = "<group>"; };
+		37E507DA1C648DB1000DC01E /* TTDateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTDateModel.swift; sourceTree = "<group>"; };
+		37E507DD1C649750000DC01E /* TTPOIViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOIViewModel.swift; sourceTree = "<group>"; };
 		37F7DDDB1C58658B00F57D92 /* TTPOISearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOISearchController.swift; sourceTree = "<group>"; };
 		5CF4397E2DCF84F38456E7E3 /* Pods-TimeTraveller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTraveller.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller.release.xcconfig"; sourceTree = "<group>"; };
 		651FCB6891A9248C92149836 /* Pods_TimeTraveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeTraveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				3722B6A51C59F78D00139E17 /* TTPOIModel.swift */,
-				3722B69E1C59C64500139E17 /* TTPOISearchDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,7 +117,6 @@
 		3722B6A01C59F1C400139E17 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				3722B6A11C59F22700139E17 /* TTPOIEngine.swift */,
 				3716EAA11C5B11AD0007822E /* TTPOISearchService.swift */,
 			);
 			name = Service;
@@ -126,6 +128,37 @@
 				3722B6A81C59FFA700139E17 /* TTStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		3754E5961C62EC0A004A0C7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3754E59A1C63263C004A0C7D /* TTDateDashboard.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3754E5971C62EC1A004A0C7D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3754E5981C62EC26004A0C7D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				37E507D81C6484E1000DC01E /* TTDateViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3754E5991C62EE17004A0C7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37E507DA1C648DB1000DC01E /* TTDateModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3786A1E11C4E107100135329 /* Map */ = {
@@ -283,6 +316,10 @@
 		37E489761C48DECA006ABDBB /* LocationTime */ = {
 			isa = PBXGroup;
 			children = (
+				3754E5991C62EE17004A0C7D /* Model */,
+				3754E5961C62EC0A004A0C7D /* View */,
+				3754E5981C62EC26004A0C7D /* ViewModel */,
+				3754E5971C62EC1A004A0C7D /* Controller */,
 				3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */,
 			);
 			path = LocationTime;
@@ -295,12 +332,21 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		37E507DC1C6496DE000DC01E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				37E507DD1C649750000DC01E /* TTPOIViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		37F7DDD81C5864A800F57D92 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				3722B6A01C59F1C400139E17 /* Service */,
 				3722B69D1C59C60700139E17 /* Model */,
 				37F7DDDA1C58650D00F57D92 /* View */,
+				37E507DC1C6496DE000DC01E /* ViewModel */,
 				37F7DDD91C58650500F57D92 /* ViewController */,
 			);
 			path = Search;
@@ -471,22 +517,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E489721C48C617006ABDBB /* OBDebugTools.swift in Sources */,
-				3722B69F1C59C64500139E17 /* TTPOISearchDataSource.swift in Sources */,
 				37E489671C48B6F8006ABDBB /* TTBaseNavigationController.swift in Sources */,
 				371A633E1C508D8900307CCF /* TTPOIAnnotation.swift in Sources */,
 				3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */,
 				37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */,
-				3722B6A21C59F22700139E17 /* TTPOIEngine.swift in Sources */,
 				37F7DDDC1C58658B00F57D92 /* TTPOISearchController.swift in Sources */,
 				3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */,
 				37E489641C48B6F2006ABDBB /* TTBaseView.swift in Sources */,
 				37E489751C48C92B006ABDBB /* TTBaseService.swift in Sources */,
 				37E4892C1C48A435006ABDBB /* AppDelegate.swift in Sources */,
+				3754E59B1C63263C004A0C7D /* TTDateDashboard.swift in Sources */,
 				37E4896B1C48C4EE006ABDBB /* TTLocationCenter.swift in Sources */,
 				37E489341C48A435006ABDBB /* TimeTraveller.xcdatamodeld in Sources */,
 				37E489711C48C617006ABDBB /* TTAppStateManager.swift in Sources */,
+				37E507D91C6484E1000DC01E /* TTDateViewModel.swift in Sources */,
 				3722B6A61C59F78D00139E17 /* TTPOIModel.swift in Sources */,
 				37E489681C48B6F8006ABDBB /* TTBaseViewController.swift in Sources */,
+				37E507DE1C649751000DC01E /* TTPOIViewModel.swift in Sources */,
+				37E507DB1C648DB1000DC01E /* TTDateModel.swift in Sources */,
 				3722B6A91C59FFA700139E17 /* TTStyle.swift in Sources */,
 				3717A2701C51D01F0073C3A6 /* CLLocation+date.swift in Sources */,
 				371A633B1C508AE800307CCF /* TTAnnotationView.swift in Sources */,

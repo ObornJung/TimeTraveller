@@ -19,6 +19,7 @@ PODS:
     - ReactiveCocoa/Core
     - Result (~> 1.0)
   - Result (1.0.1)
+  - RxSwift (2.1.0)
   - SDWebImage (3.7.4):
     - SDWebImage/Core (= 3.7.4)
   - SDWebImage/Core (3.7.4)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - OBUIKit (from `~/Documents/个人资料/iOS/own project/OBUIKit/`)
   - PINCache (~> 2.1)
   - ReactiveCocoa (~> 4.0.4-alpha-4)
+  - RxSwift (~> 2.1.0)
   - SDWebImage (~> 3.7.0)
   - SnapKit (~> 0.18.0)
   - Toast (~> 3.0)
@@ -55,6 +57,7 @@ SPEC CHECKSUMS:
   PINCache: 8606387ff297ad6b1521cd8f779b4fa42d652e01
   ReactiveCocoa: 375f369f5e1f23a75dea2a3c1960a4428a13bad3
   Result: 3ee1e5721399cdd838b0463cd33735d78aebdb0c
+  RxSwift: 62bd38ec6f3b83c611e493891a6f30d11239ee19
   SDWebImage: ae3e736f675caceb97674e71212c0d742ce9e830
   SnapKit: 25179855070a5c5f8e426805b675c01a48f484cb
   Toast: e6b854bd074b7a1e539c6c4f830e77a7fa2cd5a0

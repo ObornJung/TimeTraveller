@@ -14,7 +14,10 @@ class TTPOIAnnotation: MKShape {
     private(set) var poi: AMapPOI!;
     
     override var coordinate: CLLocationCoordinate2D {
-        return self.location.coordinate;
+        if self.location != nil {
+            return self.location.coordinate;
+        }
+        return CLLocationCoordinate2DMake(Double(self.poi.location.latitude), Double(self.poi.location.longitude));
     }
     
     init(location: CLLocation) {
