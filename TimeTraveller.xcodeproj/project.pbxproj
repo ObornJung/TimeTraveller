@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C5621E056F0CF1C8B6F1136 /* Pods_TimeTraveller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651FCB6891A9248C92149836 /* Pods_TimeTraveller.framework */; };
+		3701F94B1CB62C2E00F14329 /* TTDateDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3701F94A1CB62C2E00F14329 /* TTDateDashboardController.swift */; };
 		3716EAA21C5B11AD0007822E /* TTPOISearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3716EAA11C5B11AD0007822E /* TTPOISearchService.swift */; };
 		3717A2701C51D01F0073C3A6 /* CLLocation+date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */; };
 		3717A2731C51D77F0073C3A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3717A2751C51D77F0073C3A6 /* Localizable.strings */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3701F94A1CB62C2E00F14329 /* TTDateDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTDateDashboardController.swift; sourceTree = "<group>"; };
 		3716EAA11C5B11AD0007822E /* TTPOISearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOISearchService.swift; sourceTree = "<group>"; };
 		3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CLLocation+date.swift"; path = "../Location/CLLocation+date.swift"; sourceTree = "<group>"; };
 		3717A2761C51D7B60073C3A6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		3754E5971C62EC1A004A0C7D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3701F94A1CB62C2E00F14329 /* TTDateDashboardController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				37E507DE1C649751000DC01E /* TTPOIViewModel.swift in Sources */,
 				37E507DB1C648DB1000DC01E /* TTDateModel.swift in Sources */,
 				3722B6A91C59FFA700139E17 /* TTStyle.swift in Sources */,
+				3701F94B1CB62C2E00F14329 /* TTDateDashboardController.swift in Sources */,
 				3717A2701C51D01F0073C3A6 /* CLLocation+date.swift in Sources */,
 				371A633B1C508AE800307CCF /* TTAnnotationView.swift in Sources */,
 				3716EAA21C5B11AD0007822E /* TTPOISearchService.swift in Sources */,
@@ -669,6 +673,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TimeTraveller/TimeTraveller-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -691,6 +696,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TimeTraveller/TimeTraveller-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -751,6 +757,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TimeTraveller/TimeTraveller-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = AdHoc;
 		};

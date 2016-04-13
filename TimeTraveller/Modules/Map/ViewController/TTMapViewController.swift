@@ -11,14 +11,16 @@ import MapKit
 
 class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     
-    lazy var mapView: MKMapView = {
+    let mapView: MKMapView = {
         let mapView      = MKMapView();
         mapView.mapType  = .Standard;
-        mapView.delegate = self;
         return mapView;
     }();
     
+    private(set) var currentCoordinate: CLLocationCoordinate2D?;
+    
     override func loadView() {
+        self.mapView.delegate = self;
         self.view = mapView;
     }
     
@@ -26,7 +28,6 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         /**
          *    setup add annotation gesture
          */
-        
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: "longPressGesture:");
         self.mapView.addGestureRecognizer(longPressGesture);
         self.mapView.showsUserLocation = true;
@@ -46,7 +47,7 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in 
             
             if let currentLocation = location {
-                
+                self.currentCoordinate = currentLocation.coordinate;
                 let currentLocationSpan = MKCoordinateSpanMake(0.03, 0.03)
                 let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: currentLocation.coordinate,
                                                                              span: currentLocationSpan)
@@ -64,18 +65,18 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
             objectAnnotation.title = "加载中...";
             self.mapView.addAnnotation(objectAnnotation)
             
-            location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-                if (error == nil && placemarks?.count > 0) {
-                    let currentDate = NSDate();
-                    objectAnnotation.title = placemarks?.first?.name ?? "";
-                    let zoneTime = location.locationDateString(currentDate, true);
-                    objectAnnotation.subtitle = "\(zoneTime)\n绝对时间: \(location.absoluteLocationDateString(currentDate))";
+//            location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+//                if (error == nil && placemarks?.count > 0) {
+//                    let currentDate = NSDate();
+//                    objectAnnotation.title = placemarks?.first?.name ?? "";
+//                    let zoneTime = location.locationDateString(currentDate);
+//                    objectAnnotation.subtitle = "\(zoneTime)\n绝对时间: \(location.absoluteLocationDateString(currentDate))";
 //                    objectAnnotation.subtitle = "中国时间:2016-02-03 11:07:56 (东八区)\n绝对时间:2016-02-03 11:00:23\n时区偏差:2小时23分32秒";
-                    
-                } else {
-                    OBLog("\(error)");
-                }
-            });
+//                    
+//                } else {
+//                    OBLog("\(error)");
+//                }
+//            });
         }
     }
     
@@ -108,7 +109,7 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
 //    func mapViewDidFinishRenderingMap(mapView: MKMapView, fullyRendered: Bool) {
 //        print("渲染下载的地图结束时调用")
 //    }
-//    
+//
     func mapViewWillStartLocatingUser(mapView: MKMapView) {
         print("正在跟踪用户的位置")
     }
@@ -116,11 +117,11 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     func mapViewDidStopLocatingUser(mapView: MKMapView) {
         print("停止跟踪用户的位置")
     }
+
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        self.currentCoordinate = userLocation.coordinate;
+    }
 //
-//    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-//        print("更新用户的位置")
-//    }
-//    
 //    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
 //        print("跟踪用户的位置失败")
 //    }

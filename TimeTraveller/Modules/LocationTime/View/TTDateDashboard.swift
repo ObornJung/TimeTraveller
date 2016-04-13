@@ -6,12 +6,19 @@
 //  Copyright © 2016 Oborn.Jung. All rights reserved.
 //
 
+import ReactiveCocoa
+
 class TTDateDashboard: TTBaseView {
     
-    let addrName  = UILabel();
-    let zoneTime  = UILabel();
-    let localTime = UILabel();
-    let deltaTime = UILabel();
+    let zoneTime  = MutableProperty<String?>("");
+    let localTime = MutableProperty<String?>("");
+    let deltaTime = MutableProperty<String?>("");
+    
+    //MARK: - Private property
+    private let addrNameLable  = UILabel();
+    private let zoneTimeLable  = UILabel();
+    private let localTimeLable = UILabel();
+    private let deltaTimeLable = UILabel();
     
     override func setupViews() {
         super.setupViews();
@@ -34,50 +41,51 @@ class TTDateDashboard: TTBaseView {
         blurBgView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self);
         }
-        
-//        self.addrName.numberOfLines = 2;
-//        self.addrName.font = TTStyle.font(10);
-//        self.addrName.textColor = TT_BlackText_Color;
-//        self.addrName.adjustsFontSizeToFitWidth = true;
-//        self.addrName.text = "陆家嘴世纪金融广场";
-//        self.addSubview(self.addrName);
-//        self.addrName.snp_makeConstraints { (make) -> Void in
-//            make.trailing.equalTo(self).offset(-self.layer.cornerRadius);
-//            make.top.leading.equalTo(self).offset(self.layer.cornerRadius);
-//            make.height.equalTo(self.addrName.sizeThatFits(CGSizeZero).height*2);
-//        }
-        
-        self.zoneTime.font = TTStyle.font(10);
-        self.zoneTime.textColor = TT_BlackText_Color;
-        self.zoneTime.adjustsFontSizeToFitWidth = true;
-        self.zoneTime.text = "中国时间: 2016-02-04 15:06:55";
-        self.addSubview(self.zoneTime);
-        self.zoneTime.snp_makeConstraints { (make) -> Void in
+        /**
+        *    setup zone time label
+        */
+        self.zoneTimeLable.textAlignment = .Left;
+        self.zoneTimeLable.font = TTStyle.font(10);
+        self.zoneTimeLable.textColor = TT_BlackText_Color;
+        self.zoneTimeLable.adjustsFontSizeToFitWidth = true;
+        self.addSubview(self.zoneTimeLable);
+        self.zoneTimeLable.snp_makeConstraints { (make) -> Void in
             make.trailing.equalTo(self).offset(-self.layer.cornerRadius);
             make.top.leading.equalTo(self).offset(self.layer.cornerRadius);
         }
-        
-        self.localTime.font = self.zoneTime.font;
-        self.localTime.textColor = self.zoneTime.textColor;
-        self.localTime.adjustsFontSizeToFitWidth = true;
-        self.localTime.text = "绝对时间: 2016-02-04 15:06:55";
-        self.addSubview(self.localTime);
-        self.localTime.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.zoneTime.snp_bottom);
+        self.zoneTime.producer.startWithNext({ [weak self] (text) -> () in
+            self?.zoneTimeLable.text = "官方时间: \(text ?? "")";
+        });
+        /**
+        *    setup local time label
+        */
+        self.localTimeLable.font = self.zoneTimeLable.font;
+        self.localTimeLable.textColor = self.zoneTimeLable.textColor;
+        self.localTimeLable.adjustsFontSizeToFitWidth = true;
+        self.addSubview(self.localTimeLable);
+        self.localTimeLable.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.zoneTimeLable.snp_bottom);
             make.leading.equalTo(self).offset(self.layer.cornerRadius);
             make.trailing.equalTo(self).offset(-self.layer.cornerRadius);
         }
-        
-        self.deltaTime.font = self.zoneTime.font;
-        self.deltaTime.textColor = self.zoneTime.textColor;
-        self.deltaTime.adjustsFontSizeToFitWidth = true;
-        self.deltaTime.text = "标准时差: 2小时32分钟10秒";
-        self.addSubview(self.deltaTime);
-        self.deltaTime.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.localTime.snp_bottom);
+        self.localTime.producer.startWithNext { [weak self] (text) -> () in
+            self?.localTimeLable.text = "绝对时间: \(text ?? "")";
+        }
+        /**
+        *    setup delta time label
+        */
+        self.deltaTimeLable.font = self.zoneTimeLable.font;
+        self.deltaTimeLable.textColor = self.zoneTimeLable.textColor;
+        self.deltaTimeLable.adjustsFontSizeToFitWidth = true;
+        self.addSubview(self.deltaTimeLable);
+        self.deltaTimeLable.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.localTimeLable.snp_bottom);
             make.leading.equalTo(self).offset(self.layer.cornerRadius);
             make.trailing.equalTo(self).offset(-self.layer.cornerRadius);
             make.bottom.equalTo(self.snp_bottom).offset(-self.layer.cornerRadius);
+        }
+        self.deltaTime.producer.startWithNext { [weak self] (text) -> () in
+            self?.deltaTimeLable.text = "标准时差: \(text ?? "")";
         }
     }
 }

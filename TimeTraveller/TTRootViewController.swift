@@ -8,15 +8,26 @@
 
 import UIKit
 import SnapKit
+import ReactiveCocoa
 
 class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
     
-    let rteDashboard = TTDateDashboard();
-    let mapViewController = TTMapViewController();
     var searchBarController: UISearchController!;
+    let mapViewController = TTMapViewController();
     let searchController  = TTPOISearchController();
+    let rtDashboardController = TTDateDashboardController();
 
-    let testViewModel = TTDateViewModel();
+    var currentLocationViewModel: TTDateViewModel?;
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        self.hiddenNavBar(hidden:false, animated: animated);
+    }
     
     override func setupViews() {
         
@@ -46,31 +57,16 @@ class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
         /**
         *    setup current evn dashboard
         */
-        self.view.addSubview(self.rteDashboard);
-        self.rteDashboard.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(160, 50));
-//            make.size.equalTo(self.rteDashboard.sizeThatFits(CGSizeZero));
+        self.view.addSubview(self.rtDashboardController.view);
+        self.addChildViewController(self.rtDashboardController);
+        self.rtDashboardController.view.snp_makeConstraints { (make) -> Void in
             make.trailing.bottom.equalTo(self.view).offset(-4);
         }
-        
-//        self.testViewModel.updateCommand.execute(12).subscribeNext { (object: AnyObject!) -> Void in
-//            OBLog("\(object)");
-//        };
-        self.testViewModel.updateCommand.execute("test").subscribeNext({ (object: AnyObject!) -> Void in
-            OBLog("\(object)");
-            }) { (error: NSError!) -> Void in
-                OBLog("\(error)");
-        }
     }
+    
+    override func bindViewModel() {
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
-        self.hiddenNavBar(false, animated: animated);
+//        self.currentLocationViewModel = TTDateViewModel(coordinate: self.mapViewController.currentCoordinate);
     }
 
     //MARK: - UISearchControllerDelegate

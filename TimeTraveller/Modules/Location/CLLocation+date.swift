@@ -40,7 +40,7 @@ extension CLLocation {
         }
     }
     
-    private(set) var placemarks: [CLPlacemark]? {
+    var placemarks: [CLPlacemark]? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.placemarks) as? [CLPlacemark];
         }
@@ -63,7 +63,7 @@ extension CLLocation {
     class func currentAbsoluteLocationDateString(date: NSDate, completion: TTLocationDataCompletionHandler?) {
         TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in
             if let currentLocation = location {
-                completion?(currentLocation.absoluteLocationDateString(date), nil);
+                completion?(currentLocation.locationDateString(date), nil);
             } else {
                 completion?(nil, error);
             }
@@ -81,7 +81,7 @@ extension CLLocation {
         TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in
             if let currentLocation = location {
                 currentLocation.updatePlacemarks({[weak currentLocation] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-                    completion?(currentLocation?.locationDateString(date, showTZName), error);
+                    completion?(currentLocation?.zoneTimeDateString(date, showTZName), error);
                 });
             } else {
                 completion?(nil, error);
@@ -112,7 +112,7 @@ extension CLLocation {
      
      - returns: 给定日期的绝对时间
      */
-    func absoluteLocationDateString(date: NSDate) -> String {
+    func locationDateString(date: NSDate) -> String {
         let offset = self.coordinate.longitude * kTTSecondsOneLongitude;
         let absoluteDate = NSDate(timeInterval: offset, sinceDate: date);
         let formatter = CLLocation.dateFormatter;
@@ -129,7 +129,7 @@ extension CLLocation {
      - parameter date:       日期，默认值当前时间
      - parameter showTZName: 是否显示时区名
      */
-    func locationDateString(date: NSDate, _ showTZName: Bool = false) -> String {
+    func zoneTimeDateString(date: NSDate, _ showTZName: Bool = false) -> String {
         
         let formatter = CLLocation.dateFormatter;
         formatter.locale     = NSLocale.currentLocale();
@@ -137,6 +137,14 @@ extension CLLocation {
         formatter.timeZone = self.placemarks?.last?.timeZone ?? NSTimeZone(forSecondsFromGMT: self.timeZone * kTTSecondsOneTimeZone);
         
         return formatter.stringFromDate(date);
+    }
+    
+    func deltaTFromZoneTime2Location() -> String {
+        let timeZone01 = self.placemarks?.last?.timeZone ?? NSTimeZone(forSecondsFromGMT: self.timeZone * kTTSecondsOneTimeZone);
+        let deltaT = Double(timeZone01.secondsFromGMT) - round(self.coordinate.longitude * kTTSecondsOneLongitude);
+        let formatter = CLLocation.dateFormatter;
+        formatter.dateFormat = deltaT > 0 ? "HH:mm:ss" : "-HH:mm:ss";
+        return formatter.stringFromDate(NSDate(timeIntervalSince1970: fabs(deltaT)));
     }
     
     /**

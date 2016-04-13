@@ -22,20 +22,22 @@ class TTBaseViewController: UIViewController {
         return UIInterfaceOrientationMask.AllButUpsideDown;
     }
     
-    func hiddenNavBar(hidden: Bool, animated: Bool = false) {
+    func hiddenNavBar(hidden hidden: Bool, animated: Bool = false) {
         self.navigationController?.setNavigationBarHidden(hidden, animated: animated);
     }
     
-    func hiddenTabBar(hidden: Bool) {
+    func hiddenTabBar(hidden hidden: Bool) {
         self.tabBarController?.tabBar.hidden = hidden;
     }
     
     override func viewDidLoad() {
         super.viewDidLoad();
         self.setupViews();
+        self.bindViewModel();
     }
     
     func setupViews() {}
+    func bindViewModel() {}
     
     func pushViewController(viewController: UIViewController, animated: Bool) {
         self.navigationController?.pushViewController(viewController, animated: animated);

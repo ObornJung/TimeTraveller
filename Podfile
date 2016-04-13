@@ -13,7 +13,7 @@ target 'TimeTraveller' do
     # open source library
     source 'http://gitlab.alibaba-inc.com/alipods/specs-mirror.git'
     # source 'https://github.com/CocoaPods/Specs.git'
-    pod 'SnapKit', 						'~> 0.18.0'			# auto layout
+    pod 'SnapKit', 						'~> 0.19.1'			# auto layout
     pod 'SDWebImage', 					'~> 3.7.0'			# UIImageView load for web
     #pod 'Bugtags',                      '~> 1.1.7'          # Bug reporting for mobile apps
     pod 'PINCache', 					'~> 2.1'			# Fast, thread safe, parallel object cache for iOS and OS X.

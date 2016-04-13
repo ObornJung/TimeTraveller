@@ -9,22 +9,82 @@
 import MapKit
 import ReactiveCocoa
 
-class TTDateViewModel: NSObject {
+final class TTDateViewModel: NSObject {
     
-    let dateModel = TTDateModel();
+    //MARK: - input
+    var coordinate: CLLocationCoordinate2D!
+//        {
+//        willSet {
+//            if coordinate == nil || self.location.coordinate.longitude != newValue.longitude
+//                || self.location.coordinate.latitude != self.location.coordinate.latitude {
+//                self.location = CLLocation(coordinate: newValue);
+//                self.action.apply(true).start();
+//            }
+//        }
+//    }
     
-    let updateCommand: RACCommand = {
-        return RACCommand { (input: AnyObject!) -> RACSignal! in
-            return RACSignal.createSignal({ (subscriber: RACSubscriber!) -> RACDisposable! in
-                if let location = input as? CLLocation {
-                    subscriber.sendNext(location);
-                    subscriber.sendCompleted();
-                } else {
-                    subscriber.sendError(NSError(domain: "input parameter error!", code: 0, userInfo: nil));
+    var updateInterval: NSTimeInterval? {
+        willSet {
+            if newValue != updateInterval {
+                self.updateTimer?.fire();
+                self.updateTimer = nil;
+            }
+            if let interval = newValue {
+                self.updateTimer = NSTimer(timeInterval: interval, target: self,
+                    selector: "updateTimerHander:", userInfo: nil, repeats: true);
+            }
+        }
+    }
+    
+    var pulseAction: Action<Int, AnyClass, NSError>?;
+
+    //MARK: - output
+    let dateModel: TTDateModel = TTDateModel();
+
+    //MARK: - private property
+    private lazy var action: Action<Bool, TTDateModel, NSError> = {
+        return Action(){[unowned self] input in
+            return SignalProducer(){ observer, disposable in
+                
+                let updateDateClosure = {
+                    let dateOfNow = NSDate();
+                    self.dateModel.deltaDate.value = self.location.deltaTFromZoneTime2Location();
+                    self.dateModel.localDate.value = self.location.locationDateString(dateOfNow);
+                    self.dateModel.zoneDate.value  = self.location.zoneTimeDateString(dateOfNow);
+                    observer.sendCompleted();
                 }
-                return nil;
-            })
+                
+                if input {  ///< 需要更新placemarks
+                    CLGeocoder().reverseGeocodeLocation(self.location) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                        if error == nil {
+                            self.location.placemarks = placemarks;
+                            updateDateClosure();
+                        } else {
+                            observer.sendFailed(error!);
+                        }
+                    }
+                } else {
+                    updateDateClosure();
+                }
+            };
         }
     }();
     
+    private var updateTimer: NSTimer?;
+    
+    private var location: CLLocation!;
+    
+    //MARK: - methods
+    convenience init(coordinate: CLLocationCoordinate2D) {
+        self.init();
+        self.coordinate = coordinate;
+    }
+    
+    deinit {
+        self.updateInterval = nil;
+    }
+    
+    func updateTimerHander(timer: NSTimer) {
+        self.action.apply(false).start();
+    }
 }
