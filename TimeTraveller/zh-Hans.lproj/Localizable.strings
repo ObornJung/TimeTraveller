@@ -15,5 +15,11 @@
 /**
  *    business localizable string define
  */
-"location_search"          = "搜索地点或地址";
-"location_forbid_tips"     = "没有定位权限哦，请确认系统定位已打开，并开启APP定位权限.";
+"location_search"           = "搜索地点或地址";
+"location_forbid_tips"      = "没有定位权限哦，请确认系统定位已打开，并开启APP定位权限.";
+/**
+ *    dashboard label
+ */
+"dashboard_zone_label"      = "官方时间: ";
+"dashboard_absolute_label"  = "绝对时间: ";
+"dashboard_delta_label"     = "标准时差: ";

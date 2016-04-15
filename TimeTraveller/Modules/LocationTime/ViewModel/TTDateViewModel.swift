@@ -12,79 +12,30 @@ import ReactiveCocoa
 final class TTDateViewModel: NSObject {
     
     //MARK: - input
-    var coordinate: CLLocationCoordinate2D!
-//        {
-//        willSet {
-//            if coordinate == nil || self.location.coordinate.longitude != newValue.longitude
-//                || self.location.coordinate.latitude != self.location.coordinate.latitude {
-//                self.location = CLLocation(coordinate: newValue);
-//                self.action.apply(true).start();
-//            }
-//        }
-//    }
+    let location = MutableProperty<CLLocation?>(nil);
     
-    var updateInterval: NSTimeInterval? {
-        willSet {
-            if newValue != updateInterval {
-                self.updateTimer?.fire();
-                self.updateTimer = nil;
-            }
-            if let interval = newValue {
-                self.updateTimer = NSTimer(timeInterval: interval, target: self,
-                    selector: "updateTimerHander:", userInfo: nil, repeats: true);
-            }
-        }
-    }
-    
-    var pulseAction: Action<Int, AnyClass, NSError>?;
-
     //MARK: - output
     let dateModel: TTDateModel = TTDateModel();
-
-    //MARK: - private property
-    private lazy var action: Action<Bool, TTDateModel, NSError> = {
-        return Action(){[unowned self] input in
-            return SignalProducer(){ observer, disposable in
-                
-                let updateDateClosure = {
-                    let dateOfNow = NSDate();
-                    self.dateModel.deltaDate.value = self.location.deltaTFromZoneTime2Location();
-                    self.dateModel.localDate.value = self.location.locationDateString(dateOfNow);
-                    self.dateModel.zoneDate.value  = self.location.zoneTimeDateString(dateOfNow);
-                    observer.sendCompleted();
-                }
-                
-                if input {  ///< 需要更新placemarks
-                    CLGeocoder().reverseGeocodeLocation(self.location) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-                        if error == nil {
-                            self.location.placemarks = placemarks;
-                            updateDateClosure();
-                        } else {
-                            observer.sendFailed(error!);
-                        }
-                    }
-                } else {
-                    updateDateClosure();
-                }
-            };
-        }
-    }();
-    
-    private var updateTimer: NSTimer?;
-    
-    private var location: CLLocation!;
+    private(set) var pulseAction: Action<Int, AnyClass?, NoError>!;
     
     //MARK: - methods
-    convenience init(coordinate: CLLocationCoordinate2D) {
-        self.init();
-        self.coordinate = coordinate;
+    init(location: CLLocation?) {
+        super.init();
+        self.location.value = location;
+        self.pulseAction = Action() { input in
+            return SignalProducer() { observer, disposable in
+                disposable.addDisposable(timer(Double(input), onScheduler: QueueScheduler.mainQueueScheduler).take(Int.max).startWithNext({[weak self] date in
+                    self?.updateModel(NSDate());
+                    }));
+                disposable.addDisposable(ActionDisposable() { observer.sendCompleted(); });
+            }
+        }
+        self.updateModel(NSDate());
     }
     
-    deinit {
-        self.updateInterval = nil;
-    }
-    
-    func updateTimerHander(timer: NSTimer) {
-        self.action.apply(false).start();
+    private func updateModel(date : NSDate) {
+        self.dateModel.zoneDate.value  = self.location.value?.zoneTimeDateString(date) ?? "yyyy-MM-dd HH:mm:ss";
+        self.dateModel.localDate.value = self.location.value?.locationDateString(date) ?? "yyyy-MM-dd HH:mm:ss";
+        self.dateModel.deltaDate.value = self.location.value?.deltaTFromZoneTime2Location() ?? "HH:mm:ss";
     }
 }

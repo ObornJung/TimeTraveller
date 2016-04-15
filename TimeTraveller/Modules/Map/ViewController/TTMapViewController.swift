@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import ReactiveCocoa
 
 class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     
@@ -17,7 +18,7 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         return mapView;
     }();
     
-    private(set) var currentCoordinate: CLLocationCoordinate2D?;
+    let currentLocation = MutableProperty<CLLocation?>(nil);
     
     override func loadView() {
         self.mapView.delegate = self;
@@ -46,10 +47,11 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         
         TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in 
             
-            if let currentLocation = location {
-                self.currentCoordinate = currentLocation.coordinate;
+            if let curentLocation = location {
+                self.currentLocation.value = curentLocation;
+                self.currentLocation.value?.updatePlacemarks(nil);
                 let currentLocationSpan = MKCoordinateSpanMake(0.03, 0.03)
-                let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: currentLocation.coordinate,
+                let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: curentLocation.coordinate,
                                                                              span: currentLocationSpan)
                 self.mapView.setRegion(currentRegion, animated: true);
             }
@@ -119,7 +121,18 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     }
 
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        self.currentCoordinate = userLocation.coordinate;
+        if let location = userLocation.location {
+            if location.isSameZoneTime(self.currentLocation.value) {
+                location.placemarks = self.currentLocation.value!.placemarks;
+            }
+            self.currentLocation.value = location;
+            if let placemarkLocation = location.placemarks?[0].location {
+                if placemarkLocation.distanceFromLocation(location) < 100 {
+                    return;
+                }
+            }
+            location.updatePlacemarks(nil);
+        }
     }
 //
 //    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {

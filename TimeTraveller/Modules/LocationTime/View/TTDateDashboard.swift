@@ -15,10 +15,10 @@ class TTDateDashboard: TTBaseView {
     let deltaTime = MutableProperty<String?>("");
     
     //MARK: - Private property
-    private let addrNameLable  = UILabel();
-    private let zoneTimeLable  = UILabel();
-    private let localTimeLable = UILabel();
-    private let deltaTimeLable = UILabel();
+    private let addrNameLabel  = UILabel();
+    private let zoneTimeLabel  = UILabel();
+    private let localTimeLabel = UILabel();
+    private let deltaTimeLabel = UILabel();
     
     override func setupViews() {
         super.setupViews();
@@ -31,8 +31,8 @@ class TTDateDashboard: TTBaseView {
         self.layer.borderWidth  = 0.5;
         self.layer.borderColor  = UIColor(white: 0, alpha: 0.1).CGColor;
         /**
-        *    setup blur background view
-        */
+         *    setup blur background view
+         */
         let blurEffect = UIBlurEffect(style: .ExtraLight);
         let blurBgView = UIVisualEffectView(effect: blurEffect);
         blurBgView.layer.cornerRadius = 3;
@@ -44,48 +44,51 @@ class TTDateDashboard: TTBaseView {
         /**
         *    setup zone time label
         */
-        self.zoneTimeLable.textAlignment = .Left;
-        self.zoneTimeLable.font = TTStyle.font(10);
-        self.zoneTimeLable.textColor = TT_BlackText_Color;
-        self.zoneTimeLable.adjustsFontSizeToFitWidth = true;
-        self.addSubview(self.zoneTimeLable);
-        self.zoneTimeLable.snp_makeConstraints { (make) -> Void in
-            make.trailing.equalTo(self).offset(-self.layer.cornerRadius);
-            make.top.leading.equalTo(self).offset(self.layer.cornerRadius);
+        self.zoneTimeLabel.textAlignment = .Left;
+        self.zoneTimeLabel.font = TTStyle.font(10);
+        self.zoneTimeLabel.textColor = TT_BlackText_Color;
+        self.zoneTimeLabel.adjustsFontSizeToFitWidth = true;
+        self.addSubview(self.zoneTimeLabel);
+        self.zoneTimeLabel.snp_makeConstraints { (make) -> Void in
+            make.top.leading.equalTo(self.layer.cornerRadius);
+            make.trailing.lessThanOrEqualTo(-self.layer.cornerRadius);
         }
         self.zoneTime.producer.startWithNext({ [weak self] (text) -> () in
-            self?.zoneTimeLable.text = "官方时间: \(text ?? "")";
-        });
+            let labelTitle = NSLocalizedString("dashboard_zone_label", comment: "zone time label");
+            self?.zoneTimeLabel.text = labelTitle + (text ?? "");
+            });
         /**
         *    setup local time label
         */
-        self.localTimeLable.font = self.zoneTimeLable.font;
-        self.localTimeLable.textColor = self.zoneTimeLable.textColor;
-        self.localTimeLable.adjustsFontSizeToFitWidth = true;
-        self.addSubview(self.localTimeLable);
-        self.localTimeLable.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.zoneTimeLable.snp_bottom);
-            make.leading.equalTo(self).offset(self.layer.cornerRadius);
-            make.trailing.equalTo(self).offset(-self.layer.cornerRadius);
+        self.localTimeLabel.font = self.zoneTimeLabel.font;
+        self.localTimeLabel.textColor = self.zoneTimeLabel.textColor;
+        self.localTimeLabel.adjustsFontSizeToFitWidth = true;
+        self.addSubview(self.localTimeLabel);
+        self.localTimeLabel.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.zoneTimeLabel.snp_bottom);
+            make.leading.equalTo(self.zoneTimeLabel);
+            make.trailing.lessThanOrEqualTo(-self.layer.cornerRadius);
         }
         self.localTime.producer.startWithNext { [weak self] (text) -> () in
-            self?.localTimeLable.text = "绝对时间: \(text ?? "")";
+            let labelTitle = NSLocalizedString("dashboard_absolute_label", comment: "local time label");
+            self?.localTimeLabel.text = labelTitle + (text ?? "");
         }
         /**
         *    setup delta time label
         */
-        self.deltaTimeLable.font = self.zoneTimeLable.font;
-        self.deltaTimeLable.textColor = self.zoneTimeLable.textColor;
-        self.deltaTimeLable.adjustsFontSizeToFitWidth = true;
-        self.addSubview(self.deltaTimeLable);
-        self.deltaTimeLable.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.localTimeLable.snp_bottom);
-            make.leading.equalTo(self).offset(self.layer.cornerRadius);
-            make.trailing.equalTo(self).offset(-self.layer.cornerRadius);
+        self.deltaTimeLabel.font = self.zoneTimeLabel.font;
+        self.deltaTimeLabel.textColor = self.zoneTimeLabel.textColor;
+        self.deltaTimeLabel.adjustsFontSizeToFitWidth = true;
+        self.addSubview(self.deltaTimeLabel);
+        self.deltaTimeLabel.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.localTimeLabel.snp_bottom);
+            make.leading.equalTo(self.zoneTimeLabel);
+            make.trailing.lessThanOrEqualTo(-self.layer.cornerRadius);
             make.bottom.equalTo(self.snp_bottom).offset(-self.layer.cornerRadius);
         }
         self.deltaTime.producer.startWithNext { [weak self] (text) -> () in
-            self?.deltaTimeLable.text = "标准时差: \(text ?? "")";
+            let labelTitle = NSLocalizedString("dashboard_delta_label", comment: "delta time label");
+            self?.deltaTimeLabel.text = labelTitle + (text ?? "");
         }
     }
 }

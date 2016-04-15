@@ -89,6 +89,10 @@ extension CLLocation {
         };
     }
     
+    func isSameZoneTime(location: CLLocation?) -> Bool {
+        return location != nil ? self.timeZone == location!.timeZone : false;
+    }
+    
     /**
      更新location的地理标准信息
      
@@ -96,10 +100,10 @@ extension CLLocation {
      */
     func updatePlacemarks(completion: TTUpdatePlacemarksClosure?) {
         
-        CLGeocoder().reverseGeocodeLocation(self) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-            self.validPlacemarks = error == nil;
-            if self.validPlacemarks {
-                self.placemarks      = placemarks;
+        CLGeocoder().reverseGeocodeLocation(self) { [weak self] placemarks, error in
+            self?.validPlacemarks = error == nil;
+            if self?.validPlacemarks ?? false {
+                self?.placemarks = placemarks;
             }
             completion?(placemarks, error);
         }
@@ -134,7 +138,13 @@ extension CLLocation {
         let formatter = CLLocation.dateFormatter;
         formatter.locale     = NSLocale.currentLocale();
         formatter.dateFormat = showTZName ? "VVVV: yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss";
-        formatter.timeZone = self.placemarks?.last?.timeZone ?? NSTimeZone(forSecondsFromGMT: self.timeZone * kTTSecondsOneTimeZone);
+        if let timeZone = self.placemarks?.last?.timeZone {
+            formatter.timeZone = timeZone;
+        } else {
+            formatter.dateFormat! += "⚡";
+            formatter.timeZone = NSTimeZone(forSecondsFromGMT: self.timeZone * kTTSecondsOneTimeZone);
+        }
+        
         
         return formatter.stringFromDate(date);
     }

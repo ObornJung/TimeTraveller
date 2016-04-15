@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		3701F94A1CB62C2E00F14329 /* TTDateDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTDateDashboardController.swift; sourceTree = "<group>"; };
 		3716EAA11C5B11AD0007822E /* TTPOISearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOISearchService.swift; sourceTree = "<group>"; };
-		3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CLLocation+date.swift"; path = "../Location/CLLocation+date.swift"; sourceTree = "<group>"; };
+		3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CLLocation+date.swift"; path = "../../Location/CLLocation+date.swift"; sourceTree = "<group>"; };
 		3717A2761C51D7B60073C3A6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3717A2771C51D7B60073C3A6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3717A2791C51D7D10073C3A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -160,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				37E507DA1C648DB1000DC01E /* TTDateModel.swift */,
+				3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,7 +324,6 @@
 				3754E5961C62EC0A004A0C7D /* View */,
 				3754E5981C62EC26004A0C7D /* ViewModel */,
 				3754E5971C62EC1A004A0C7D /* Controller */,
-				3717A26F1C51D01F0073C3A6 /* CLLocation+date.swift */,
 			);
 			path = LocationTime;
 			sourceTree = "<group>";

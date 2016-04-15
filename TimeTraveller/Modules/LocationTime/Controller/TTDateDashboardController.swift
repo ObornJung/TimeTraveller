@@ -11,13 +11,18 @@ import ReactiveCocoa
 
 class TTDateDashboardController: TTBaseViewController {
     
-    let viewModel = TTDateViewModel();
+    let viewModel = TTDateViewModel(location: nil);
+    let disposable = CompositeDisposable();
     
     //MARK: - Private property
     private var dashboard = TTDateDashboard();
     private var pulseDisposable : Disposable?;
     
     //MARK: - 
+    deinit {
+        self.disposable.dispose();
+    }
+    
     override func loadView() {
         self.view = self.dashboard;
     }
@@ -34,15 +39,15 @@ class TTDateDashboardController: TTBaseViewController {
     
     override func bindViewModel() {
         super.bindViewModel();
-        self.dashboard.zoneTime  <~ self.viewModel.dateModel.zoneDate;
-        self.dashboard.localTime <~ self.viewModel.dateModel.localDate;
-        self.dashboard.deltaTime <~ self.viewModel.dateModel.deltaDate;
+        self.disposable.addDisposable(self.dashboard.zoneTime  <~ self.viewModel.dateModel.zoneDate);
+        self.disposable.addDisposable(self.dashboard.localTime <~ self.viewModel.dateModel.localDate);
+        self.disposable.addDisposable(self.dashboard.deltaTime <~ self.viewModel.dateModel.deltaDate);
     }
     
     //MARK: - Private methods
     
     private func startPulse() {
-        self.pulseDisposable = self.viewModel.pulseAction?.apply(1).start();
+        self.pulseDisposable = self.viewModel.pulseAction.apply(1).start();
     }
     
     private func stopPulse() {

@@ -9,9 +9,9 @@
 import ReactiveCocoa
 
 class TTDateModel: NSObject {
-    
-    var deltaDate = MutableProperty<String?>("2小时32分钟10秒");
-    var localDate = MutableProperty<String?>("2016-02-04 15:06:55");
-    var zoneDate  = MutableProperty<String?>("2016-02-04 15:06:55");
+
+    var zoneDate  = MutableProperty<String?>("yyyy-MM-dd HH:mm:ss");
+    var localDate = MutableProperty<String?>("yyyy-MM-dd HH:mm:ss");
+    var deltaDate = MutableProperty<String?>("HH:mm:ss");
 
 }
