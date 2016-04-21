@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import OBUIKit
 import ReactiveCocoa
 
 class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
@@ -20,6 +21,9 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     
     let currentLocation = MutableProperty<CLLocation?>(nil);
     
+    //MARK: - Private property
+    private let currentLocationBtn = UIButton(type: .Custom);
+    
     override func loadView() {
         self.mapView.delegate = self;
         self.view = mapView;
@@ -30,8 +34,25 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
          *    setup add annotation gesture
          */
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: "longPressGesture:");
-        self.mapView.addGestureRecognizer(longPressGesture);
         self.mapView.showsUserLocation = true;
+        self.mapView.addGestureRecognizer(longPressGesture);
+        /**
+        *    setup current location button
+        */
+        self.view.addSubview(self.currentLocationBtn);
+        
+        self.currentLocationBtn.layer.cornerRadius = 3;
+        self.currentLocationBtn.layer.masksToBounds = true;
+        self.currentLocationBtn.setImage(UIImage(named: "map_location_icon"), forState: .Normal);
+        let bgImage = UIImage.ob_imageWithColor(UIColor(white: 0.9, alpha: 1.0), size: CGSizeMake(35, 35));
+        self.currentLocationBtn.setBackgroundImage(bgImage, forState: .Normal);
+        self.currentLocationBtn.rac_signalForControlEvents(.TouchUpInside).subscribeNext { button in
+            self.startupLocation();
+        };
+        self.currentLocationBtn.snp_updateConstraints { make in
+            make.leading.equalTo(16);
+            make.bottom.equalTo(-8);
+        }
         /**
         *    start up location
         */
@@ -43,21 +64,6 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         self.mapView.addAnnotation(objectAnnotation)
     }
     
-    private func startupLocation() {
-        
-        TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in 
-            
-            if let curentLocation = location {
-                self.currentLocation.value = curentLocation;
-                self.currentLocation.value?.updatePlacemarks(nil);
-                let currentLocationSpan = MKCoordinateSpanMake(0.03, 0.03)
-                let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: curentLocation.coordinate,
-                                                                             span: currentLocationSpan)
-                self.mapView.setRegion(currentRegion, animated: true);
-            }
-        }
-    }
-    
     func longPressGesture(gesture: UIGestureRecognizer) {
 
         if (gesture.state == .Began) {
@@ -66,131 +72,30 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
             let objectAnnotation = TTPOIAnnotation(location: location);
             objectAnnotation.title = "加载中...";
             self.mapView.addAnnotation(objectAnnotation)
-            
-//            location.updatePlacemarks({[unowned location] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-//                if (error == nil && placemarks?.count > 0) {
-//                    let currentDate = NSDate();
-//                    objectAnnotation.title = placemarks?.first?.name ?? "";
-//                    let zoneTime = location.locationDateString(currentDate);
-//                    objectAnnotation.subtitle = "\(zoneTime)\n绝对时间: \(location.absoluteLocationDateString(currentDate))";
-//                    objectAnnotation.subtitle = "中国时间:2016-02-03 11:07:56 (东八区)\n绝对时间:2016-02-03 11:00:23\n时区偏差:2小时23分32秒";
-//                    
-//                } else {
-//                    OBLog("\(error)");
-//                }
-//            });
+            objectAnnotation.location.value?.updatePlacemarks({ placemarks, error in
+                if (error == nil && placemarks?.count > 0) {
+                    objectAnnotation.title = placemarks?.first?.locality ?? "";
+                    objectAnnotation.subtitle = placemarks?.first?.subLocality ?? "";
+                } else {
+                    OBLog("\(error)");
+                }
+            });
         }
-    }
-    
-//    //MARK: - MKMapViewDelegate
-//
-//    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-//        print("地图缩放级别发送改变时")
-//    }
-//    
-//    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-//        print("地图缩放完毕触法")
-//    }
-//    
-//    func mapViewWillStartLoadingMap(mapView: MKMapView) {
-//        print("开始加载地图")
-//    }
-//    
-//    func mapViewDidFinishLoadingMap(mapView: MKMapView) {
-//        print("地图加载结束")
-//    }
-//    
-//    func mapViewDidFailLoadingMap(mapView: MKMapView, withError error: NSError) {
-//        print("地图加载失败")
-//    }
-//    
-//    func mapViewWillStartRenderingMap(mapView: MKMapView) {
-//        print("开始渲染下载的地图块")
-//    }
-//    
-//    func mapViewDidFinishRenderingMap(mapView: MKMapView, fullyRendered: Bool) {
-//        print("渲染下载的地图结束时调用")
-//    }
-//
-    func mapViewWillStartLocatingUser(mapView: MKMapView) {
-        print("正在跟踪用户的位置")
-    }
-    
-    func mapViewDidStopLocatingUser(mapView: MKMapView) {
-        print("停止跟踪用户的位置")
     }
 
+    //MARK: - MKMapViewDelegate
+    
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if let location = userLocation.location {
-            if location.isSameZoneTime(self.currentLocation.value) {
-                location.placemarks = self.currentLocation.value!.placemarks;
-            }
-            self.currentLocation.value = location;
-            if let placemarkLocation = location.placemarks?[0].location {
-                if placemarkLocation.distanceFromLocation(location) < 100 {
-                    return;
-                }
-            }
-            location.updatePlacemarks(nil);
-        }
+        self.updateCurrentLocation(userLocation.location);
     }
-//
-//    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
-//        print("跟踪用户的位置失败")
-//    }
-//    
-//    func mapView(mapView: MKMapView, didChangeUserTrackingMode mode: MKUserTrackingMode, animated: Bool) {
-//        print("改变UserTrackingMode")
-//    }
-//    
-//    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-//        print("设置overlay的渲染")
-////        return nil
-//        var renderer: MKOverlayRenderer?;
-//        
-//        if (overlay is CrumbPath)
-//        {
-//            if (self.crumbPathRenderer == nil)
-//            {
-//                self.crumbPathRenderer = CrumbPathRenderer(overlay: overlay);
-//            }
-//            renderer = self.crumbPathRenderer;
-//        }
-//        else if overlay is MKPolygon
-//        {
-//            if ((self.drawingAreaRenderer?.polygon.isEqual(overlay)) == nil)
-//            {
-//                self.drawingAreaRenderer = MKPolygonRenderer(overlay: overlay);
-//                self.drawingAreaRenderer?.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.25);
-//            }
-//            renderer = self.drawingAreaRenderer;
-//        }
-//        
-//        return renderer!;
-//    }
-//
-//    func mapView(mapView: MKMapView, didAddOverlayRenderers renderers: [MKOverlayRenderer]) {
-//        print("地图上加了overlayRenderers后调用")
-//    }
-//    
+ 
     /*** 下面是大头针标注相关 *****/
     func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
         print("添加注释视图")
     }
 
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
-        calloutAccessoryControlTapped control: UIControl) {
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
             print("点击注释视图按钮")
-    }
-
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        print("点击大头针注释视图")
-        view.draggable = true;
-    }
-    
-    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
-        print("取消点击大头针注释视图")
-        
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState,
@@ -219,18 +124,33 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         return nil;
     }
     
-//    -(MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
-//    {
-//    MKOverlayView *view=nil;
-//    if ([overlay isKindOfClass:[MKCircle class]]) {
-//    MKCircleView *cirView =[[MKCircleView alloc] initWithCircle:overlay];
-//    cirView.fillColor=[UIColor redColor];
-//    cirView.strokeColor=[UIColor redColor];
-//    cirView.alpha=0.1;
-//    cirView.lineWidth=4.0;
-//    view=[cirView autorelease];
-//    
-//    }
-//    return view;
-//    }
+    //MARK: - Private methods
+    
+    private func startupLocation() {
+        TTLocationCenter.currentLocation { (location: CLLocation?, error: NSError?) -> Void in
+            self.updateCurrentLocation(location);
+            if let curentLocation = location {
+                let currentLocationSpan = MKCoordinateSpanMake(0.03, 0.03)
+                let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: curentLocation.coordinate,
+                    span: currentLocationSpan)
+                self.mapView.setRegion(currentRegion, animated: true);
+            }
+        }
+    }
+    
+    private func updateCurrentLocation(newlocation: CLLocation?) {
+        if let location = newlocation {
+            if location.isSameZoneTime(self.currentLocation.value) {
+                location.placemarks = self.currentLocation.value!.placemarks;
+            }
+            self.currentLocation.value = location;
+            if let placemarkLocation = location.placemarks?[0].location {
+                if placemarkLocation.distanceFromLocation(location) < 100 {
+                    return;
+                }
+            }
+            location.updatePlacemarks(nil);
+        }
+    }
+    
 }

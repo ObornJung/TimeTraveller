@@ -22,25 +22,7 @@ class TTDateDashboard: TTBaseView {
     
     override func setupViews() {
         super.setupViews();
-        self.backgroundColor = UIColor.clearColor();
-        self.layer.cornerRadius  = 3;
-        self.layer.shadowRadius  = 3;
-        self.layer.shadowOpacity = 0.5;
-        self.layer.shadowOffset = CGSizeMake(3, 3);
-        self.layer.shadowColor  = UIColor.grayColor().CGColor;
-        self.layer.borderWidth  = 0.5;
-        self.layer.borderColor  = UIColor(white: 0, alpha: 0.1).CGColor;
-        /**
-         *    setup blur background view
-         */
-        let blurEffect = UIBlurEffect(style: .ExtraLight);
-        let blurBgView = UIVisualEffectView(effect: blurEffect);
-        blurBgView.layer.cornerRadius = 3;
-        blurBgView.layer.masksToBounds = true;
-        self.addSubview(blurBgView);
-        blurBgView.snp_makeConstraints { (make) -> Void in
-            make.edges.equalTo(self);
-        }
+        
         /**
         *    setup zone time label
         */
@@ -50,8 +32,9 @@ class TTDateDashboard: TTBaseView {
         self.zoneTimeLabel.adjustsFontSizeToFitWidth = true;
         self.addSubview(self.zoneTimeLabel);
         self.zoneTimeLabel.snp_makeConstraints { (make) -> Void in
-            make.top.leading.equalTo(self.layer.cornerRadius);
-            make.trailing.lessThanOrEqualTo(-self.layer.cornerRadius);
+            make.leading.equalTo(3);
+            make.top.greaterThanOrEqualTo(3);
+            make.trailing.lessThanOrEqualTo(-3);
         }
         self.zoneTime.producer.startWithNext({ [weak self] (text) -> () in
             let labelTitle = NSLocalizedString("dashboard_zone_label", comment: "zone time label");
@@ -67,7 +50,7 @@ class TTDateDashboard: TTBaseView {
         self.localTimeLabel.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(self.zoneTimeLabel.snp_bottom);
             make.leading.equalTo(self.zoneTimeLabel);
-            make.trailing.lessThanOrEqualTo(-self.layer.cornerRadius);
+            make.trailing.lessThanOrEqualTo(-3);
         }
         self.localTime.producer.startWithNext { [weak self] (text) -> () in
             let labelTitle = NSLocalizedString("dashboard_absolute_label", comment: "local time label");
@@ -83,12 +66,34 @@ class TTDateDashboard: TTBaseView {
         self.deltaTimeLabel.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(self.localTimeLabel.snp_bottom);
             make.leading.equalTo(self.zoneTimeLabel);
-            make.trailing.lessThanOrEqualTo(-self.layer.cornerRadius);
-            make.bottom.equalTo(self.snp_bottom).offset(-self.layer.cornerRadius);
+            make.trailing.lessThanOrEqualTo(-65);
+            make.bottom.equalTo(self.snp_bottom).offset(-3);
         }
         self.deltaTime.producer.startWithNext { [weak self] (text) -> () in
             let labelTitle = NSLocalizedString("dashboard_delta_label", comment: "delta time label");
             self?.deltaTimeLabel.text = labelTitle + (text ?? "");
+        }
+    }
+    
+    func updateEdgeInsets(edgeInsets: UIEdgeInsets) {
+        self.zoneTimeLabel.snp_removeConstraints()
+        self.zoneTimeLabel.snp_makeConstraints { (make) -> Void in
+            make.leading.equalTo(edgeInsets.left + 3);
+            make.top.greaterThanOrEqualTo(edgeInsets.top + 3);
+            make.trailing.lessThanOrEqualTo(edgeInsets.right - 3);
+        }
+        self.localTimeLabel.snp_removeConstraints();
+        self.localTimeLabel.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.zoneTimeLabel.snp_bottom);
+            make.leading.equalTo(self.zoneTimeLabel);
+            make.trailing.lessThanOrEqualTo(edgeInsets.right - 3);
+        }
+        self.deltaTimeLabel.snp_removeConstraints();
+        self.deltaTimeLabel.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.localTimeLabel.snp_bottom);
+            make.leading.equalTo(self.zoneTimeLabel);
+            make.trailing.lessThanOrEqualTo(edgeInsets.right - 65);
+            make.bottom.equalTo(self.snp_bottom).offset(edgeInsets.bottom - 3);
         }
     }
 }

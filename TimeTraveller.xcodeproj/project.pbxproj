@@ -20,6 +20,7 @@
 		3722B6A91C59FFA700139E17 /* TTStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A81C59FFA700139E17 /* TTStyle.swift */; };
 		3754E59B1C63263C004A0C7D /* TTDateDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754E59A1C63263C004A0C7D /* TTDateDashboard.swift */; };
 		3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786A1E41C4E38D600135329 /* TTMapViewController.swift */; };
+		37D9470E1CC4B2B900D905CB /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D9470D1CC4B2B900D905CB /* Popover.swift */; };
 		37E4892C1C48A435006ABDBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4892B1C48A435006ABDBB /* AppDelegate.swift */; };
 		37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4892D1C48A435006ABDBB /* TTRootViewController.swift */; };
 		37E489341C48A435006ABDBB /* TimeTraveller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E489321C48A435006ABDBB /* TimeTraveller.xcdatamodeld */; };
@@ -54,6 +55,8 @@
 		3722B6A81C59FFA700139E17 /* TTStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTStyle.swift; sourceTree = "<group>"; };
 		3754E59A1C63263C004A0C7D /* TTDateDashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTDateDashboard.swift; sourceTree = "<group>"; };
 		3786A1E41C4E38D600135329 /* TTMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTMapViewController.swift; sourceTree = "<group>"; };
+		37BBADB71CC0A741004292B3 /* Pods-TimeTraveller.adhoc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-TimeTraveller.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller.adhoc.xcconfig"; sourceTree = "<group>"; };
+		37D9470D1CC4B2B900D905CB /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
 		37E489281C48A435006ABDBB /* TimeTraveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTraveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E4892B1C48A435006ABDBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		37E4892D1C48A435006ABDBB /* TTRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TTRootViewController.swift; path = ../TTRootViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +194,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		37D9470C1CC4B24F00D905CB /* Reference */ = {
+			isa = PBXGroup;
+			children = (
+				37D9470D1CC4B2B900D905CB /* Popover.swift */,
+			);
+			path = Reference;
+			sourceTree = "<group>";
+		};
 		37E4891F1C48A435006ABDBB = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +223,7 @@
 		37E4892A1C48A435006ABDBB /* TimeTraveller */ = {
 			isa = PBXGroup;
 			children = (
+				37D9470C1CC4B24F00D905CB /* Reference */,
 				37E489531C48B4AE006ABDBB /* Application */,
 				37E489431C48B066006ABDBB /* Common */,
 				37E489421C48B058006ABDBB /* Base */,
@@ -384,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				771D46FD45CB0E9097EC48AE /* Pods-TimeTraveller.debug.xcconfig */,
+				37BBADB71CC0A741004292B3 /* Pods-TimeTraveller.adhoc.xcconfig */,
 				5CF4397E2DCF84F38456E7E3 /* Pods-TimeTraveller.release.xcconfig */,
 			);
 			name = Pods;
@@ -526,6 +539,7 @@
 				37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */,
 				37F7DDDC1C58658B00F57D92 /* TTPOISearchController.swift in Sources */,
 				3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */,
+				37D9470E1CC4B2B900D905CB /* Popover.swift in Sources */,
 				37E489641C48B6F2006ABDBB /* TTBaseView.swift in Sources */,
 				37E489751C48C92B006ABDBB /* TTBaseService.swift in Sources */,
 				37E4892C1C48A435006ABDBB /* AppDelegate.swift in Sources */,
@@ -740,7 +754,7 @@
 		};
 		37E4897F1C48E2E4006ABDBB /* AdHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CF4397E2DCF84F38456E7E3 /* Pods-TimeTraveller.release.xcconfig */;
+			baseConfigurationReference = 37BBADB71CC0A741004292B3 /* Pods-TimeTraveller.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

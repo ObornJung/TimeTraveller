@@ -57,6 +57,8 @@ class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
         /**
         *    setup current evn dashboard
         */
+        self.rtDashboardController.showBorder = true;
+        self.rtDashboardController.gaussianBlur = true;
         self.view.addSubview(self.rtDashboardController.view);
         self.addChildViewController(self.rtDashboardController);
         self.rtDashboardController.view.snp_makeConstraints { (make) -> Void in

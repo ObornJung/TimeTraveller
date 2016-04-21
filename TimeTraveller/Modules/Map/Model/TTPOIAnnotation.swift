@@ -7,26 +7,30 @@
 //
 
 import MapKit
+import ReactiveCocoa
 
 class TTPOIAnnotation: MKShape {
     
-    private(set) var location: CLLocation!;
-    private(set) var poi: AMapPOI!;
+    let location = MutableProperty<CLLocation?>(nil);
+    private(set) var poi: AMapPOI?;
     
     override var coordinate: CLLocationCoordinate2D {
-        if self.location != nil {
-            return self.location.coordinate;
+        if self.location.value != nil {
+            return self.location.value!.coordinate;
         }
-        return CLLocationCoordinate2DMake(Double(self.poi.location.latitude), Double(self.poi.location.longitude));
+        return CLLocationCoordinate2DMake(self.location.value!.coordinate.latitude,
+            self.location.value!.coordinate.longitude);
     }
     
     init(location: CLLocation) {
-        self.location = location;
+        self.location.value = location;
         super.init();
     } 
     
     init(poi: AMapPOI) {
         self.poi = poi;
+        self.location.value = CLLocation(latitude: Double(poi.location.latitude),
+            longitude: Double(poi.location.longitude));
         super.init();
         self.title = poi.name;
     }

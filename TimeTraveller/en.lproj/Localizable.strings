@@ -9,8 +9,9 @@
 /**
  *    common localizable string define
  */
-"confirm" = "OK";
-"cancle"  = "Cancle";
+"confirm"            = "OK";
+"cancle"             = "Cancle";
+"clearSearchHistory" = " Clear search history";
 
 /**
  *    business localizable string define

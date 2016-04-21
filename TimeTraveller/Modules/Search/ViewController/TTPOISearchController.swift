@@ -91,8 +91,12 @@ class TTPOISearchController: TTBaseViewController, UISearchResultsUpdating, UISe
         self.tableView.separatorStyle = .None;
         self.tableView.ob_setAccommodateKeyboard(true);
         let footer = UIButton(type: .System);
-        footer.setTitle("清空搜索历史", forState: .Normal);
         footer.frame.size = CGSizeMake(0, 40);
+        footer.titleLabel?.font = TTStyle.font(15);
+//        footer.setTitleColor(TT_GrayText_Color, forState: .Normal);
+//        footer.setTitleColor(TT_BlackText_Color, forState: .Highlighted);
+        footer.setImage(UIImage(named: "map_search_del_icon"), forState: .Normal);
+        footer.setTitle(NSLocalizedString("clearSearchHistory", comment: "clear search history"), forState: .Normal);
         self.tableView.tableFooterView = footer;
         self.tableView.indicatorStyle = .Black;
         self.tableView.showsVerticalScrollIndicator = true;
