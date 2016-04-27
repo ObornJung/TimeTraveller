@@ -44,10 +44,10 @@ class TTPOISearchService: NSObject, AMapSearchDelegate {
         
         let signal = RACSignal.createSignal {[unowned self] (subscriber: RACSubscriber!) -> RACDisposable! in
             let searchProtocol = NSProtocolFromString("AMapSearchDelegate")!;
-            let responseSignal = self.rac_signalForSelector("onPOISearchDone:response:", fromProtocol: searchProtocol).map({ (object: AnyObject!) -> AnyObject! in
+            let responseSignal = self.rac_signalForSelector(#selector(AMapSearchDelegate.onPOISearchDone(_:response:)), fromProtocol: searchProtocol).map({ (object: AnyObject!) -> AnyObject! in
                 return (object as? RACTuple)?.second as? AMapPOISearchResponse;
             });
-            let errorSignal = self.rac_signalForSelector("AMapSearchRequest:didFailWithError:", fromProtocol: searchProtocol).map( { (object: AnyObject!) -> AnyObject! in
+            let errorSignal = self.rac_signalForSelector(#selector(AMapSearchDelegate.AMapSearchRequest(_:didFailWithError:)), fromProtocol: searchProtocol).map( { (object: AnyObject!) -> AnyObject! in
                 return (object as? RACTuple)?.second as? NSError;
             });
             

@@ -34,4 +34,10 @@ class TTPOIAnnotation: MKShape {
         super.init();
         self.title = poi.name;
     }
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        guard let otherObject = object as? TTPOIAnnotation else { return false; }
+        return (self.coordinate.latitude == otherObject.coordinate.latitude &&
+                self.coordinate.longitude == otherObject.coordinate.longitude);
+    }
 }

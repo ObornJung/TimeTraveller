@@ -11,7 +11,9 @@
  */
 "confirm"            = "OK";
 "cancle"             = "Cancle";
+"loading"            = "Loading...";
 "clearSearchHistory" = " Clear search history";
+
 
 /**
  *    business localizable string define
@@ -24,3 +26,7 @@
 "dashboard_zone_label"      = "Offcial time: ";
 "dashboard_absolute_label"  = "  ABS  time : ";
 "dashboard_delta_label"     = " Delta time : ";
+/**
+ *    loading geocode
+ */
+"Geocode_loading_error"     = "Geocode loading error!";

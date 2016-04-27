@@ -12,7 +12,9 @@ import ReactiveCocoa
 class TTDateDashboardController: TTBaseViewController {
     
     let viewModel = TTDateViewModel(location: nil);
-    let disposable = CompositeDisposable();
+    private(set) var tapSignal: SignalProducer<AnyObject?, NSError>!;
+    
+    private let disposable = CompositeDisposable();
     var gaussianBlur = false {
         didSet {
             if gaussianBlur {
@@ -76,6 +78,13 @@ class TTDateDashboardController: TTBaseViewController {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated);
         self.stopPulse();
+    }
+    
+    override func setupViews() {
+        super.setupViews();
+        let tapGesture = UITapGestureRecognizer();
+        self.view.addGestureRecognizer(tapGesture);
+        self.tapSignal = tapGesture.rac_gestureSignal().toSignalProducer();
     }
 
     override func bindViewModel() {

@@ -18,6 +18,7 @@
 		3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A31C59F52700139E17 /* TTPOICell.swift */; };
 		3722B6A61C59F78D00139E17 /* TTPOIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A51C59F78D00139E17 /* TTPOIModel.swift */; };
 		3722B6A91C59FFA700139E17 /* TTStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722B6A81C59FFA700139E17 /* TTStyle.swift */; };
+		372C98E41CCE216900F016F2 /* TTMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C98E31CCE216900F016F2 /* TTMapView.swift */; };
 		3754E59B1C63263C004A0C7D /* TTDateDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754E59A1C63263C004A0C7D /* TTDateDashboard.swift */; };
 		3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786A1E41C4E38D600135329 /* TTMapViewController.swift */; };
 		37D9470E1CC4B2B900D905CB /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D9470D1CC4B2B900D905CB /* Popover.swift */; };
@@ -53,6 +54,7 @@
 		3722B6A31C59F52700139E17 /* TTPOICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOICell.swift; sourceTree = "<group>"; };
 		3722B6A51C59F78D00139E17 /* TTPOIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPOIModel.swift; sourceTree = "<group>"; };
 		3722B6A81C59FFA700139E17 /* TTStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTStyle.swift; sourceTree = "<group>"; };
+		372C98E31CCE216900F016F2 /* TTMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTMapView.swift; sourceTree = "<group>"; };
 		3754E59A1C63263C004A0C7D /* TTDateDashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTDateDashboard.swift; sourceTree = "<group>"; };
 		3786A1E41C4E38D600135329 /* TTMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTMapViewController.swift; sourceTree = "<group>"; };
 		37BBADB71CC0A741004292B3 /* Pods-TimeTraveller.adhoc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-TimeTraveller.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTraveller/Pods-TimeTraveller.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		3786A1E31C4E386600135329 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				372C98E31CCE216900F016F2 /* TTMapView.swift */,
 				371A633A1C508AE800307CCF /* TTAnnotationView.swift */,
 			);
 			path = View;
@@ -537,6 +540,7 @@
 				371A633E1C508D8900307CCF /* TTPOIAnnotation.swift in Sources */,
 				3786A1E51C4E38D600135329 /* TTMapViewController.swift in Sources */,
 				37E4892E1C48A435006ABDBB /* TTRootViewController.swift in Sources */,
+				372C98E41CCE216900F016F2 /* TTMapView.swift in Sources */,
 				37F7DDDC1C58658B00F57D92 /* TTPOISearchController.swift in Sources */,
 				3722B6A41C59F52700139E17 /* TTPOICell.swift in Sources */,
 				37D9470E1CC4B2B900D905CB /* Popover.swift in Sources */,

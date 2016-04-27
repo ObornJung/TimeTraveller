@@ -9,7 +9,7 @@
 import Toast
 import Foundation
 
-func OBLog(message: String, showContext: Bool = true, function: String = __FUNCTION__, line: Int = __LINE__) {
+func OBLog(message: String, showContext: Bool = true, function: String = #function, line: Int = #line) {
     #if DEBUG
         if showContext {
             print("\(function) [Line \(line)] --By ObornJung-- \(message)");

@@ -63,10 +63,7 @@ class TTRootViewController: TTBaseViewController, UISearchControllerDelegate {
         self.addChildViewController(self.rtDashboardController);
         self.rtDashboardController.view.snp_makeConstraints { (make) -> Void in
             make.trailing.bottom.equalTo(self.view).offset(-4);
-//            make.width.greaterThanOrEqualTo(160.0);
         }
-        
-        
     }
     
     override func bindViewModel() {

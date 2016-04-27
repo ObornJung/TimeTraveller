@@ -11,6 +11,7 @@
  */
 "confirm"            = "确认";
 "cancle"             = "取消";
+"loading"            = "加载中...";
 "clearSearchHistory" = " 清空搜索历史";
 
 /**
@@ -24,3 +25,7 @@
 "dashboard_zone_label"      = "官方时间: ";
 "dashboard_absolute_label"  = "绝对时间: ";
 "dashboard_delta_label"     = "标准时差: ";
+/**
+ *    loading geocode
+ */
+"Geocode_loading_error"     = "地址编码信息请求失败!";

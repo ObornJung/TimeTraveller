@@ -22,7 +22,7 @@ class TTDateDashboard: TTBaseView {
     
     override func setupViews() {
         super.setupViews();
-        
+
         /**
         *    setup zone time label
         */

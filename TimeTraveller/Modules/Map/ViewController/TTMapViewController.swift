@@ -14,7 +14,7 @@ import ReactiveCocoa
 class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     
     let mapView: MKMapView = {
-        let mapView      = MKMapView();
+        let mapView      = TTMapView();
         mapView.mapType  = .Standard;
         return mapView;
     }();
@@ -33,9 +33,9 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         /**
          *    setup add annotation gesture
          */
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: "longPressGesture:");
+        let addAnnocationGesture = UILongPressGestureRecognizer(target: self, action: #selector(TTMapViewController.addAnnocationGestureHander(_:)));
         self.mapView.showsUserLocation = true;
-        self.mapView.addGestureRecognizer(longPressGesture);
+        self.mapView.addGestureRecognizer(addAnnocationGesture);
         /**
         *    setup current location button
         */
@@ -59,26 +59,22 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         self.startupLocation();
     }
     
-    func addAnnocationPOI(poi: AMapPOI) {
+    func addAnnocation(poi: AMapPOI) {
         let objectAnnotation = TTPOIAnnotation(poi: poi);
         self.mapView.addAnnotation(objectAnnotation)
     }
     
-    func longPressGesture(gesture: UIGestureRecognizer) {
-
+    func addAnnocationGestureHander(gesture: UIGestureRecognizer) {
+        guard gesture.view == self.view else { return; }
+        
         if (gesture.state == .Began) {
             let touchPoint = gesture.locationInView(gesture.view);
             let location = CLLocation(coordinate: self.mapView.convertPoint(touchPoint, toCoordinateFromView: gesture.view));
             let objectAnnotation = TTPOIAnnotation(location: location);
-            objectAnnotation.title = "加载中...";
+            objectAnnotation.title = NSLocalizedString("loading", comment: "loading");
             self.mapView.addAnnotation(objectAnnotation)
             objectAnnotation.location.value?.updatePlacemarks({ placemarks, error in
-                if (error == nil && placemarks?.count > 0) {
-                    objectAnnotation.title = placemarks?.first?.locality ?? "";
-                    objectAnnotation.subtitle = placemarks?.first?.subLocality ?? "";
-                } else {
-                    OBLog("\(error)");
-                }
+                objectAnnotation.title = placemarks?.first?.addressDictionary?["Name"] as? String ?? NSLocalizedString("Geocode_loading_error", comment: "geocode loading error");
             });
         }
     }
@@ -95,7 +91,7 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     }
 
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-            print("点击注释视图按钮")
+        print("点击注释视图按钮")
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState,
@@ -110,6 +106,10 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
                 view.draggable = false;
                 break;
             }
+    }
+    
+    func _handleTapToSelect(gesture: UIGestureRecognizer) {
+        OBLog("");
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -139,18 +139,14 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
     }
     
     private func updateCurrentLocation(newlocation: CLLocation?) {
-        if let location = newlocation {
-            if location.isSameZoneTime(self.currentLocation.value) {
-                location.placemarks = self.currentLocation.value!.placemarks;
-            }
-            self.currentLocation.value = location;
-            if let placemarkLocation = location.placemarks?[0].location {
-                if placemarkLocation.distanceFromLocation(location) < 100 {
-                    return;
-                }
-            }
-            location.updatePlacemarks(nil);
+        
+        guard let location = newlocation else { return; }
+        
+        if location.isSameZoneTime(self.currentLocation.value) {
+            location.placemarks = self.currentLocation.value!.placemarks;
         }
+        self.currentLocation.value = location;
+        if location.isValidOfGeocode { return; }
+        location.updatePlacemarks(nil);
     }
-    
 }

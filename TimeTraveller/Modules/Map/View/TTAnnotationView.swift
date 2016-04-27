@@ -11,7 +11,7 @@ import MapKit
 import ReactiveCocoa
 
 @available(iOS 8.0, *)
-class TTAnnotationView: MKAnnotationView {
+class TTAnnotationView: MKAnnotationView, UIGestureRecognizerDelegate {
     
     static let identifier = "TTAnnotationView";
     
@@ -29,6 +29,19 @@ class TTAnnotationView: MKAnnotationView {
     override init(frame: CGRect) {
         super.init(frame:frame);
         self.setupViews();
+    }
+    
+    override func addSubview(view: UIView) {
+        super.addSubview(view);
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+//            if let eventView = view.ob_subviewWithClass(NSClassFromString("UIControl")) as? UIControl {
+//                eventView.sendActionsForControlEvents(.AllEvents);
+//            }
+//            OBLog(self.ob_recursiveDiscription(), showContext: false);
+            if let titleLabel = self.detailCalloutAccessoryView?.superview?.subviews[2] as? UILabel {
+                titleLabel.adjustsFontSizeToFitWidth = true;
+            }
+        }
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -63,7 +76,15 @@ class TTAnnotationView: MKAnnotationView {
         self.dateDashboard.showBorder = false;
         self.dateDashboard.gaussianBlur = false;
         self.detailCalloutAccessoryView = self.dateDashboard.view;
-        self.dateDashboard.updateEdgeInsets(UIEdgeInsetsMake(-15, -10, 10, 10));
+        self.dateDashboard.view.backgroundColor = UIColor.clearColor();
+        self.dateDashboard.updateEdgeInsets(UIEdgeInsetsMake(-15, -3, 10, 10));
     }
     
+    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+        var hitFrame = self.bounds;
+        if !self.hidden {
+            hitFrame = UIEdgeInsetsInsetRect(hitFrame, UIEdgeInsetsMake(-5, -5, -5, -5));
+        }
+        return CGRectContainsPoint(hitFrame, point);
+    }
 }

@@ -89,12 +89,11 @@ class TTPOISearchController: TTBaseViewController, UISearchResultsUpdating, UISe
         self.tableView.dataSource = self.viewModel
         self.tableView.backgroundColor = UIColor.clearColor();
         self.tableView.separatorStyle = .None;
+        self.tableView.delaysContentTouches = false;
         self.tableView.ob_setAccommodateKeyboard(true);
         let footer = UIButton(type: .System);
         footer.frame.size = CGSizeMake(0, 40);
         footer.titleLabel?.font = TTStyle.font(15);
-//        footer.setTitleColor(TT_GrayText_Color, forState: .Normal);
-//        footer.setTitleColor(TT_BlackText_Color, forState: .Highlighted);
         footer.setImage(UIImage(named: "map_search_del_icon"), forState: .Normal);
         footer.setTitle(NSLocalizedString("clearSearchHistory", comment: "clear search history"), forState: .Normal);
         self.tableView.tableFooterView = footer;
@@ -135,7 +134,7 @@ class TTPOISearchController: TTBaseViewController, UISearchResultsUpdating, UISe
     }
     
     func bindSearchResult() {
-        self.rac_signalForSelector("updateSearchResultsForSearchController:", fromProtocol: NSProtocolFromString("UISearchResultsUpdating")).throttle(0.3).subscribeNext {[weak self] (object: AnyObject!) -> Void in
+        self.rac_signalForSelector(#selector(UISearchResultsUpdating.updateSearchResultsForSearchController(_:)), fromProtocol: NSProtocolFromString("UISearchResultsUpdating")).throttle(0.3).subscribeNext {[weak self] (object: AnyObject!) -> Void in
             if let strongSelf = self {
                 if let tuple = object as? RACTuple {
                     let searchController = tuple.first as! UISearchController;

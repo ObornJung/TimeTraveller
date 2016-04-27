@@ -53,6 +53,13 @@ extension CLLocation {
         return lround(self.coordinate.longitude / 15.0);
     }
     
+    var isValidOfGeocode: Bool {
+        
+        guard let geoLocation = self.placemarks?[0].location else { return false; }
+        guard geoLocation.distanceFromLocation(self) > 100 else { return false; }
+        return true;
+    }
+    
     //MARK: - Functions
     /**
     获取给定日期当前地点的绝对时间
@@ -141,7 +148,7 @@ extension CLLocation {
         if let timeZone = self.placemarks?.last?.timeZone {
             formatter.timeZone = timeZone;
         } else {
-            formatter.dateFormat! += "⚡";
+            formatter.dateFormat! += "⚡️";
             formatter.timeZone = NSTimeZone(forSecondsFromGMT: self.timeZone * kTTSecondsOneTimeZone);
         }
         

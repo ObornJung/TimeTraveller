@@ -142,7 +142,7 @@ public class Popover: UIView {
     self.blackOverlay.snp_updateConstraints { [unowned inView] make in
         make.edges.equalTo(inView);
     }
-    self.blackOverlay.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
+    self.blackOverlay.addTarget(self, action: #selector(Popover.dismiss), forControlEvents: .TouchUpInside)
 
     self.containerView = inView
     self.contentView = contentView
