@@ -31,19 +31,6 @@ class TTAnnotationView: MKAnnotationView, UIGestureRecognizerDelegate {
         self.setupViews();
     }
     
-    override func addSubview(view: UIView) {
-        super.addSubview(view);
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-//            if let eventView = view.ob_subviewWithClass(NSClassFromString("UIControl")) as? UIControl {
-//                eventView.sendActionsForControlEvents(.AllEvents);
-//            }
-//            OBLog(self.ob_recursiveDiscription(), showContext: false);
-            if let titleLabel = self.detailCalloutAccessoryView?.superview?.subviews[2] as? UILabel {
-                titleLabel.adjustsFontSizeToFitWidth = true;
-            }
-        }
-    }
-    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated);
         if selected {
@@ -56,6 +43,21 @@ class TTAnnotationView: MKAnnotationView, UIGestureRecognizerDelegate {
         } else {
             self.dashboardDisposable?.dispose();
         }
+    }
+    
+    override func addSubview(view: UIView) {
+        super.addSubview(view);
+        dispatch_async(dispatch_get_main_queue()) {[weak self] in
+            guard let rightAccessoryView = self?.rightCalloutAccessoryView?.superview else { return };
+            rightAccessoryView.snp_updateConstraints(closure: { (make) in
+                make.trailing.equalTo(0);
+                make.size.equalTo(CGSizeZero);
+            })
+            
+            guard let titleLabel = self?.detailCalloutAccessoryView?.superview?.subviews[2] as? UILabel else { return; }
+            titleLabel.font = TTStyle.boldFontOfSize(14);
+            titleLabel.adjustsFontSizeToFitWidth = true;
+        };
     }
     
     override func prepareForReuse() {
@@ -75,9 +77,11 @@ class TTAnnotationView: MKAnnotationView, UIGestureRecognizerDelegate {
         */
         self.dateDashboard.showBorder = false;
         self.dateDashboard.gaussianBlur = false;
+        self.dateDashboard.view.userInteractionEnabled = false;
         self.detailCalloutAccessoryView = self.dateDashboard.view;
         self.dateDashboard.view.backgroundColor = UIColor.clearColor();
         self.dateDashboard.updateEdgeInsets(UIEdgeInsetsMake(-15, -3, 10, 10));
+        self.rightCalloutAccessoryView = UIButton(type: .InfoDark);
     }
     
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {

@@ -49,7 +49,7 @@ class TTMapView: MKMapView {
             for object in visibleAnnotation {
                 guard let annotation = object as? MKAnnotation else { continue; }
                 guard let annotationView = self.viewForAnnotation(annotation) else { continue; }
-                if CGRectContainsPoint(annotationView.frame, gesture.locationInView(self)) {
+                if annotationView is TTAnnotationView && CGRectContainsPoint(annotationView.frame, gesture.locationInView(self)) {
                     menuAnchor = CGPointMake(CGRectGetMidX(annotationView.frame),
                                              CGRectGetMinY(annotationView.frame));
                     self.actionAnnocation = annotation;

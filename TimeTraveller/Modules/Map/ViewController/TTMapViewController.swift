@@ -40,7 +40,6 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         *    setup current location button
         */
         self.view.addSubview(self.currentLocationBtn);
-        
         self.currentLocationBtn.layer.cornerRadius = 3;
         self.currentLocationBtn.layer.masksToBounds = true;
         self.currentLocationBtn.setImage(UIImage(named: "map_location_icon"), forState: .Normal);
@@ -85,7 +84,6 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
         self.updateCurrentLocation(userLocation.location);
     }
  
-    /*** 下面是大头针标注相关 *****/
     func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
         print("添加注释视图")
     }
@@ -106,10 +104,6 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
                 view.draggable = false;
                 break;
             }
-    }
-    
-    func _handleTapToSelect(gesture: UIGestureRecognizer) {
-        OBLog("");
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -134,6 +128,8 @@ class TTMapViewController: TTBaseViewController, MKMapViewDelegate {
                 let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: curentLocation.coordinate,
                     span: currentLocationSpan)
                 self.mapView.setRegion(currentRegion, animated: true);
+            } else {
+                OBShowToast("定位失败啦\n请确认是否开启定位权限！");
             }
         }
     }

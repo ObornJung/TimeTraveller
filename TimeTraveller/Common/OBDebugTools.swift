@@ -41,7 +41,9 @@ func OBShowToast(message: String, title: String? = nil, duration: NSTimeInterval
         */
         CSToastManager.setQueueEnabled(false);
         OBToast.toastWindow.hidden = false;
-        let toastView = OBToast.toastWindow.toastViewForMessage(message, title: title, image: nil, style: nil);
+        let toastStyle = CSToastStyle(defaultStyle: ());
+        toastStyle.messageAlignment = .Center;
+        let toastView = OBToast.toastWindow.toastViewForMessage(message, title: title, image: nil, style: toastStyle);
         OBToast.toastWindow.showToast(toastView, duration: duration, position: position, completion: {[weak toastView] (didTap: Bool) -> Void in
             if toastView == OBToast.preToastView {
                 OBToast.toastWindow.hidden = true;

@@ -23,5 +23,9 @@ class TTStyle: NSObject {
     class func font(fontSize: CGFloat, weight: CGFloat = UIFontWeightRegular) -> UIFont {
         return UIFont.systemFontOfSize(fontSize, weight: weight);
     }
+    
+    class func boldFontOfSize(fontSize: CGFloat) -> UIFont {
+        return UIFont.boldSystemFontOfSize(fontSize);
+    }
 
 }
