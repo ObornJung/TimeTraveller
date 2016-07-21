@@ -1,0 +1,779 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		376D05DA1D3F991300CAC757 /* MRCAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05D01D3F991300CAC757 /* MRCAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D05DB1D3F991300CAC757 /* MRCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05D11D3F991300CAC757 /* MRCAction.m */; };
+		376D05DC1D3F991300CAC757 /* MRCAction+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05D21D3F991300CAC757 /* MRCAction+Private.h */; };
+		376D05DD1D3F991300CAC757 /* MRCAction+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05D31D3F991300CAC757 /* MRCAction+Private.m */; };
+		376D05DE1D3F991300CAC757 /* MRCOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05D41D3F991300CAC757 /* MRCOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D05DF1D3F991300CAC757 /* MRCOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05D51D3F991300CAC757 /* MRCOperation.m */; };
+		376D05E01D3F991300CAC757 /* MRCOperation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05D61D3F991300CAC757 /* MRCOperation+Private.h */; };
+		376D05E11D3F991300CAC757 /* MRCOperation+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05D71D3F991300CAC757 /* MRCOperation+Private.m */; };
+		376D05E21D3F991300CAC757 /* MRCWebCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05D81D3F991300CAC757 /* MRCWebCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D05E31D3F991300CAC757 /* MRCWebCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05D91D3F991300CAC757 /* MRCWebCommand.m */; };
+		376D05E61D3F991A00CAC757 /* NSError+MRC.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05E41D3F991A00CAC757 /* NSError+MRC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D05E71D3F991A00CAC757 /* NSError+MRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05E51D3F991A00CAC757 /* NSError+MRC.m */; };
+		376D05F81D3F9A3C00CAC757 /* MRCModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05F41D3F9A3C00CAC757 /* MRCModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D05F91D3F9A3C00CAC757 /* MRCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05F51D3F9A3C00CAC757 /* MRCModel.m */; };
+		376D05FA1D3F9A3C00CAC757 /* MRCSectionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05F61D3F9A3C00CAC757 /* MRCSectionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D05FB1D3F9A3C00CAC757 /* MRCSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05F71D3F9A3C00CAC757 /* MRCSectionModel.m */; };
+		376D06041D3F9A4800CAC757 /* MRCContainerViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05FC1D3F9A4800CAC757 /* MRCContainerViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06051D3F9A4800CAC757 /* MRCContainerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05FD1D3F9A4800CAC757 /* MRCContainerViewModel.m */; };
+		376D06061D3F9A4800CAC757 /* MRCContainerViewModel+Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05FE1D3F9A4800CAC757 /* MRCContainerViewModel+Engine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06071D3F9A4800CAC757 /* MRCContainerViewModel+Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05FF1D3F9A4800CAC757 /* MRCContainerViewModel+Engine.m */; };
+		376D06081D3F9A4800CAC757 /* MRCContainerViewModel+Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06001D3F9A4800CAC757 /* MRCContainerViewModel+Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06091D3F9A4800CAC757 /* MRCContainerViewModel+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06011D3F9A4800CAC757 /* MRCContainerViewModel+Operations.m */; };
+		376D060A1D3F9A4800CAC757 /* MRCContainerViewModel+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06021D3F9A4800CAC757 /* MRCContainerViewModel+Private.h */; };
+		376D060B1D3F9A4800CAC757 /* MRCContainerViewModel+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06031D3F9A4800CAC757 /* MRCContainerViewModel+Private.m */; };
+		376D060D1D3F9A5B00CAC757 /* MRCCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D060C1D3F9A5B00CAC757 /* MRCCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06141D3F9A5F00CAC757 /* MRCContanierViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D060E1D3F9A5F00CAC757 /* MRCContanierViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06151D3F9A5F00CAC757 /* MRCContanierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D060F1D3F9A5F00CAC757 /* MRCContanierViewController.m */; };
+		376D06161D3F9A5F00CAC757 /* MRCContanierViewController+Action.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06101D3F9A5F00CAC757 /* MRCContanierViewController+Action.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06171D3F9A5F00CAC757 /* MRCContanierViewController+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06111D3F9A5F00CAC757 /* MRCContanierViewController+Action.m */; };
+		376D06181D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06121D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06191D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06131D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m */; };
+		376D06201D3F9A6700CAC757 /* MRCDescModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D061A1D3F9A6700CAC757 /* MRCDescModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06211D3F9A6700CAC757 /* MRCDescModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D061B1D3F9A6700CAC757 /* MRCDescModel.m */; };
+		376D06221D3F9A6700CAC757 /* MRCSplitLineModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D061C1D3F9A6700CAC757 /* MRCSplitLineModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06231D3F9A6700CAC757 /* MRCSplitLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D061D1D3F9A6700CAC757 /* MRCSplitLineModel.m */; };
+		376D06241D3F9A6700CAC757 /* MRCTableCommonTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D061E1D3F9A6700CAC757 /* MRCTableCommonTag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06251D3F9A6700CAC757 /* MRCTableCommonTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D061F1D3F9A6700CAC757 /* MRCTableCommonTag.m */; };
+		376D062A1D3F9A6F00CAC757 /* MRCTableViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06261D3F9A6F00CAC757 /* MRCTableViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D062B1D3F9A6F00CAC757 /* MRCTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06271D3F9A6F00CAC757 /* MRCTableViewModel.m */; };
+		376D062C1D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06281D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D062D1D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06291D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.m */; };
+		376D06341D3F9A7500CAC757 /* MRCTableDescCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D062E1D3F9A7500CAC757 /* MRCTableDescCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06351D3F9A7500CAC757 /* MRCTableDescCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D062F1D3F9A7500CAC757 /* MRCTableDescCell.m */; };
+		376D06361D3F9A7500CAC757 /* MRCTableSplitLineCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06301D3F9A7500CAC757 /* MRCTableSplitLineCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06371D3F9A7500CAC757 /* MRCTableSplitLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06311D3F9A7500CAC757 /* MRCTableSplitLineCell.m */; };
+		376D06381D3F9A7500CAC757 /* MRCTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06321D3F9A7500CAC757 /* MRCTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06391D3F9A7500CAC757 /* MRCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06331D3F9A7500CAC757 /* MRCTableViewCell.m */; };
+		376D063E1D3F9A7C00CAC757 /* MRCTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D063A1D3F9A7C00CAC757 /* MRCTableViewController.h */; };
+		376D063F1D3F9A7C00CAC757 /* MRCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D063B1D3F9A7C00CAC757 /* MRCTableViewController.m */; };
+		376D06401D3F9A7C00CAC757 /* MRCTableViewController+Action.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D063C1D3F9A7C00CAC757 /* MRCTableViewController+Action.h */; };
+		376D06411D3F9A7C00CAC757 /* MRCTableViewController+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D063D1D3F9A7C00CAC757 /* MRCTableViewController+Action.m */; };
+		376D06461D3F9A9100CAC757 /* MRCCollectionViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06421D3F9A9100CAC757 /* MRCCollectionViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06471D3F9A9100CAC757 /* MRCCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06431D3F9A9100CAC757 /* MRCCollectionViewModel.m */; };
+		376D06481D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06441D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06491D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06451D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.m */; };
+		376D064E1D3F9A9900CAC757 /* MRCCollectionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D064A1D3F9A9900CAC757 /* MRCCollectionCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D064F1D3F9A9900CAC757 /* MRCCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D064B1D3F9A9900CAC757 /* MRCCollectionCell.m */; };
+		376D06501D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D064C1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06511D3F9A9900CAC757 /* MRCCollectionSupplementaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D064D1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.m */; };
+		376D06561D3F9A9F00CAC757 /* MRCCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06521D3F9A9F00CAC757 /* MRCCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06571D3F9A9F00CAC757 /* MRCCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06531D3F9A9F00CAC757 /* MRCCollectionViewController.m */; };
+		376D06581D3F9A9F00CAC757 /* MRCCollectionViewController+Action.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06541D3F9A9F00CAC757 /* MRCCollectionViewController+Action.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06591D3F9A9F00CAC757 /* MRCCollectionViewController+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06551D3F9A9F00CAC757 /* MRCCollectionViewController+Action.m */; };
+		37867FF01D3FA9FE0077F914 /* MRCLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 37867FEE1D3FA9FE0077F914 /* MRCLine.h */; };
+		37867FF11D3FA9FE0077F914 /* MRCLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 37867FEF1D3FA9FE0077F914 /* MRCLine.m */; };
+		37867FF61D3FABD80077F914 /* NSArray+MRC.h in Headers */ = {isa = PBXBuildFile; fileRef = 37867FF21D3FABD80077F914 /* NSArray+MRC.h */; };
+		37867FF71D3FABD80077F914 /* NSArray+MRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37867FF31D3FABD80077F914 /* NSArray+MRC.m */; };
+		37867FF81D3FABD80077F914 /* NSDictionary+MRC.h in Headers */ = {isa = PBXBuildFile; fileRef = 37867FF41D3FABD80077F914 /* NSDictionary+MRC.h */; };
+		37867FF91D3FABD80077F914 /* NSDictionary+MRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37867FF51D3FABD80077F914 /* NSDictionary+MRC.m */; };
+		37867FFB1D3FAC4C0077F914 /* MRCTableComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 37867FFA1D3FAC4C0077F914 /* MRCTableComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37867FFE1D3FACF20077F914 /* UIColor+MRC.h in Headers */ = {isa = PBXBuildFile; fileRef = 37867FFC1D3FACF20077F914 /* UIColor+MRC.h */; };
+		37867FFF1D3FACF20077F914 /* UIColor+MRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37867FFD1D3FACF20077F914 /* UIColor+MRC.m */; };
+		378680021D40AEAB0077F914 /* MRCDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 378680011D40AEAB0077F914 /* MRCDefines.h */; };
+		378680071D40CC320077F914 /* MRCCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 378680061D40CC320077F914 /* MRCCore.h */; };
+		F0E085637860A726F15DBB0E /* libPods-MRC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9C2A11B4E520E1207A05AB /* libPods-MRC.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A9C2A11B4E520E1207A05AB /* libPods-MRC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MRC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		376D05BF1D3F969F00CAC757 /* MRC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MRC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		376D05C41D3F969F00CAC757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		376D05D01D3F991300CAC757 /* MRCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCAction.h; sourceTree = "<group>"; };
+		376D05D11D3F991300CAC757 /* MRCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCAction.m; sourceTree = "<group>"; };
+		376D05D21D3F991300CAC757 /* MRCAction+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCAction+Private.h"; sourceTree = "<group>"; };
+		376D05D31D3F991300CAC757 /* MRCAction+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCAction+Private.m"; sourceTree = "<group>"; };
+		376D05D41D3F991300CAC757 /* MRCOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCOperation.h; sourceTree = "<group>"; };
+		376D05D51D3F991300CAC757 /* MRCOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCOperation.m; sourceTree = "<group>"; };
+		376D05D61D3F991300CAC757 /* MRCOperation+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCOperation+Private.h"; sourceTree = "<group>"; };
+		376D05D71D3F991300CAC757 /* MRCOperation+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCOperation+Private.m"; sourceTree = "<group>"; };
+		376D05D81D3F991300CAC757 /* MRCWebCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCWebCommand.h; sourceTree = "<group>"; };
+		376D05D91D3F991300CAC757 /* MRCWebCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCWebCommand.m; sourceTree = "<group>"; };
+		376D05E41D3F991A00CAC757 /* NSError+MRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+MRC.h"; sourceTree = "<group>"; };
+		376D05E51D3F991A00CAC757 /* NSError+MRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+MRC.m"; sourceTree = "<group>"; };
+		376D05F41D3F9A3C00CAC757 /* MRCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCModel.h; sourceTree = "<group>"; };
+		376D05F51D3F9A3C00CAC757 /* MRCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCModel.m; sourceTree = "<group>"; };
+		376D05F61D3F9A3C00CAC757 /* MRCSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCSectionModel.h; sourceTree = "<group>"; };
+		376D05F71D3F9A3C00CAC757 /* MRCSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCSectionModel.m; sourceTree = "<group>"; };
+		376D05FC1D3F9A4800CAC757 /* MRCContainerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCContainerViewModel.h; sourceTree = "<group>"; };
+		376D05FD1D3F9A4800CAC757 /* MRCContainerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCContainerViewModel.m; sourceTree = "<group>"; };
+		376D05FE1D3F9A4800CAC757 /* MRCContainerViewModel+Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCContainerViewModel+Engine.h"; sourceTree = "<group>"; };
+		376D05FF1D3F9A4800CAC757 /* MRCContainerViewModel+Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCContainerViewModel+Engine.m"; sourceTree = "<group>"; };
+		376D06001D3F9A4800CAC757 /* MRCContainerViewModel+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCContainerViewModel+Operations.h"; sourceTree = "<group>"; };
+		376D06011D3F9A4800CAC757 /* MRCContainerViewModel+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCContainerViewModel+Operations.m"; sourceTree = "<group>"; };
+		376D06021D3F9A4800CAC757 /* MRCContainerViewModel+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCContainerViewModel+Private.h"; sourceTree = "<group>"; };
+		376D06031D3F9A4800CAC757 /* MRCContainerViewModel+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCContainerViewModel+Private.m"; sourceTree = "<group>"; };
+		376D060C1D3F9A5B00CAC757 /* MRCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCell.h; sourceTree = "<group>"; };
+		376D060E1D3F9A5F00CAC757 /* MRCContanierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCContanierViewController.h; sourceTree = "<group>"; };
+		376D060F1D3F9A5F00CAC757 /* MRCContanierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCContanierViewController.m; sourceTree = "<group>"; };
+		376D06101D3F9A5F00CAC757 /* MRCContanierViewController+Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCContanierViewController+Action.h"; sourceTree = "<group>"; };
+		376D06111D3F9A5F00CAC757 /* MRCContanierViewController+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCContanierViewController+Action.m"; sourceTree = "<group>"; };
+		376D06121D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCContanierViewController+Indicator.h"; sourceTree = "<group>"; };
+		376D06131D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCContanierViewController+Indicator.m"; sourceTree = "<group>"; };
+		376D061A1D3F9A6700CAC757 /* MRCDescModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCDescModel.h; sourceTree = "<group>"; };
+		376D061B1D3F9A6700CAC757 /* MRCDescModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCDescModel.m; sourceTree = "<group>"; };
+		376D061C1D3F9A6700CAC757 /* MRCSplitLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCSplitLineModel.h; sourceTree = "<group>"; };
+		376D061D1D3F9A6700CAC757 /* MRCSplitLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCSplitLineModel.m; sourceTree = "<group>"; };
+		376D061E1D3F9A6700CAC757 /* MRCTableCommonTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableCommonTag.h; sourceTree = "<group>"; };
+		376D061F1D3F9A6700CAC757 /* MRCTableCommonTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableCommonTag.m; sourceTree = "<group>"; };
+		376D06261D3F9A6F00CAC757 /* MRCTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableViewModel.h; sourceTree = "<group>"; };
+		376D06271D3F9A6F00CAC757 /* MRCTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableViewModel.m; sourceTree = "<group>"; };
+		376D06281D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCTableViewModel+DataSource.h"; sourceTree = "<group>"; };
+		376D06291D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCTableViewModel+DataSource.m"; sourceTree = "<group>"; };
+		376D062E1D3F9A7500CAC757 /* MRCTableDescCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableDescCell.h; sourceTree = "<group>"; };
+		376D062F1D3F9A7500CAC757 /* MRCTableDescCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableDescCell.m; sourceTree = "<group>"; };
+		376D06301D3F9A7500CAC757 /* MRCTableSplitLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableSplitLineCell.h; sourceTree = "<group>"; };
+		376D06311D3F9A7500CAC757 /* MRCTableSplitLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableSplitLineCell.m; sourceTree = "<group>"; };
+		376D06321D3F9A7500CAC757 /* MRCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableViewCell.h; sourceTree = "<group>"; };
+		376D06331D3F9A7500CAC757 /* MRCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableViewCell.m; sourceTree = "<group>"; };
+		376D063A1D3F9A7C00CAC757 /* MRCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableViewController.h; sourceTree = "<group>"; };
+		376D063B1D3F9A7C00CAC757 /* MRCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableViewController.m; sourceTree = "<group>"; };
+		376D063C1D3F9A7C00CAC757 /* MRCTableViewController+Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCTableViewController+Action.h"; sourceTree = "<group>"; };
+		376D063D1D3F9A7C00CAC757 /* MRCTableViewController+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCTableViewController+Action.m"; sourceTree = "<group>"; };
+		376D06421D3F9A9100CAC757 /* MRCCollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCollectionViewModel.h; sourceTree = "<group>"; };
+		376D06431D3F9A9100CAC757 /* MRCCollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCCollectionViewModel.m; sourceTree = "<group>"; };
+		376D06441D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCCollectionViewModel+DataSource.h"; sourceTree = "<group>"; };
+		376D06451D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCCollectionViewModel+DataSource.m"; sourceTree = "<group>"; };
+		376D064A1D3F9A9900CAC757 /* MRCCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCollectionCell.h; sourceTree = "<group>"; };
+		376D064B1D3F9A9900CAC757 /* MRCCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCCollectionCell.m; sourceTree = "<group>"; };
+		376D064C1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCollectionSupplementaryView.h; sourceTree = "<group>"; };
+		376D064D1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCCollectionSupplementaryView.m; sourceTree = "<group>"; };
+		376D06521D3F9A9F00CAC757 /* MRCCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCollectionViewController.h; sourceTree = "<group>"; };
+		376D06531D3F9A9F00CAC757 /* MRCCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCCollectionViewController.m; sourceTree = "<group>"; };
+		376D06541D3F9A9F00CAC757 /* MRCCollectionViewController+Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCCollectionViewController+Action.h"; sourceTree = "<group>"; };
+		376D06551D3F9A9F00CAC757 /* MRCCollectionViewController+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCCollectionViewController+Action.m"; sourceTree = "<group>"; };
+		37867FEE1D3FA9FE0077F914 /* MRCLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCLine.h; sourceTree = "<group>"; };
+		37867FEF1D3FA9FE0077F914 /* MRCLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCLine.m; sourceTree = "<group>"; };
+		37867FF21D3FABD80077F914 /* NSArray+MRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MRC.h"; sourceTree = "<group>"; };
+		37867FF31D3FABD80077F914 /* NSArray+MRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MRC.m"; sourceTree = "<group>"; };
+		37867FF41D3FABD80077F914 /* NSDictionary+MRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MRC.h"; sourceTree = "<group>"; };
+		37867FF51D3FABD80077F914 /* NSDictionary+MRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MRC.m"; sourceTree = "<group>"; };
+		37867FFA1D3FAC4C0077F914 /* MRCTableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableComponent.h; sourceTree = "<group>"; };
+		37867FFC1D3FACF20077F914 /* UIColor+MRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MRC.h"; sourceTree = "<group>"; };
+		37867FFD1D3FACF20077F914 /* UIColor+MRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MRC.m"; sourceTree = "<group>"; };
+		378680011D40AEAB0077F914 /* MRCDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCDefines.h; sourceTree = "<group>"; };
+		378680061D40CC320077F914 /* MRCCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCore.h; sourceTree = "<group>"; };
+		9B6578ADC8671392EB1FD0EC /* Pods-MRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-MRC/Pods-MRC.release.xcconfig"; sourceTree = "<group>"; };
+		CF910EF090D72F6FA0E42DDD /* Pods-MRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MRC/Pods-MRC.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		376D05BB1D3F969F00CAC757 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0E085637860A726F15DBB0E /* libPods-MRC.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16BDF7658A43BEEA38E4FFD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A9C2A11B4E520E1207A05AB /* libPods-MRC.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		376D05B51D3F969F00CAC757 = {
+			isa = PBXGroup;
+			children = (
+				376D05C11D3F969F00CAC757 /* MRC */,
+				376D05C01D3F969F00CAC757 /* Products */,
+				68AD23F6B09F4DC0FBF71654 /* Pods */,
+				16BDF7658A43BEEA38E4FFD3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		376D05C01D3F969F00CAC757 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				376D05BF1D3F969F00CAC757 /* MRC.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		376D05C11D3F969F00CAC757 /* MRC */ = {
+			isa = PBXGroup;
+			children = (
+				378680061D40CC320077F914 /* MRCCore.h */,
+				376D05CB1D3F989800CAC757 /* MRCSupport */,
+				376D05CD1D3F98A200CAC757 /* MRCExtention */,
+				376D05CC1D3F989F00CAC757 /* MRCContainer */,
+				376D05CE1D3F98A400CAC757 /* MRCTableView */,
+				376D05CF1D3F98D000CAC757 /* MRCCollectionView */,
+				37867FEB1D3FA67E0077F914 /* Supporting Files */,
+			);
+			path = MRC;
+			sourceTree = "<group>";
+		};
+		376D05CB1D3F989800CAC757 /* MRCSupport */ = {
+			isa = PBXGroup;
+			children = (
+				37867FEE1D3FA9FE0077F914 /* MRCLine.h */,
+				37867FEF1D3FA9FE0077F914 /* MRCLine.m */,
+				376D05D01D3F991300CAC757 /* MRCAction.h */,
+				376D05D11D3F991300CAC757 /* MRCAction.m */,
+				376D05D21D3F991300CAC757 /* MRCAction+Private.h */,
+				376D05D31D3F991300CAC757 /* MRCAction+Private.m */,
+				376D05D41D3F991300CAC757 /* MRCOperation.h */,
+				376D05D51D3F991300CAC757 /* MRCOperation.m */,
+				376D05D61D3F991300CAC757 /* MRCOperation+Private.h */,
+				376D05D71D3F991300CAC757 /* MRCOperation+Private.m */,
+				376D05D81D3F991300CAC757 /* MRCWebCommand.h */,
+				376D05D91D3F991300CAC757 /* MRCWebCommand.m */,
+			);
+			path = MRCSupport;
+			sourceTree = "<group>";
+		};
+		376D05CC1D3F989F00CAC757 /* MRCContainer */ = {
+			isa = PBXGroup;
+			children = (
+				376D05E81D3F994A00CAC757 /* Model */,
+				376D05EB1D3F995200CAC757 /* ViewModel */,
+				376D05EA1D3F995000CAC757 /* View */,
+				376D05E91D3F994C00CAC757 /* ViewController */,
+			);
+			path = MRCContainer;
+			sourceTree = "<group>";
+		};
+		376D05CD1D3F98A200CAC757 /* MRCExtention */ = {
+			isa = PBXGroup;
+			children = (
+				37867FFC1D3FACF20077F914 /* UIColor+MRC.h */,
+				37867FFD1D3FACF20077F914 /* UIColor+MRC.m */,
+				376D05E41D3F991A00CAC757 /* NSError+MRC.h */,
+				376D05E51D3F991A00CAC757 /* NSError+MRC.m */,
+				37867FF21D3FABD80077F914 /* NSArray+MRC.h */,
+				37867FF31D3FABD80077F914 /* NSArray+MRC.m */,
+				37867FF41D3FABD80077F914 /* NSDictionary+MRC.h */,
+				37867FF51D3FABD80077F914 /* NSDictionary+MRC.m */,
+			);
+			path = MRCExtention;
+			sourceTree = "<group>";
+		};
+		376D05CE1D3F98A400CAC757 /* MRCTableView */ = {
+			isa = PBXGroup;
+			children = (
+				37867FFA1D3FAC4C0077F914 /* MRCTableComponent.h */,
+				376D05EF1D3F998900CAC757 /* Model */,
+				376D05EE1D3F998600CAC757 /* ViewModel */,
+				376D05ED1D3F998400CAC757 /* View */,
+				376D05EC1D3F998100CAC757 /* ViewController */,
+			);
+			path = MRCTableView;
+			sourceTree = "<group>";
+		};
+		376D05CF1D3F98D000CAC757 /* MRCCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				376D05F21D3F99AA00CAC757 /* ViewModel */,
+				376D05F11D3F99A700CAC757 /* View */,
+				376D05F01D3F99A500CAC757 /* ViewController */,
+			);
+			path = MRCCollectionView;
+			sourceTree = "<group>";
+		};
+		376D05E81D3F994A00CAC757 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				376D05F41D3F9A3C00CAC757 /* MRCModel.h */,
+				376D05F51D3F9A3C00CAC757 /* MRCModel.m */,
+				376D05F61D3F9A3C00CAC757 /* MRCSectionModel.h */,
+				376D05F71D3F9A3C00CAC757 /* MRCSectionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		376D05E91D3F994C00CAC757 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				376D060E1D3F9A5F00CAC757 /* MRCContanierViewController.h */,
+				376D060F1D3F9A5F00CAC757 /* MRCContanierViewController.m */,
+				376D06101D3F9A5F00CAC757 /* MRCContanierViewController+Action.h */,
+				376D06111D3F9A5F00CAC757 /* MRCContanierViewController+Action.m */,
+				376D06121D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.h */,
+				376D06131D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		376D05EA1D3F995000CAC757 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				376D060C1D3F9A5B00CAC757 /* MRCCell.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		376D05EB1D3F995200CAC757 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				376D05FC1D3F9A4800CAC757 /* MRCContainerViewModel.h */,
+				376D05FD1D3F9A4800CAC757 /* MRCContainerViewModel.m */,
+				376D05FE1D3F9A4800CAC757 /* MRCContainerViewModel+Engine.h */,
+				376D05FF1D3F9A4800CAC757 /* MRCContainerViewModel+Engine.m */,
+				376D06001D3F9A4800CAC757 /* MRCContainerViewModel+Operations.h */,
+				376D06011D3F9A4800CAC757 /* MRCContainerViewModel+Operations.m */,
+				376D06021D3F9A4800CAC757 /* MRCContainerViewModel+Private.h */,
+				376D06031D3F9A4800CAC757 /* MRCContainerViewModel+Private.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		376D05EC1D3F998100CAC757 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				376D063A1D3F9A7C00CAC757 /* MRCTableViewController.h */,
+				376D063B1D3F9A7C00CAC757 /* MRCTableViewController.m */,
+				376D063C1D3F9A7C00CAC757 /* MRCTableViewController+Action.h */,
+				376D063D1D3F9A7C00CAC757 /* MRCTableViewController+Action.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		376D05ED1D3F998400CAC757 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				376D06321D3F9A7500CAC757 /* MRCTableViewCell.h */,
+				376D06331D3F9A7500CAC757 /* MRCTableViewCell.m */,
+				376D062E1D3F9A7500CAC757 /* MRCTableDescCell.h */,
+				376D062F1D3F9A7500CAC757 /* MRCTableDescCell.m */,
+				376D06301D3F9A7500CAC757 /* MRCTableSplitLineCell.h */,
+				376D06311D3F9A7500CAC757 /* MRCTableSplitLineCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		376D05EE1D3F998600CAC757 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				376D06261D3F9A6F00CAC757 /* MRCTableViewModel.h */,
+				376D06271D3F9A6F00CAC757 /* MRCTableViewModel.m */,
+				376D06281D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h */,
+				376D06291D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		376D05EF1D3F998900CAC757 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				376D061A1D3F9A6700CAC757 /* MRCDescModel.h */,
+				376D061B1D3F9A6700CAC757 /* MRCDescModel.m */,
+				376D061C1D3F9A6700CAC757 /* MRCSplitLineModel.h */,
+				376D061D1D3F9A6700CAC757 /* MRCSplitLineModel.m */,
+				376D061E1D3F9A6700CAC757 /* MRCTableCommonTag.h */,
+				376D061F1D3F9A6700CAC757 /* MRCTableCommonTag.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		376D05F01D3F99A500CAC757 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				376D06521D3F9A9F00CAC757 /* MRCCollectionViewController.h */,
+				376D06531D3F9A9F00CAC757 /* MRCCollectionViewController.m */,
+				376D06541D3F9A9F00CAC757 /* MRCCollectionViewController+Action.h */,
+				376D06551D3F9A9F00CAC757 /* MRCCollectionViewController+Action.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		376D05F11D3F99A700CAC757 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				376D064A1D3F9A9900CAC757 /* MRCCollectionCell.h */,
+				376D064B1D3F9A9900CAC757 /* MRCCollectionCell.m */,
+				376D064C1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h */,
+				376D064D1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		376D05F21D3F99AA00CAC757 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				376D06421D3F9A9100CAC757 /* MRCCollectionViewModel.h */,
+				376D06431D3F9A9100CAC757 /* MRCCollectionViewModel.m */,
+				376D06441D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.h */,
+				376D06451D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		37867FEB1D3FA67E0077F914 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				376D05C41D3F969F00CAC757 /* Info.plist */,
+				378680011D40AEAB0077F914 /* MRCDefines.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68AD23F6B09F4DC0FBF71654 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF910EF090D72F6FA0E42DDD /* Pods-MRC.debug.xcconfig */,
+				9B6578ADC8671392EB1FD0EC /* Pods-MRC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		376D05BC1D3F969F00CAC757 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				376D06561D3F9A9F00CAC757 /* MRCCollectionViewController.h in Headers */,
+				376D06141D3F9A5F00CAC757 /* MRCContanierViewController.h in Headers */,
+				376D06061D3F9A4800CAC757 /* MRCContainerViewModel+Engine.h in Headers */,
+				376D06341D3F9A7500CAC757 /* MRCTableDescCell.h in Headers */,
+				37867FF61D3FABD80077F914 /* NSArray+MRC.h in Headers */,
+				376D06201D3F9A6700CAC757 /* MRCDescModel.h in Headers */,
+				376D06461D3F9A9100CAC757 /* MRCCollectionViewModel.h in Headers */,
+				376D06221D3F9A6700CAC757 /* MRCSplitLineModel.h in Headers */,
+				376D06481D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.h in Headers */,
+				376D05E61D3F991A00CAC757 /* NSError+MRC.h in Headers */,
+				376D05F81D3F9A3C00CAC757 /* MRCModel.h in Headers */,
+				37867FFB1D3FAC4C0077F914 /* MRCTableComponent.h in Headers */,
+				376D062A1D3F9A6F00CAC757 /* MRCTableViewModel.h in Headers */,
+				376D06381D3F9A7500CAC757 /* MRCTableViewCell.h in Headers */,
+				376D06161D3F9A5F00CAC757 /* MRCContanierViewController+Action.h in Headers */,
+				376D06361D3F9A7500CAC757 /* MRCTableSplitLineCell.h in Headers */,
+				376D060A1D3F9A4800CAC757 /* MRCContainerViewModel+Private.h in Headers */,
+				378680071D40CC320077F914 /* MRCCore.h in Headers */,
+				376D06041D3F9A4800CAC757 /* MRCContainerViewModel.h in Headers */,
+				376D05DA1D3F991300CAC757 /* MRCAction.h in Headers */,
+				376D06401D3F9A7C00CAC757 /* MRCTableViewController+Action.h in Headers */,
+				376D06581D3F9A9F00CAC757 /* MRCCollectionViewController+Action.h in Headers */,
+				376D06241D3F9A6700CAC757 /* MRCTableCommonTag.h in Headers */,
+				376D05DE1D3F991300CAC757 /* MRCOperation.h in Headers */,
+				376D06081D3F9A4800CAC757 /* MRCContainerViewModel+Operations.h in Headers */,
+				376D06181D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.h in Headers */,
+				376D05FA1D3F9A3C00CAC757 /* MRCSectionModel.h in Headers */,
+				376D06501D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h in Headers */,
+				376D062C1D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h in Headers */,
+				37867FFE1D3FACF20077F914 /* UIColor+MRC.h in Headers */,
+				37867FF01D3FA9FE0077F914 /* MRCLine.h in Headers */,
+				376D05E01D3F991300CAC757 /* MRCOperation+Private.h in Headers */,
+				376D05DC1D3F991300CAC757 /* MRCAction+Private.h in Headers */,
+				376D064E1D3F9A9900CAC757 /* MRCCollectionCell.h in Headers */,
+				376D05E21D3F991300CAC757 /* MRCWebCommand.h in Headers */,
+				37867FF81D3FABD80077F914 /* NSDictionary+MRC.h in Headers */,
+				376D060D1D3F9A5B00CAC757 /* MRCCell.h in Headers */,
+				376D063E1D3F9A7C00CAC757 /* MRCTableViewController.h in Headers */,
+				378680021D40AEAB0077F914 /* MRCDefines.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		376D05BE1D3F969F00CAC757 /* MRC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 376D05C71D3F969F00CAC757 /* Build configuration list for PBXNativeTarget "MRC" */;
+			buildPhases = (
+				E6B11A6EC3629105B13E54FC /* Check Pods Manifest.lock */,
+				376D05BA1D3F969F00CAC757 /* Sources */,
+				376D05BB1D3F969F00CAC757 /* Frameworks */,
+				376D05BC1D3F969F00CAC757 /* Headers */,
+				376D05BD1D3F969F00CAC757 /* Resources */,
+				CA8A2B15013BC41B808894C2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MRC;
+			productName = MRC;
+			productReference = 376D05BF1D3F969F00CAC757 /* MRC.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		376D05B61D3F969F00CAC757 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = wdk;
+				TargetAttributes = {
+					376D05BE1D3F969F00CAC757 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 376D05B91D3F969F00CAC757 /* Build configuration list for PBXProject "MRC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 376D05B51D3F969F00CAC757;
+			productRefGroup = 376D05C01D3F969F00CAC757 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				376D05BE1D3F969F00CAC757 /* MRC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		376D05BD1D3F969F00CAC757 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA8A2B15013BC41B808894C2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MRC/Pods-MRC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6B11A6EC3629105B13E54FC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		376D05BA1D3F969F00CAC757 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				376D06051D3F9A4800CAC757 /* MRCContainerViewModel.m in Sources */,
+				376D05DD1D3F991300CAC757 /* MRCAction+Private.m in Sources */,
+				376D06191D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m in Sources */,
+				376D062B1D3F9A6F00CAC757 /* MRCTableViewModel.m in Sources */,
+				376D05DF1D3F991300CAC757 /* MRCOperation.m in Sources */,
+				376D062D1D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.m in Sources */,
+				376D06491D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.m in Sources */,
+				37867FF71D3FABD80077F914 /* NSArray+MRC.m in Sources */,
+				376D06171D3F9A5F00CAC757 /* MRCContanierViewController+Action.m in Sources */,
+				376D06251D3F9A6700CAC757 /* MRCTableCommonTag.m in Sources */,
+				376D05E71D3F991A00CAC757 /* NSError+MRC.m in Sources */,
+				376D05F91D3F9A3C00CAC757 /* MRCModel.m in Sources */,
+				376D06571D3F9A9F00CAC757 /* MRCCollectionViewController.m in Sources */,
+				376D06371D3F9A7500CAC757 /* MRCTableSplitLineCell.m in Sources */,
+				376D064F1D3F9A9900CAC757 /* MRCCollectionCell.m in Sources */,
+				37867FFF1D3FACF20077F914 /* UIColor+MRC.m in Sources */,
+				376D06471D3F9A9100CAC757 /* MRCCollectionViewModel.m in Sources */,
+				376D06591D3F9A9F00CAC757 /* MRCCollectionViewController+Action.m in Sources */,
+				376D06151D3F9A5F00CAC757 /* MRCContanierViewController.m in Sources */,
+				376D060B1D3F9A4800CAC757 /* MRCContainerViewModel+Private.m in Sources */,
+				376D05FB1D3F9A3C00CAC757 /* MRCSectionModel.m in Sources */,
+				376D06411D3F9A7C00CAC757 /* MRCTableViewController+Action.m in Sources */,
+				376D06091D3F9A4800CAC757 /* MRCContainerViewModel+Operations.m in Sources */,
+				376D06211D3F9A6700CAC757 /* MRCDescModel.m in Sources */,
+				376D06511D3F9A9900CAC757 /* MRCCollectionSupplementaryView.m in Sources */,
+				37867FF11D3FA9FE0077F914 /* MRCLine.m in Sources */,
+				376D05E31D3F991300CAC757 /* MRCWebCommand.m in Sources */,
+				376D06231D3F9A6700CAC757 /* MRCSplitLineModel.m in Sources */,
+				376D06391D3F9A7500CAC757 /* MRCTableViewCell.m in Sources */,
+				376D05E11D3F991300CAC757 /* MRCOperation+Private.m in Sources */,
+				376D063F1D3F9A7C00CAC757 /* MRCTableViewController.m in Sources */,
+				376D05DB1D3F991300CAC757 /* MRCAction.m in Sources */,
+				376D06071D3F9A4800CAC757 /* MRCContainerViewModel+Engine.m in Sources */,
+				376D06351D3F9A7500CAC757 /* MRCTableDescCell.m in Sources */,
+				37867FF91D3FABD80077F914 /* NSDictionary+MRC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		376D05C51D3F969F00CAC757 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		376D05C61D3F969F00CAC757 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		376D05C81D3F969F00CAC757 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF910EF090D72F6FA0E42DDD /* Pods-MRC.debug.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = MRC/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wdk.MRC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		376D05C91D3F969F00CAC757 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B6578ADC8671392EB1FD0EC /* Pods-MRC.release.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = MRC/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wdk.MRC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		376D05B91D3F969F00CAC757 /* Build configuration list for PBXProject "MRC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				376D05C51D3F969F00CAC757 /* Debug */,
+				376D05C61D3F969F00CAC757 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		376D05C71D3F969F00CAC757 /* Build configuration list for PBXNativeTarget "MRC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				376D05C81D3F969F00CAC757 /* Debug */,
+				376D05C91D3F969F00CAC757 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 376D05B61D3F969F00CAC757 /* Project object */;
+}
