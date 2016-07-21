@@ -6,6 +6,7 @@
 //  Copyright © 2016年 WDK. All rights reserved.
 //
 
+#import "UIColor+MRC.h"
 #import "MRCTableCommonTag.h"
 #import "MRCSplitLineModel.h"
 
@@ -22,7 +23,7 @@
         _style = style;
         _width = 0.5f;
         _insets = UIEdgeInsetsZero;
-        _color = [UIColor grayColor];
+        _color = [UIColor mrc_colorWithRGB:0xDDDDDD];
     }
     return self;
 }
