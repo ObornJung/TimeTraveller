@@ -88,9 +88,26 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "MRC/**/*.{h,m,mm,c}"
+  s.source_files  = "MRC/*.{h,m,mm,c}"
   # s.public_header_files = "MRC/**/*.h"
   # s.exclude_files = "Classes/Exclude"
+
+  s.subspec 'MRCSupport' do |ss|
+    ss.source_files = 'MRC/MRCSupport/*.{h,m}'
+    ss.public_header_files = 'MRC/MRCSupport/*.h'
+  end
+
+  s.subspec 'MRCExtention' do |ss|
+    ss.source_files = 'MRC/MRCExtention/*.{h,m}'
+    ss.public_header_files = 'MRC/MRCExtention/*.h'
+  end
+
+  s.subspec 'MRCContainer' do |ss|
+    ss.subspec 'Model' do |sss|
+	    sss.source_files = 'MRC/MRCContainer/Model/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCContainer/Model/*.h'
+  	end
+  end
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
