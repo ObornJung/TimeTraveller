@@ -103,9 +103,64 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'MRCContainer' do |ss|
+  	ss.source_files = 'MRC/MRCContainer/*.{h,m}'
+    ss.public_header_files = 'MRC/MRCContainer/*.h'
     ss.subspec 'Model' do |sss|
 	    sss.source_files = 'MRC/MRCContainer/Model/*.{h,m}'
 	    sss.public_header_files = 'MRC/MRCContainer/Model/*.h'
+  	end
+  	ss.subspec 'ViewModel' do |sss|
+	    sss.source_files = 'MRC/MRCContainer/ViewModel/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCContainer/ViewModel/*.h'
+  	end
+  	ss.subspec 'View' do |sss|
+	    sss.source_files = 'MRC/MRCContainer/View/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCContainer/View/*.h'
+  	end
+  	ss.subspec 'ViewController' do |sss|
+	    sss.source_files = 'MRC/MRCContainer/ViewController/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCContainer/ViewController/*.h'
+  	end
+  end
+
+  s.subspec 'MRCTableView' do |ss|
+  	ss.source_files = 'MRC/MRCTableView/*.{h,m}'
+    ss.public_header_files = 'MRC/MRCTableView/*.h'
+    ss.subspec 'Model' do |sss|
+	    sss.source_files = 'MRC/MRCTableView/Model/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCTableView/Model/*.h'
+  	end
+  	ss.subspec 'ViewModel' do |sss|
+	    sss.source_files = 'MRC/MRCTableView/ViewModel/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCTableView/ViewModel/*.h'
+  	end
+  	ss.subspec 'View' do |sss|
+	    sss.source_files = 'MRC/MRCTableView/View/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCTableView/View/*.h'
+  	end
+  	ss.subspec 'ViewController' do |sss|
+	    sss.source_files = 'MRC/MRCTableView/ViewController/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCTableView/ViewController/*.h'
+  	end
+  	
+  s.subspec 'MRCCollectionView' do |ss|
+  	ss.source_files = 'MRC/MRCCollectionView/*.{h,m}'
+    ss.public_header_files = 'MRC/MRCCollectionView/*.h'
+    ss.subspec 'Model' do |sss|
+	    sss.source_files = 'MRC/MRCCollectionView/Model/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCCollectionView/Model/*.h'
+  	end
+  	ss.subspec 'ViewModel' do |sss|
+	    sss.source_files = 'MRC/MRCCollectionView/ViewModel/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCCollectionView/ViewModel/*.h'
+  	end
+  	ss.subspec 'View' do |sss|
+	    sss.source_files = 'MRC/MRCCollectionView/View/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCCollectionView/View/*.h'
+  	end
+  	ss.subspec 'ViewController' do |sss|
+	    sss.source_files = 'MRC/MRCCollectionView/ViewController/*.{h,m}'
+	    sss.public_header_files = 'MRC/MRCCollectionView/ViewController/*.h'
   	end
   end
 
