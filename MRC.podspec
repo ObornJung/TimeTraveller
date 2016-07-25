@@ -142,6 +142,7 @@ Pod::Spec.new do |s|
 	    sss.source_files = 'MRC/MRCTableView/ViewController/*.{h,m}'
 	    sss.public_header_files = 'MRC/MRCTableView/ViewController/*.h'
   	end
+  end
   	
   s.subspec 'MRCCollectionView' do |ss|
   	ss.source_files = 'MRC/MRCCollectionView/*.{h,m}'
