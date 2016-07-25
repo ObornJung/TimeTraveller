@@ -11,7 +11,9 @@
 
 #import "MRCCell.h"
 #import "MRCModel.h"
+#import "NSError+MRC.h"
 #import "MRCSectionModel.h"
+
 #import "MRCContainerViewModel.h"
 #import "MRCContainerViewModel+Engine.h"
 #import "MRCContainerViewModel+Operations.h"
@@ -30,7 +32,5 @@
 #import "MRCCollectionViewModel+DataSource.h"
 #import "MRCCollectionViewController.h"
 #import "MRCCollectionViewController+Action.h"
-
-#import "NSError+MRC.h"
 
 #endif /* _MRC_CORE_h */
