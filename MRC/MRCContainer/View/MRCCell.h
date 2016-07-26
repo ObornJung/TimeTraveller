@@ -1,6 +1,6 @@
 //
 //  MRCCell.h
-//  FastFood
+//  MRC
 //
 //  Created by Oborn.Jung on 16/5/5.
 //  Copyright © 2016年 WDK. All rights reserved.

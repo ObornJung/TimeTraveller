@@ -19,10 +19,6 @@
 		376D05E31D3F991300CAC757 /* MRCWebCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05D91D3F991300CAC757 /* MRCWebCommand.m */; };
 		376D05E61D3F991A00CAC757 /* NSError+MRC.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05E41D3F991A00CAC757 /* NSError+MRC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376D05E71D3F991A00CAC757 /* NSError+MRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05E51D3F991A00CAC757 /* NSError+MRC.m */; };
-		376D05F81D3F9A3C00CAC757 /* MRCModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05F41D3F9A3C00CAC757 /* MRCModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376D05F91D3F9A3C00CAC757 /* MRCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05F51D3F9A3C00CAC757 /* MRCModel.m */; };
-		376D05FA1D3F9A3C00CAC757 /* MRCSectionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05F61D3F9A3C00CAC757 /* MRCSectionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376D05FB1D3F9A3C00CAC757 /* MRCSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05F71D3F9A3C00CAC757 /* MRCSectionModel.m */; };
 		376D06041D3F9A4800CAC757 /* MRCContainerViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05FC1D3F9A4800CAC757 /* MRCContainerViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376D06051D3F9A4800CAC757 /* MRCContainerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D05FD1D3F9A4800CAC757 /* MRCContainerViewModel.m */; };
 		376D06061D3F9A4800CAC757 /* MRCContainerViewModel+Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D05FE1D3F9A4800CAC757 /* MRCContainerViewModel+Engine.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,10 +36,8 @@
 		376D06191D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06131D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m */; };
 		376D06201D3F9A6700CAC757 /* MRCDescModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D061A1D3F9A6700CAC757 /* MRCDescModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376D06211D3F9A6700CAC757 /* MRCDescModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D061B1D3F9A6700CAC757 /* MRCDescModel.m */; };
-		376D06221D3F9A6700CAC757 /* MRCSplitLineModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D061C1D3F9A6700CAC757 /* MRCSplitLineModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376D06231D3F9A6700CAC757 /* MRCSplitLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D061D1D3F9A6700CAC757 /* MRCSplitLineModel.m */; };
-		376D06241D3F9A6700CAC757 /* MRCTableCommonTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D061E1D3F9A6700CAC757 /* MRCTableCommonTag.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376D06251D3F9A6700CAC757 /* MRCTableCommonTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D061F1D3F9A6700CAC757 /* MRCTableCommonTag.m */; };
+		376D06241D3F9A6700CAC757 /* MRCTableComponentTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D061E1D3F9A6700CAC757 /* MRCTableComponentTag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376D06251D3F9A6700CAC757 /* MRCTableComponentTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D061F1D3F9A6700CAC757 /* MRCTableComponentTag.m */; };
 		376D062A1D3F9A6F00CAC757 /* MRCTableViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06261D3F9A6F00CAC757 /* MRCTableViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376D062B1D3F9A6F00CAC757 /* MRCTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D06271D3F9A6F00CAC757 /* MRCTableViewModel.m */; };
 		376D062C1D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 376D06281D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,6 +75,16 @@
 		37867FFF1D3FACF20077F914 /* UIColor+MRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37867FFD1D3FACF20077F914 /* UIColor+MRC.m */; };
 		378680021D40AEAB0077F914 /* MRCDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 378680011D40AEAB0077F914 /* MRCDefines.h */; };
 		378680071D40CC320077F914 /* MRCCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 378680061D40CC320077F914 /* MRCCore.h */; };
+		37E1CF4C1D475099001C0DF3 /* MRCSplitLineModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E1CF4A1D475099001C0DF3 /* MRCSplitLineModel.h */; };
+		37E1CF4D1D475099001C0DF3 /* MRCSplitLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1CF4B1D475099001C0DF3 /* MRCSplitLineModel.m */; };
+		37E1CF501D475152001C0DF3 /* MRCComponentTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E1CF4E1D475152001C0DF3 /* MRCComponentTag.h */; };
+		37E1CF511D475152001C0DF3 /* MRCComponentTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1CF4F1D475152001C0DF3 /* MRCComponentTag.m */; };
+		37E1CF571D4752F6001C0DF3 /* MRCModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E1CF531D4752F6001C0DF3 /* MRCModel.h */; };
+		37E1CF581D4752F6001C0DF3 /* MRCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1CF541D4752F6001C0DF3 /* MRCModel.m */; };
+		37E1CF591D4752F6001C0DF3 /* MRCSectionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E1CF551D4752F6001C0DF3 /* MRCSectionModel.h */; };
+		37E1CF5A1D4752F6001C0DF3 /* MRCSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1CF561D4752F6001C0DF3 /* MRCSectionModel.m */; };
+		37E1CF5F1D475433001C0DF3 /* MRCCollectionSplitLineCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E1CF5D1D475433001C0DF3 /* MRCCollectionSplitLineCell.h */; };
+		37E1CF601D475433001C0DF3 /* MRCCollectionSplitLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1CF5E1D475433001C0DF3 /* MRCCollectionSplitLineCell.m */; };
 		F0E085637860A726F15DBB0E /* libPods-MRC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9C2A11B4E520E1207A05AB /* libPods-MRC.a */; };
 /* End PBXBuildFile section */
 
@@ -100,10 +104,6 @@
 		376D05D91D3F991300CAC757 /* MRCWebCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCWebCommand.m; sourceTree = "<group>"; };
 		376D05E41D3F991A00CAC757 /* NSError+MRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+MRC.h"; sourceTree = "<group>"; };
 		376D05E51D3F991A00CAC757 /* NSError+MRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+MRC.m"; sourceTree = "<group>"; };
-		376D05F41D3F9A3C00CAC757 /* MRCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCModel.h; sourceTree = "<group>"; };
-		376D05F51D3F9A3C00CAC757 /* MRCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCModel.m; sourceTree = "<group>"; };
-		376D05F61D3F9A3C00CAC757 /* MRCSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCSectionModel.h; sourceTree = "<group>"; };
-		376D05F71D3F9A3C00CAC757 /* MRCSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCSectionModel.m; sourceTree = "<group>"; };
 		376D05FC1D3F9A4800CAC757 /* MRCContainerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCContainerViewModel.h; sourceTree = "<group>"; };
 		376D05FD1D3F9A4800CAC757 /* MRCContainerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCContainerViewModel.m; sourceTree = "<group>"; };
 		376D05FE1D3F9A4800CAC757 /* MRCContainerViewModel+Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCContainerViewModel+Engine.h"; sourceTree = "<group>"; };
@@ -121,10 +121,8 @@
 		376D06131D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MRCContanierViewController+Indicator.m"; sourceTree = "<group>"; };
 		376D061A1D3F9A6700CAC757 /* MRCDescModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCDescModel.h; sourceTree = "<group>"; };
 		376D061B1D3F9A6700CAC757 /* MRCDescModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCDescModel.m; sourceTree = "<group>"; };
-		376D061C1D3F9A6700CAC757 /* MRCSplitLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCSplitLineModel.h; sourceTree = "<group>"; };
-		376D061D1D3F9A6700CAC757 /* MRCSplitLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCSplitLineModel.m; sourceTree = "<group>"; };
-		376D061E1D3F9A6700CAC757 /* MRCTableCommonTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableCommonTag.h; sourceTree = "<group>"; };
-		376D061F1D3F9A6700CAC757 /* MRCTableCommonTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableCommonTag.m; sourceTree = "<group>"; };
+		376D061E1D3F9A6700CAC757 /* MRCTableComponentTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableComponentTag.h; sourceTree = "<group>"; };
+		376D061F1D3F9A6700CAC757 /* MRCTableComponentTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableComponentTag.m; sourceTree = "<group>"; };
 		376D06261D3F9A6F00CAC757 /* MRCTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableViewModel.h; sourceTree = "<group>"; };
 		376D06271D3F9A6F00CAC757 /* MRCTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTableViewModel.m; sourceTree = "<group>"; };
 		376D06281D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRCTableViewModel+DataSource.h"; sourceTree = "<group>"; };
@@ -162,6 +160,16 @@
 		37867FFD1D3FACF20077F914 /* UIColor+MRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MRC.m"; sourceTree = "<group>"; };
 		378680011D40AEAB0077F914 /* MRCDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCDefines.h; sourceTree = "<group>"; };
 		378680061D40CC320077F914 /* MRCCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCore.h; sourceTree = "<group>"; };
+		37E1CF4A1D475099001C0DF3 /* MRCSplitLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCSplitLineModel.h; sourceTree = "<group>"; };
+		37E1CF4B1D475099001C0DF3 /* MRCSplitLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCSplitLineModel.m; sourceTree = "<group>"; };
+		37E1CF4E1D475152001C0DF3 /* MRCComponentTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCComponentTag.h; sourceTree = "<group>"; };
+		37E1CF4F1D475152001C0DF3 /* MRCComponentTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCComponentTag.m; sourceTree = "<group>"; };
+		37E1CF531D4752F6001C0DF3 /* MRCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCModel.h; sourceTree = "<group>"; };
+		37E1CF541D4752F6001C0DF3 /* MRCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCModel.m; sourceTree = "<group>"; };
+		37E1CF551D4752F6001C0DF3 /* MRCSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCSectionModel.h; sourceTree = "<group>"; };
+		37E1CF561D4752F6001C0DF3 /* MRCSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCSectionModel.m; sourceTree = "<group>"; };
+		37E1CF5D1D475433001C0DF3 /* MRCCollectionSplitLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCollectionSplitLineCell.h; sourceTree = "<group>"; };
+		37E1CF5E1D475433001C0DF3 /* MRCCollectionSplitLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCCollectionSplitLineCell.m; sourceTree = "<group>"; };
 		9B6578ADC8671392EB1FD0EC /* Pods-MRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-MRC/Pods-MRC.release.xcconfig"; sourceTree = "<group>"; };
 		CF910EF090D72F6FA0E42DDD /* Pods-MRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MRC/Pods-MRC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,10 +296,11 @@
 		376D05E81D3F994A00CAC757 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				376D05F41D3F9A3C00CAC757 /* MRCModel.h */,
-				376D05F51D3F9A3C00CAC757 /* MRCModel.m */,
-				376D05F61D3F9A3C00CAC757 /* MRCSectionModel.h */,
-				376D05F71D3F9A3C00CAC757 /* MRCSectionModel.m */,
+				37E1CF521D4752C4001C0DF3 /* Base */,
+				37E1CF4F1D475152001C0DF3 /* MRCComponentTag.m */,
+				37E1CF4E1D475152001C0DF3 /* MRCComponentTag.h */,
+				37E1CF4A1D475099001C0DF3 /* MRCSplitLineModel.h */,
+				37E1CF4B1D475099001C0DF3 /* MRCSplitLineModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,8 +355,7 @@
 		376D05ED1D3F998400CAC757 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				376D06321D3F9A7500CAC757 /* MRCTableViewCell.h */,
-				376D06331D3F9A7500CAC757 /* MRCTableViewCell.m */,
+				37E1CF5B1D475351001C0DF3 /* Base */,
 				376D062E1D3F9A7500CAC757 /* MRCTableDescCell.h */,
 				376D062F1D3F9A7500CAC757 /* MRCTableDescCell.m */,
 				376D06301D3F9A7500CAC757 /* MRCTableSplitLineCell.h */,
@@ -370,12 +378,10 @@
 		376D05EF1D3F998900CAC757 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				376D061E1D3F9A6700CAC757 /* MRCTableComponentTag.h */,
+				376D061F1D3F9A6700CAC757 /* MRCTableComponentTag.m */,
 				376D061A1D3F9A6700CAC757 /* MRCDescModel.h */,
 				376D061B1D3F9A6700CAC757 /* MRCDescModel.m */,
-				376D061C1D3F9A6700CAC757 /* MRCSplitLineModel.h */,
-				376D061D1D3F9A6700CAC757 /* MRCSplitLineModel.m */,
-				376D061E1D3F9A6700CAC757 /* MRCTableCommonTag.h */,
-				376D061F1D3F9A6700CAC757 /* MRCTableCommonTag.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -394,10 +400,9 @@
 		376D05F11D3F99A700CAC757 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				376D064A1D3F9A9900CAC757 /* MRCCollectionCell.h */,
-				376D064B1D3F9A9900CAC757 /* MRCCollectionCell.m */,
-				376D064C1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h */,
-				376D064D1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.m */,
+				37E1CF5C1D475395001C0DF3 /* Base */,
+				37E1CF5D1D475433001C0DF3 /* MRCCollectionSplitLineCell.h */,
+				37E1CF5E1D475433001C0DF3 /* MRCCollectionSplitLineCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -420,6 +425,37 @@
 				378680011D40AEAB0077F914 /* MRCDefines.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		37E1CF521D4752C4001C0DF3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				37E1CF531D4752F6001C0DF3 /* MRCModel.h */,
+				37E1CF541D4752F6001C0DF3 /* MRCModel.m */,
+				37E1CF551D4752F6001C0DF3 /* MRCSectionModel.h */,
+				37E1CF561D4752F6001C0DF3 /* MRCSectionModel.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		37E1CF5B1D475351001C0DF3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				376D06321D3F9A7500CAC757 /* MRCTableViewCell.h */,
+				376D06331D3F9A7500CAC757 /* MRCTableViewCell.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		37E1CF5C1D475395001C0DF3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				376D064A1D3F9A9900CAC757 /* MRCCollectionCell.h */,
+				376D064B1D3F9A9900CAC757 /* MRCCollectionCell.m */,
+				376D064C1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h */,
+				376D064D1D3F9A9900CAC757 /* MRCCollectionSupplementaryView.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		68AD23F6B09F4DC0FBF71654 /* Pods */ = {
@@ -445,10 +481,8 @@
 				37867FF61D3FABD80077F914 /* NSArray+MRC.h in Headers */,
 				376D06201D3F9A6700CAC757 /* MRCDescModel.h in Headers */,
 				376D06461D3F9A9100CAC757 /* MRCCollectionViewModel.h in Headers */,
-				376D06221D3F9A6700CAC757 /* MRCSplitLineModel.h in Headers */,
 				376D06481D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.h in Headers */,
 				376D05E61D3F991A00CAC757 /* NSError+MRC.h in Headers */,
-				376D05F81D3F9A3C00CAC757 /* MRCModel.h in Headers */,
 				37867FFB1D3FAC4C0077F914 /* MRCTableComponent.h in Headers */,
 				376D062A1D3F9A6F00CAC757 /* MRCTableViewModel.h in Headers */,
 				376D06381D3F9A7500CAC757 /* MRCTableViewCell.h in Headers */,
@@ -458,18 +492,21 @@
 				378680071D40CC320077F914 /* MRCCore.h in Headers */,
 				376D06041D3F9A4800CAC757 /* MRCContainerViewModel.h in Headers */,
 				376D05DA1D3F991300CAC757 /* MRCAction.h in Headers */,
+				37E1CF4C1D475099001C0DF3 /* MRCSplitLineModel.h in Headers */,
 				376D06401D3F9A7C00CAC757 /* MRCTableViewController+Action.h in Headers */,
 				376D06581D3F9A9F00CAC757 /* MRCCollectionViewController+Action.h in Headers */,
-				376D06241D3F9A6700CAC757 /* MRCTableCommonTag.h in Headers */,
+				376D06241D3F9A6700CAC757 /* MRCTableComponentTag.h in Headers */,
 				376D05DE1D3F991300CAC757 /* MRCOperation.h in Headers */,
+				37E1CF5F1D475433001C0DF3 /* MRCCollectionSplitLineCell.h in Headers */,
 				376D06081D3F9A4800CAC757 /* MRCContainerViewModel+Operations.h in Headers */,
 				376D06181D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.h in Headers */,
-				376D05FA1D3F9A3C00CAC757 /* MRCSectionModel.h in Headers */,
 				376D06501D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h in Headers */,
 				376D062C1D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h in Headers */,
 				37867FFE1D3FACF20077F914 /* UIColor+MRC.h in Headers */,
 				37867FF01D3FA9FE0077F914 /* MRCLine.h in Headers */,
 				376D05E01D3F991300CAC757 /* MRCOperation+Private.h in Headers */,
+				37E1CF501D475152001C0DF3 /* MRCComponentTag.h in Headers */,
+				37E1CF591D4752F6001C0DF3 /* MRCSectionModel.h in Headers */,
 				376D05DC1D3F991300CAC757 /* MRCAction+Private.h in Headers */,
 				376D064E1D3F9A9900CAC757 /* MRCCollectionCell.h in Headers */,
 				376D05E21D3F991300CAC757 /* MRCWebCommand.h in Headers */,
@@ -477,6 +514,7 @@
 				376D060D1D3F9A5B00CAC757 /* MRCCell.h in Headers */,
 				376D063E1D3F9A7C00CAC757 /* MRCTableViewController.h in Headers */,
 				378680021D40AEAB0077F914 /* MRCDefines.h in Headers */,
+				37E1CF571D4752F6001C0DF3 /* MRCModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,40 +620,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E1CF5A1D4752F6001C0DF3 /* MRCSectionModel.m in Sources */,
 				376D06051D3F9A4800CAC757 /* MRCContainerViewModel.m in Sources */,
 				376D05DD1D3F991300CAC757 /* MRCAction+Private.m in Sources */,
 				376D06191D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.m in Sources */,
+				37E1CF581D4752F6001C0DF3 /* MRCModel.m in Sources */,
 				376D062B1D3F9A6F00CAC757 /* MRCTableViewModel.m in Sources */,
 				376D05DF1D3F991300CAC757 /* MRCOperation.m in Sources */,
 				376D062D1D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.m in Sources */,
 				376D06491D3F9A9100CAC757 /* MRCCollectionViewModel+DataSource.m in Sources */,
 				37867FF71D3FABD80077F914 /* NSArray+MRC.m in Sources */,
 				376D06171D3F9A5F00CAC757 /* MRCContanierViewController+Action.m in Sources */,
-				376D06251D3F9A6700CAC757 /* MRCTableCommonTag.m in Sources */,
+				376D06251D3F9A6700CAC757 /* MRCTableComponentTag.m in Sources */,
 				376D05E71D3F991A00CAC757 /* NSError+MRC.m in Sources */,
-				376D05F91D3F9A3C00CAC757 /* MRCModel.m in Sources */,
 				376D06571D3F9A9F00CAC757 /* MRCCollectionViewController.m in Sources */,
 				376D06371D3F9A7500CAC757 /* MRCTableSplitLineCell.m in Sources */,
 				376D064F1D3F9A9900CAC757 /* MRCCollectionCell.m in Sources */,
 				37867FFF1D3FACF20077F914 /* UIColor+MRC.m in Sources */,
 				376D06471D3F9A9100CAC757 /* MRCCollectionViewModel.m in Sources */,
+				37E1CF4D1D475099001C0DF3 /* MRCSplitLineModel.m in Sources */,
 				376D06591D3F9A9F00CAC757 /* MRCCollectionViewController+Action.m in Sources */,
 				376D06151D3F9A5F00CAC757 /* MRCContanierViewController.m in Sources */,
 				376D060B1D3F9A4800CAC757 /* MRCContainerViewModel+Private.m in Sources */,
-				376D05FB1D3F9A3C00CAC757 /* MRCSectionModel.m in Sources */,
 				376D06411D3F9A7C00CAC757 /* MRCTableViewController+Action.m in Sources */,
 				376D06091D3F9A4800CAC757 /* MRCContainerViewModel+Operations.m in Sources */,
 				376D06211D3F9A6700CAC757 /* MRCDescModel.m in Sources */,
 				376D06511D3F9A9900CAC757 /* MRCCollectionSupplementaryView.m in Sources */,
 				37867FF11D3FA9FE0077F914 /* MRCLine.m in Sources */,
 				376D05E31D3F991300CAC757 /* MRCWebCommand.m in Sources */,
-				376D06231D3F9A6700CAC757 /* MRCSplitLineModel.m in Sources */,
 				376D06391D3F9A7500CAC757 /* MRCTableViewCell.m in Sources */,
+				37E1CF511D475152001C0DF3 /* MRCComponentTag.m in Sources */,
 				376D05E11D3F991300CAC757 /* MRCOperation+Private.m in Sources */,
 				376D063F1D3F9A7C00CAC757 /* MRCTableViewController.m in Sources */,
 				376D05DB1D3F991300CAC757 /* MRCAction.m in Sources */,
 				376D06071D3F9A4800CAC757 /* MRCContainerViewModel+Engine.m in Sources */,
 				376D06351D3F9A7500CAC757 /* MRCTableDescCell.m in Sources */,
+				37E1CF601D475433001C0DF3 /* MRCCollectionSplitLineCell.m in Sources */,
 				37867FF91D3FABD80077F914 /* NSDictionary+MRC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

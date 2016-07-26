@@ -1,6 +1,6 @@
 //
 //  MRCLine.h
-//  FastFood
+//  MRC
 //
 //  Created by Oborn.Jung on 15/10/27.
 //  Copyright © 2015年 WDK. All rights reserved.

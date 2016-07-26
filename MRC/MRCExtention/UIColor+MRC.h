@@ -1,6 +1,6 @@
 //
 //  UIColor+MRC.h
-//  FastFood
+//  MRC
 //
 //  Created by Oborn.Jung on 12/14/15.
 //  Copyright © 2015 WDK. All rights reserved.

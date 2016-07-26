@@ -1,6 +1,6 @@
 //
 //  NSDictionary+MRC.h
-//  FastFood
+//  MRC
 //
 //  Created by Oborn.Jung on 12/1/15.
 //  Copyright © 2015 WDK. All rights reserved.

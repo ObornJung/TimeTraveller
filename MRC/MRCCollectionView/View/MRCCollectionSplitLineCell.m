@@ -1,23 +1,23 @@
 //
-//  MRCTableSplitLineCell.m
+//  MRCCollectionSplitLineCell.m
 //  MRC
 //
-//  Created by Oborn.Jung on 16/5/20.
-//  Copyright © 2016年 WDK. All rights reserved.
+//  Created by Oborn.Jung on 16/7/26.
+//  Copyright © 2016年 wdk. All rights reserved.
 //
 
 #import "MRCLine.h"
 #import "MRCDefines.h"
 #import "MRCSplitLineModel.h"
-#import "MRCTableSplitLineCell.h"
+#import "MRCCollectionSplitLineCell.h"
 
-@interface MRCTableSplitLineCell ()
+@interface MRCCollectionSplitLineCell ()
 
 @property (nonatomic, strong) MRCLine    * splitLine;
 
 @end
 
-@implementation MRCTableSplitLineCell
+@implementation MRCCollectionSplitLineCell
 
 #pragma mark - Override
 
@@ -35,13 +35,15 @@
     }];
 }
 
-#pragma mark - FFMRCTableViewCellProtocol
+#pragma mark - MRCCollectionCellProtocol
 
-+ (CGFloat)tableView:(UITableView *)tableView rowHeightForModel:(MRCModel *)model {
++ (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)layout
+            sizeForModel:(MRCModel *)model {
     if ([model isKindOfClass:[MRCSplitLineModel class]]) {
-        return ((MRCSplitLineModel *)model).width;
+        return CGSizeMake(collectionView.bounds.size.width, ((MRCSplitLineModel *)model).width);
     }
-    return [super tableView:tableView rowHeightForModel:model];
+    return [super collectionView:collectionView layout:layout sizeForModel:model];
 }
 
 - (void)renderWithModel:(__kindof MRCModel *)model {

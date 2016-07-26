@@ -106,6 +106,10 @@ Pod::Spec.new do |s|
   	ss.source_files = 'MRC/MRCContainer/*.{h,m}'
     ss.public_header_files = 'MRC/MRCContainer/*.h'
     ss.subspec 'Model' do |sss|
+    	sss.subspec 'Base' do |ssss|
+  			ssss.source_files = 'MRC/MRCContainer/Model/Base/*.{h,m}'
+	    	ssss.public_header_files = 'MRC/MRCContainer/Model/Base/*.h'
+  		end
 	    sss.source_files = 'MRC/MRCContainer/Model/*.{h,m}'
 	    sss.public_header_files = 'MRC/MRCContainer/Model/*.h'
   	end
@@ -135,6 +139,10 @@ Pod::Spec.new do |s|
 	    sss.public_header_files = 'MRC/MRCTableView/ViewModel/*.h'
   	end
   	ss.subspec 'View' do |sss|
+	  	sss.subspec 'Base' do |ssss|
+  			ssss.source_files = 'MRC/MRCTableView/View/Base/*.{h,m}'
+	    	ssss.public_header_files = 'MRC/MRCTableView/View/Base/*.h'
+  		end
 	    sss.source_files = 'MRC/MRCTableView/View/*.{h,m}'
 	    sss.public_header_files = 'MRC/MRCTableView/View/*.h'
   	end
@@ -156,6 +164,10 @@ Pod::Spec.new do |s|
 	    sss.public_header_files = 'MRC/MRCCollectionView/ViewModel/*.h'
   	end
   	ss.subspec 'View' do |sss|
+  		sss.subspec 'Base' do |ssss|
+  			ssss.source_files = 'MRC/MRCCollectionView/View/Base/*.{h,m}'
+	    	ssss.public_header_files = 'MRC/MRCCollectionView/View/Base/*.h'
+  		end
 	    sss.source_files = 'MRC/MRCCollectionView/View/*.{h,m}'
 	    sss.public_header_files = 'MRC/MRCCollectionView/View/*.h'
   	end

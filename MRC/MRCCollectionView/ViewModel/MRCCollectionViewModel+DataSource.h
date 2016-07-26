@@ -1,6 +1,6 @@
 //
 //  MRCCollectionViewModel+DataSource.h
-//  FastFood
+//  MRC
 //
 //  Created by Oborn.Jung on 16/6/7.
 //  Copyright © 2016年 WDK. All rights reserved.

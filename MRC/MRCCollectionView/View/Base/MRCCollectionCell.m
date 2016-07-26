@@ -1,6 +1,6 @@
 //
 //  MRCCollectionCell.m
-//  FastFood
+//  MRC
 //
 //  Created by Oborn.Jung on 16/3/28.
 //  Copyright © 2016年 WDK. All rights reserved.
@@ -17,7 +17,7 @@
 + (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)layout
             sizeForModel:(MRCModel *)model {
-    return CGSizeMake(0.1f, 0.1f);
+    return CGSizeZero;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
