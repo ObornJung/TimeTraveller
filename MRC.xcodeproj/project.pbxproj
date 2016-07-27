@@ -85,6 +85,7 @@
 		37E1CF5A1D4752F6001C0DF3 /* MRCSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1CF561D4752F6001C0DF3 /* MRCSectionModel.m */; };
 		37E1CF5F1D475433001C0DF3 /* MRCCollectionSplitLineCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E1CF5D1D475433001C0DF3 /* MRCCollectionSplitLineCell.h */; };
 		37E1CF601D475433001C0DF3 /* MRCCollectionSplitLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1CF5E1D475433001C0DF3 /* MRCCollectionSplitLineCell.m */; };
+		37EFBA171D4853FA0098FEAD /* MRCCollectionComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 37EFBA161D4853FA0098FEAD /* MRCCollectionComponent.h */; };
 		F0E085637860A726F15DBB0E /* libPods-MRC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9C2A11B4E520E1207A05AB /* libPods-MRC.a */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +171,7 @@
 		37E1CF561D4752F6001C0DF3 /* MRCSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCSectionModel.m; sourceTree = "<group>"; };
 		37E1CF5D1D475433001C0DF3 /* MRCCollectionSplitLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCollectionSplitLineCell.h; sourceTree = "<group>"; };
 		37E1CF5E1D475433001C0DF3 /* MRCCollectionSplitLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCCollectionSplitLineCell.m; sourceTree = "<group>"; };
+		37EFBA161D4853FA0098FEAD /* MRCCollectionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCollectionComponent.h; sourceTree = "<group>"; };
 		9B6578ADC8671392EB1FD0EC /* Pods-MRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-MRC/Pods-MRC.release.xcconfig"; sourceTree = "<group>"; };
 		CF910EF090D72F6FA0E42DDD /* Pods-MRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MRC/Pods-MRC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -286,6 +288,8 @@
 		376D05CF1D3F98D000CAC757 /* MRCCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				37EFBA161D4853FA0098FEAD /* MRCCollectionComponent.h */,
+				37EFBA181D48549C0098FEAD /* Model */,
 				376D05F21D3F99AA00CAC757 /* ViewModel */,
 				376D05F11D3F99A700CAC757 /* View */,
 				376D05F01D3F99A500CAC757 /* ViewController */,
@@ -458,6 +462,13 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		37EFBA181D48549C0098FEAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		68AD23F6B09F4DC0FBF71654 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +512,7 @@
 				376D06081D3F9A4800CAC757 /* MRCContainerViewModel+Operations.h in Headers */,
 				376D06181D3F9A5F00CAC757 /* MRCContanierViewController+Indicator.h in Headers */,
 				376D06501D3F9A9900CAC757 /* MRCCollectionSupplementaryView.h in Headers */,
+				37EFBA171D4853FA0098FEAD /* MRCCollectionComponent.h in Headers */,
 				376D062C1D3F9A6F00CAC757 /* MRCTableViewModel+DataSource.h in Headers */,
 				37867FFE1D3FACF20077F914 /* UIColor+MRC.h in Headers */,
 				37867FF01D3FA9FE0077F914 /* MRCLine.h in Headers */,

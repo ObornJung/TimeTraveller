@@ -7,6 +7,7 @@
 //
 
 #import <Masonry/Masonry.h>
+#import "MRCCollectionComponent.h"
 #import "MRCCollectionViewController.h"
 #import "MRCCollectionViewModel+DataSource.h"
 
@@ -76,7 +77,13 @@
 #pragma mark - FFContainerCellMappingProtocol
 
 - (nullable Class)cellClassForModel:(nonnull MRCModel *)model {
-    return nil;
+    static NSDictionary * cellMapping = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cellMapping = @{kMRCSplitLineTag : [MRCCollectionSplitLineCell class],
+                        };
+    });
+    return cellMapping[model.tag];
 }
 
 @end
