@@ -105,13 +105,28 @@
         _animated = action.animated;
         _completion = [action.completion copy];
     } else {
-        _animated = YES;
+        if (MRCActionTypeReload == _type &&
+            MRCActionSubTypeAll == _subType) {
+            _animated = NO;
+        } else {
+            _animated = YES;
+        }
         _completion = nil;
     }
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"type:%ld\nsubtype:%ld\nanimated:%d\ncontext:%@", (long)self.type, (long)self.subType, self.animated, self.context];
+    NSString * descString = [NSString stringWithFormat:@"type:%ld\nsubtype:%ld\nanimated:%d", (long)self.type, (long)self.subType, self.animated];
+    if (self.items) {
+        descString = [NSString stringWithFormat:@"%@\nitems:%@", descString, self.items];
+    }
+    if (self.sections) {
+        descString = [NSString stringWithFormat:@"%@\nsections:%@", descString, self.sections];
+    }
+    if (self.context) {
+        descString = [NSString stringWithFormat:@"%@\ncontext:%@", descString, self.context];
+    }
+    return descString;
 }
 
 @end

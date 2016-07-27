@@ -7,6 +7,7 @@
 //
 
 #import "MRCCollectionViewModel.h"
+#import "MRCContainerViewModel+Engine.h"
 
 @interface MRCCollectionViewModel()
 
@@ -35,6 +36,35 @@
 
 - (NSIndexPath *)indexPathWithIndex:(NSInteger)index inSection:(NSInteger)section {
     return [NSIndexPath indexPathForItem:index inSection:section];
+}
+
+#pragma mark - override
+
+- (RACSignal *)reloadSections:(NSIndexSet *)sections params:(id)params indicator:(BOOL)show {
+    NSMutableDictionary * actionDic = [NSMutableDictionary dictionaryWithCapacity:2];
+    MRCAction * action = [MRCAction actionOfReloadSections:sections];
+    action.animated = NO;
+    action ? actionDic[kMRCReloadActionKey] = action : nil;
+    params ? actionDic[kMRCReloadParamsKey] = params : nil;
+    return [self.reloadCommand execute:actionDic.count>0?[actionDic copy]:params indicator:show];
+}
+
+- (RACSignal *)reloadItems:(NSArray<NSIndexPath *> *)items params:(id)params indicator:(BOOL)show {
+    NSMutableDictionary * actionDic = [NSMutableDictionary dictionaryWithCapacity:2];
+    MRCAction * action = [MRCAction actionOfReloadItems:items];
+    action.animated = NO;
+    action ? actionDic[kMRCReloadActionKey] = action : nil;
+    params ? actionDic[kMRCReloadParamsKey] = params : nil;
+    return [self.reloadCommand execute:actionDic.count>0?[actionDic copy]:params indicator:show];
+}
+
+- (RACSignal *)loadMoreWithParams:(id)params indicator:(BOOL)show {
+    NSMutableDictionary * actionDic = [NSMutableDictionary dictionaryWithCapacity:2];
+    MRCAction * action = [MRCAction actionOfReloadAll];
+    action.animated = NO;
+    action ? actionDic[kMRCReloadActionKey] = action : nil;
+    params ? actionDic[kMRCReloadParamsKey] = params : nil;
+    return [self.loadMoreCommand execute:actionDic.count>0?[actionDic copy]:params indicator:show];
 }
 
 #pragma mark -
