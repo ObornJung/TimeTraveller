@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MRC"
-  s.version      = "0.1.0.1"
+  s.version      = "0.1.0.2"
   s.summary      = "MRC."
 
   s.description      = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.source       = { :git => "git@gitlab.alibaba-inc.com:obornjung.jj/MRC.git", :tag => s.version }
 
-  s.source_files  = "MRC/**/*"
+  #s.source_files  = "MRC/**/*"
   
 
 s.subspec 'MRCUserDefine' do |ss|
