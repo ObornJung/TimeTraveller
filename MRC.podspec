@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MRC"
-  s.version      = "0.1.0.2"
+  s.version      = "0.1.0.3"
   s.summary      = "MRC."
 
   s.description      = <<-DESC
@@ -20,9 +20,9 @@ Pod::Spec.new do |s|
   #s.source_files  = "MRC/**/*"
   
 
-s.subspec 'MRCUserDefine' do |ss|
-    ss.source_files = 'MRC/MRCUserDefine/**/*'
-     
+  s.subspec 'MRCUserDefine' do |ss|
+    ss.source_files = 'MRC/MRCUserDefine/**/*'   
+    #ss.public_header_files = 'MRC/MRCUserDefine/*.h'
   end
 
 
