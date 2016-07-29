@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MRC"
-  s.version      = "0.1.0.3"
+  s.version      = "0.1.0.4"
   s.summary      = "MRC."
 
   s.description      = <<-DESC
@@ -129,8 +129,8 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.dependency "libextobjc", "~> 0.4"
-  s.dependency "Masonry", "~> 1.0.1"
-  s.dependency "ReactiveCocoa", "~> 2.1.8"
+  s.dependency "libextobjc"
+  s.dependency "Masonry"
+  s.dependency "ReactiveCocoa"
 
 end

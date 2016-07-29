@@ -159,8 +159,8 @@
 		37867FFA1D3FAC4C0077F914 /* MRCTableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTableComponent.h; sourceTree = "<group>"; };
 		37867FFC1D3FACF20077F914 /* UIColor+MRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MRC.h"; sourceTree = "<group>"; };
 		37867FFD1D3FACF20077F914 /* UIColor+MRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MRC.m"; sourceTree = "<group>"; };
-		378680011D40AEAB0077F914 /* MRCDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCDefines.h; sourceTree = "<group>"; };
-		378680061D40CC320077F914 /* MRCCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCCore.h; sourceTree = "<group>"; };
+		378680011D40AEAB0077F914 /* MRCDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MRCDefines.h; path = MRCUserDefine/MRCDefines.h; sourceTree = "<group>"; };
+		378680061D40CC320077F914 /* MRCCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MRCCore.h; path = MRCUserDefine/MRCCore.h; sourceTree = "<group>"; };
 		37E1CF4A1D475099001C0DF3 /* MRCSplitLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCSplitLineModel.h; sourceTree = "<group>"; };
 		37E1CF4B1D475099001C0DF3 /* MRCSplitLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCSplitLineModel.m; sourceTree = "<group>"; };
 		37E1CF4E1D475152001C0DF3 /* MRCComponentTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCComponentTag.h; sourceTree = "<group>"; };

@@ -9,8 +9,8 @@ ali_source 'alibaba-specs-mirror'
 
 target 'MRC' do
 
-    pod 'libextobjc',                 '0.4'
-    pod 'Masonry',                    '1.0.1'    #兼容iOS9
-    pod 'ReactiveCocoa',              '2.1.8'
+    pod 'libextobjc'
+    pod 'Masonry'
+    pod 'ReactiveCocoa'
     
 end

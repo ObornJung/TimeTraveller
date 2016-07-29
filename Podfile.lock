@@ -43,9 +43,9 @@ PODS:
   - ReactiveCocoa/no-arc (2.1.8)
 
 DEPENDENCIES:
-  - libextobjc (= 0.4)
-  - Masonry (= 1.0.1)
-  - ReactiveCocoa (= 2.1.8)
+  - libextobjc
+  - Masonry
+  - ReactiveCocoa
 
 SPEC CHECKSUMS:
   libextobjc: 4ae73b428320da181aafac85fd4f176919b905cf
