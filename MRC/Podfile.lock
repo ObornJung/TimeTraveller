@@ -1,0 +1,55 @@
+PODS:
+  - libextobjc (0.4):
+    - libextobjc/EXTADT (= 0.4)
+    - libextobjc/EXTConcreteProtocol (= 0.4)
+    - libextobjc/EXTKeyPathCoding (= 0.4)
+    - libextobjc/EXTNil (= 0.4)
+    - libextobjc/EXTSafeCategory (= 0.4)
+    - libextobjc/EXTScope (= 0.4)
+    - libextobjc/EXTSelectorChecking (= 0.4)
+    - libextobjc/EXTSynthesize (= 0.4)
+    - libextobjc/NSInvocation+EXT (= 0.4)
+    - libextobjc/NSMethodSignature+EXT (= 0.4)
+    - libextobjc/RuntimeExtensions (= 0.4)
+    - libextobjc/UmbrellaHeader (= 0.4)
+  - libextobjc/EXTADT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4)
+  - libextobjc/UmbrellaHeader (0.4)
+  - Masonry (1.0.1)
+  - ReactiveCocoa (2.1.8):
+    - ReactiveCocoa/Core (= 2.1.8)
+    - ReactiveCocoa/no-arc (= 2.1.8)
+  - ReactiveCocoa/Core (2.1.8):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.1.8)
+
+DEPENDENCIES:
+  - libextobjc
+  - Masonry
+  - ReactiveCocoa
+
+SPEC CHECKSUMS:
+  libextobjc: 4ae73b428320da181aafac85fd4f176919b905cf
+  Masonry: f495234bc455756558040bd0bdb359fe74e588af
+  ReactiveCocoa: 74c7cb9176e10a67b2ebb3edd14a1c89b5cc9dc7
+
+COCOAPODS: 0.39.0

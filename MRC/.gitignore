@@ -1,0 +1,18 @@
+# Mac OS X
+.DS_Store
+*.swp
+
+# Build
+build/*
+dSYM/*
+Pods/*
+
+# XCode
+*.pbxuser
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+*.xccheckout
+*.xcworkspace
+
+
